@@ -40,7 +40,7 @@ function CandidateCard() {
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"baseline"}
-          bgcolor={"text.secondary"}
+          bgcolor={"#f9fafb"}
           px={2.5}
           py={2.5}
           borderRadius={"8px 8px 0 0px"}
@@ -187,10 +187,10 @@ function CandidateCard() {
               },
             }}
           >
-            Rejection
+            Rejected
           </Button>
           <Button variant="contained" size="large">
-            Selection
+            Hired
           </Button>
         </Box>
       </Box>

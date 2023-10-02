@@ -4,10 +4,11 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material/styles";
 // import { Poppins } from "next/font/google";
-import { Jost } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { NextAppDirEmotionCacheProvider } from "./EmotionCache";
+import { SnackbarProvider, useSnackbar } from "notistack";
 
-const roboto = Jost({
+const roboto = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
@@ -59,13 +60,13 @@ const themeOptions: ThemeOptions = {
     subtitle1: {
       fontSize: 16,
       fontStyle: "normal",
-      fontWeight: "bold",
+      fontWeight: 600,
       lineHeight: 1.5,
     },
     subtitle2: {
       fontSize: 14,
       fontStyle: "normal",
-      fontWeight: 500,
+      fontWeight: 600,
       lineHeight: 1.5,
     },
     body1: {
@@ -97,22 +98,46 @@ const themeOptions: ThemeOptions = {
   palette: {
     background: {
       // pink
-      default: "#fff",
+      // default: "#f9fafb",
+      // default: "#f0f5f9",
+      // default: "#d6e0f3",
+      default: "#eff3fc",
     },
     primary: {
-      main: "#1967d2",
-      light: "#3498db",
+      // main: "#815df2",
+      // light: "#815df233",
+      // main: "#4caae4",
+      // main: "#0284c7",
+      // light: "#815df233",
+      // light: "#38bdf81a",
+      main: "#3c65f5",
+      light: "#bbcfeb",
+      // below code from nv
+      // main: "#324b71",
+      // light: "#bbcfeb",
     },
     secondary: {
-      main: "#c6dbf3",
-      light: "#e3edf9",
+      // main: "#c6dbf3",
+      // light: "#7555dc",
+      // below code from nv
+      // main: "#d9d9d9",
+      main: "#05264e",
+      light: "#e0e6f7",
     },
     text: {
-      primary: "#121212",
-      secondary: "#eff4fc",
+      primary: "#05264e",
+      secondary: "#74788d",
     },
     error: {
       main: "#FF0000",
+    },
+    grey: {
+      100: "#FFFFFF",
+      200: "#F0F0F0",
+      300: "#DDDDDD",
+      400: "#B5B5B5",
+      500: "#575757",
+      600: "#141414",
     },
   },
   components: {
@@ -127,6 +152,7 @@ const themeOptions: ThemeOptions = {
           paddingRight: 36,
           paddingTop: 12,
           paddingBottom: 12,
+          color: "#fff",
         },
         sizeSmall: {
           height: 30,
@@ -142,6 +168,52 @@ const themeOptions: ThemeOptions = {
         disableElevation: true,
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "#FBE0CD",
+          backgroundColor: "#e0e6f7",
+          fontSize: 12,
+          lineHeight: 1.5,
+          fontWeight: 600,
+        },
+        label: {
+          fontSize: 12,
+          lineHeight: 1.5,
+          fontWeight: 600,
+          // color: "#EC6607",
+          color: "#121212",
+          "&:hover": {
+            color: "#fff",
+          },
+        },
+        sizeSmall: {
+          height: 28,
+          borderRadius: 50,
+        },
+        sizeMedium: {
+          height: 32,
+          borderRadius: 18,
+        },
+        deleteIcon: {
+          color: "inherit",
+          marginRight: 8,
+        },
+        icon: {
+          marginRight: "-10px",
+          marginTop: "4px",
+        },
+        labelSmall: {
+          paddingLeft: 20,
+          paddingRight: 20,
+        },
+        labelMedium: {
+          paddingLeft: 20,
+          paddingRight: 20,
+        },
+      },
+      defaultProps: {},
+    },
   },
 };
 
@@ -156,7 +228,15 @@ export default function ThemeRegistry({
     <NextAppDirEmotionCacheProvider options={{ key: "mui" }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {children}
+        <SnackbarProvider
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          autoHideDuration={2000}
+        >
+          {children}
+        </SnackbarProvider>
       </ThemeProvider>
     </NextAppDirEmotionCacheProvider>
   );

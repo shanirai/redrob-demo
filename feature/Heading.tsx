@@ -2,20 +2,16 @@
 // React , Next Js Packages
 import React from "react";
 // MUI packages
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 function Heading() {
   return (
-    <Box>
-      <Typography
-        variant="h5"
-        color={"text.primary"}
-        bgcolor={"text.secondary"}
-        py={2}
-        textAlign={"center"}
-      >
-        Candidate List{" "}
-      </Typography>
+    <Box bgcolor={"primary.main"} py={2.5}>
+      <Container maxWidth="lg">
+        <Typography variant="h4" color={"grey.100"}>
+          Candidate List/Experience
+        </Typography>
+      </Container>
     </Box>
   );
 }

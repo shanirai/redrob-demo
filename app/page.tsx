@@ -4,7 +4,8 @@ import React from "react";
 // MUI packages
 import { Box, Container } from "@mui/material";
 import Heading from "@/feature/Heading";
-
+import CandidateCard from "@/feature/CandidateCard";
+import CandidateListCard from "@/feature/CandidateListCard";
 
 function Home() {
   return (
@@ -12,7 +13,8 @@ function Home() {
       <Heading />
       {/* candidate card  section  */}
       <Container maxWidth="lg">
-  Wlecome shani 
+        <CandidateListCard />
+
         {/* footer section  */}
       </Container>
     </Box>
