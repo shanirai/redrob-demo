@@ -18,11 +18,26 @@ import {
 } from "@mui/material";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import CustomChip from "./common/CustomChip";
 
 function EducationalDetails() {
   // dummy data for tooltip
   const data =
     "Indian Institute of Technology Delhi is one of the 23 IITs created to be Centres of Excellence for training, research and development in science, engineering and technology in India.";
+
+  // exp data
+  const eduData = [
+    {
+      label: "Course Ranking",
+      icon: "",
+      color: "",
+    },
+    {
+      label: "Rating",
+      icon: "",
+      color: "",
+    },
+  ];
 
   return (
     <Box>
@@ -33,65 +48,28 @@ function EducationalDetails() {
         borderColor={"secondary.light"}
         borderRadius={1}
         px={1.5}
-        py={1}
-        sx={{
-          "&:hover": {
-            borderLeft: "2px solid",
-            borderColor: "Primary.main",
-          },
-        }}
+        py={0.5}
       >
         <Stack direction={"row"} justifyContent={"space-between"}>
-          <Typography variant="h5">Education</Typography>
-          <Typography variant="subtitle2" fontWeight={600}>
+          <Typography variant="h6">Education</Typography>
+          <Typography
+            variant="subtitle2"
+            fontWeight={600}
+            color={"text.secondary"}
+          >
             Total Experience 4 years
           </Typography>
         </Stack>
-        <Box my={1} display={"flex"}>
-          <Avatar
-            sx={{
-              height: "50px",
-              width: "50px",
-              fontSize: 18,
-              bgcolor: "primary.main",
-              color: "grey.100",
-              fontWeight: 600,
-            }}
-            variant="rounded"
-          >
-            IIT
-          </Avatar>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            ml={1}
-            position={"relative"}
-          >
-            <Typography variant="h5">
+
+        <Box flexDirection={"column"} display={"flex"}>
+          <Box display={"flex"}>
+            <Typography variant="h6" fontWeight={600}>
               Indian Institute of Technology Delhi
             </Typography>
-            <Stack direction={"row"}>
-              <Typography
-                variant="subtitle2"
-                color={"primary.main"}
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": { color: "secondary.main" },
-                }}
-              >
-                Master of Computer Application
-              </Typography>
-              <Typography
-                variant="subtitle2"
-                position={"absolute"}
-                right={"-465px"}
-              >
-                {" "}
-                February 2021 - January 2023
-              </Typography>
-            </Stack>
-          </Box>
-          <Box>
+            {eduData.map((item, index) => (
+              <CustomChip item={item} key={index} />
+            ))}
+
             <Tooltip
               title={<Typography variant="body2">{data}</Typography>}
               placement="right"
@@ -99,34 +77,29 @@ function EducationalDetails() {
               arrow={true}
             >
               <Typography
-                variant="subtitle2"
+                variant="caption"
                 bgcolor={"secondary.light"}
-                ml={2}
+                ml={1}
                 px={2}
-                py={0.6}
+                py={0.5}
                 borderRadius={1.5}
                 fontWeight={600}
                 display={"flex"}
                 alignItems={"center"}
               >
-                <StarBorderIcon sx={{ fontSize: 14, mr: 0.5 }} /> NIRF Rating
+                <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF Rating
                 Top 10
               </Typography>
             </Tooltip>
           </Box>
-        </Box>
-        <Box>
-          <Typography
-            variant="h6"
-            color={"primary.main"}
-            sx={{
-              cursor: "pointer",
-              textAlign: "end",
-              "&:hover": { color: "secondary.main" },
-            }}
-          >
-            View All
-          </Typography>
+          <Stack direction={"row"} justifyContent={"space-between"}>
+            <Typography variant="subtitle2">
+              Master of Computer Application
+            </Typography>
+            <Typography variant="subtitle2" color={"text.secondary"}>
+              February 2021 - January 2023
+            </Typography>
+          </Stack>
         </Box>
       </Box>
     </Box>

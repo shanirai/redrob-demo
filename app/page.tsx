@@ -6,6 +6,7 @@ import { Box, Container } from "@mui/material";
 import Heading from "@/feature/Heading";
 import CandidateCard from "@/feature/CandidateCard";
 import CandidateListCard from "@/feature/CandidateListCard";
+import CandidateList from "@/feature/secondOption/CandidateList";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       {/* candidate card  section  */}
       <Container maxWidth="lg">
         <CandidateListCard />
+        {/* <CandidateList /> */}
 
         {/* footer section  */}
       </Container>

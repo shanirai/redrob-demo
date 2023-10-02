@@ -24,30 +24,21 @@ import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import PublicIcon from "@mui/icons-material/Public";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import ExperianceCard from "./ExperianceCard";
-import EducationCard from "./EducationalDetails";
-import ListOfSkills from "./Skills";
-import BasicDetails from "./common/BasicDetails";
 
 // Third party packages
 import { useSnackbar } from "notistack";
-import CustomChip from "./common/CustomChip";
+import CustomChip from "../common/CustomChip";
+import BasicTabs from "./CustomTab";
 
-function CandidateListCard() {
+function CandidateList() {
   //**   useRouter  hooks    */
   const router = useRouter();
-  //***   useState hooks   */
-  const [isShowMore, setIsShowMore] = useState(false);
 
   //**  useSnackbar hooks  */
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   //**  useState hooks   */
   const [active, setActive] = useState(false);
-
-  // cv
-  const cvData =
-    " Having 4+ years experience to design and build advanced applications for the Web and Mobile App platform. Understanding & mapping client’s requirements / enhancements to the product, implementing solutions that effectively resolve problems or provide improvement.";
 
   //**  data    */
   const data = [
@@ -67,7 +58,6 @@ function CandidateListCard() {
       color: "",
     },
   ];
-
   return (
     <Box>
       <Box
@@ -87,7 +77,7 @@ function CandidateListCard() {
         >
           <Box display={"flex"}>
             <Box>
-              {/* <Typography
+              <Typography
                 variant="h4"
                 color={"grey.100"}
                 bgcolor={"primary.main"}
@@ -97,19 +87,7 @@ function CandidateListCard() {
                 sx={{ "&:hover": { bgcolor: "secondary.main" } }}
               >
                 CJ
-              </Typography> */}
-              <Avatar
-                variant="rounded"
-                sx={{
-                  height: "50px",
-                  width: "50px",
-                  bgcolor: "primary.main",
-                  fontWeight: 600,
-                  fontSize: "20px",
-                }}
-              >
-                CJ
-              </Avatar>
+              </Typography>
             </Box>
             <Box flexDirection={"column"} ml={1}>
               <Box display={"flex"} alignItems={"center"}>
@@ -167,43 +145,17 @@ function CandidateListCard() {
         </Box>
         <Box px={2.5} pt={0.5}>
           <Typography variant="body2">
-            {isShowMore ? cvData : cvData.slice(0, 136)}...
-            <Typography
-              component={"span"}
-              variant="subtitle2"
-              onClick={() => setIsShowMore(!isShowMore)}
-            >
-              {isShowMore ? "Show Less" : "Read More"}
-            </Typography>
+            Having 4+ years experience to design and build advanced applications
+            for the Web and Mobile App platform. Understanding & mapping
+            client’s requirements / enhancements to the product, implementing
+            solutions that effectively resolve problems or provide improvement.
           </Typography>
         </Box>
 
         {/* section for roles and about  */}
 
         <Box py={2}>
-          <Grid container rowSpacing={1}>
-            <Grid item xs={2.5}>
-              <BasicDetails />
-            </Grid>
-            <Divider
-              orientation="vertical"
-              sx={{ bgcolor: "secondary.main", mt: 2 }}
-              flexItem
-            />
-            <Grid item xs={9.3} onMouseOver={() => setActive(true)}>
-              {/* Work experience card  */}
-
-              <ExperianceCard active={active} />
-
-              {/* education card */}
-
-              <EducationCard />
-
-              {/* Skills */}
-
-              <ListOfSkills />
-            </Grid>
-          </Grid>
+          <BasicTabs />
         </Box>
 
         {/* Buttons for action */}
@@ -231,4 +183,4 @@ function CandidateListCard() {
   );
 }
 
-export default CandidateListCard;
+export default CandidateList;

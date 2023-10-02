@@ -39,26 +39,21 @@ function ListOfSkills() {
     <Box>
       <Box
         mt={0.5}
-        ml={1.5}
+        ml={1}
         border={"1px solid "}
         borderColor={"secondary.light"}
         borderRadius={1}
         px={1.5}
-        py={1}
-        sx={{
-          "&:hover": {
-            borderLeft: "2px solid",
-            borderColor: "Primary.main",
-          },
-        }}
+        py={0.5}
       >
         <Stack direction={"row"} justifyContent={"space-between"}>
-          <Typography variant="h5">Skills</Typography>
+          <Typography variant="h6">Skills</Typography>
         </Stack>
-        <Box my={1} display={"flex"}>
+        <Box my={0.5} display={"flex"}>
           {skillsData.map((item, index) => (
             <Chip
               label={item}
+              size="small"
               sx={{
                 mr: 0.5,
                 "&:hover": { bgcolor: "primary.main" },
@@ -66,19 +61,6 @@ function ListOfSkills() {
               key={index}
             />
           ))}
-        </Box>
-        <Box>
-          <Typography
-            variant="h6"
-            color={"primary.main"}
-            sx={{
-              cursor: "pointer",
-              textAlign: "end",
-              "&:hover": { color: "secondary.main" },
-            }}
-          >
-            View All
-          </Typography>
         </Box>
       </Box>
     </Box>

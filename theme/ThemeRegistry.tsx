@@ -110,26 +110,30 @@ const themeOptions: ThemeOptions = {
       // main: "#0284c7",
       // light: "#815df233",
       // light: "#38bdf81a",
-      main: "#3c65f5",
-      light: "#bbcfeb",
+      // main: "#3c65f5",
+      // light: "#bbcfeb",
       // below code from nv
       // main: "#324b71",
       // light: "#bbcfeb",
+      main: "#69A3CC",
+      light: "#69A3CC29",
     },
     secondary: {
       // main: "#c6dbf3",
       // light: "#7555dc",
       // below code from nv
       // main: "#d9d9d9",
-      main: "#05264e",
-      light: "#e0e6f7",
+      // main: "#05264e",
+      // light: "#e0e6f7",
+      main: "#EB896A",
+      light: "#6BBE7929",
     },
     text: {
       primary: "#05264e",
       secondary: "#74788d",
     },
     error: {
-      main: "#FF0000",
+      main: "#E75252",
     },
     grey: {
       100: "#FFFFFF",
@@ -155,7 +159,7 @@ const themeOptions: ThemeOptions = {
           color: "#fff",
         },
         sizeSmall: {
-          height: 30,
+          height: 40,
         },
         sizeMedium: {
           height: 44,
@@ -188,7 +192,7 @@ const themeOptions: ThemeOptions = {
           },
         },
         sizeSmall: {
-          height: 28,
+          height: 26,
           borderRadius: 50,
         },
         sizeMedium: {

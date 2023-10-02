@@ -33,7 +33,7 @@ function BasicDetails() {
   return (
     <Box pl={2.5}>
       <Box>
-        <Stack direction={"column"} mb={1}>
+        <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Current Designation
           </Typography>
@@ -41,7 +41,7 @@ function BasicDetails() {
             Product Designer
           </Typography>
         </Stack>
-        <Stack direction={"column"} mb={1}>
+        <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Experience
           </Typography>
@@ -49,7 +49,7 @@ function BasicDetails() {
             5 Years
           </Typography>
         </Stack>
-        <Stack direction={"column"} mb={1}>
+        <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Email
           </Typography>
@@ -62,13 +62,13 @@ function BasicDetails() {
           >
             <a
               href="mailto: crystilia.jones@spotify.com"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", color: "#05264e" }}
             >
               crystilia.jones@spotify.com
             </a>
           </Typography>
         </Stack>
-        <Stack direction={"column"} mb={1}>
+        <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Phone
           </Typography>
@@ -79,12 +79,15 @@ function BasicDetails() {
             flexWrap={"nowrap"}
             sx={{ wordBreak: "break-word" }}
           >
-            <a href="tel: 8005903527" style={{ textDecoration: "none" }}>
+            <a
+              href="tel: 8005903527"
+              style={{ textDecoration: "none", color: "#05264e" }}
+            >
               8005903527
             </a>
           </Typography>
         </Stack>
-        <Stack direction={"column"} mb={1}>
+        <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Location
           </Typography>
@@ -93,7 +96,7 @@ function BasicDetails() {
           </Typography>
         </Stack>
       </Box>
-      <Box mb={1}>
+      <Box>
         <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
           Social Links
         </Typography>
@@ -139,11 +142,6 @@ function BasicDetails() {
             onClick={() => router.push("https://mckinleyrice.com/")}
           />
         </Typography>
-      </Box>
-      <Box mt={1.5} display={"flex"} justifyContent={"center"} mr={3}>
-        <Button variant="contained" size="medium" fullWidth>
-          <FileDownloadIcon /> CV
-        </Button>
       </Box>
     </Box>
   );
