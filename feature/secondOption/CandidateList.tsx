@@ -81,7 +81,7 @@ function CandidateList() {
         </Box>
         <ListOfSkills />
 
-        <Box py={2}>
+        <Box py={1}>
           {/* <Grid container>
             <Grid xs={6}>
               <ExperianceCard />

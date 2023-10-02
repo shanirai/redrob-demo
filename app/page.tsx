@@ -16,7 +16,7 @@ function Home() {
       <Container maxWidth="lg">
         {/* <CandidateListCard /> */}
         <CandidateList />
-        {/* <CandidateList /> */}
+        <CandidateList />
         {/* footer section  */}
       </Container>
     </Box>
