@@ -40,16 +40,16 @@ function ListOfSkills() {
       <Box
         mt={0.5}
         ml={1}
-        border={"1px solid "}
-        borderColor={"secondary.light"}
-        borderRadius={1}
+        // border={"1px solid "}
+        // borderColor={"secondary.light"}
+        // borderRadius={1}
         px={1.5}
         py={0.5}
       >
-        <Stack direction={"row"} justifyContent={"space-between"}>
-          <Typography variant="h6">Skills</Typography>
-        </Stack>
         <Box my={0.5} display={"flex"}>
+          <Typography variant="h6" mr={1}>
+            Skills
+          </Typography>
           {skillsData.map((item, index) => (
             <Chip
               label={item}

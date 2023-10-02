@@ -33,14 +33,14 @@ function BasicDetails() {
   return (
     <Box pl={2.5}>
       <Box>
-        <Stack direction={"column"}>
+        {/* <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Current Designation
           </Typography>
           <Typography variant="subtitle2" fontWeight={600}>
             Product Designer
           </Typography>
-        </Stack>
+        </Stack> */}
         <Stack direction={"column"}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Experience

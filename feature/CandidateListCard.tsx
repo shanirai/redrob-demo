@@ -180,7 +180,7 @@ function CandidateListCard() {
 
         {/* section for roles and about  */}
 
-        <Box py={2}>
+        <Box py={1}>
           <Grid container rowSpacing={1}>
             <Grid item xs={2.5}>
               <BasicDetails />

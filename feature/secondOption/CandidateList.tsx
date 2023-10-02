@@ -29,6 +29,11 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { useSnackbar } from "notistack";
 import CustomChip from "../common/CustomChip";
 import BasicTabs from "./CustomTab";
+import ExperianceCard from "../ExperianceCard";
+import EducationalDetails from "../EducationalDetails";
+import ListOfSkills from "../Skills";
+import BasicProfile from "./BasicProfile";
+import SectionHeading from "./SectionHeading";
 
 function CandidateList() {
   //**   useRouter  hooks    */
@@ -39,25 +44,12 @@ function CandidateList() {
 
   //**  useState hooks   */
   const [active, setActive] = useState(false);
+  const [isShowMore, setIsShowMore] = useState(false);
 
-  //**  data    */
-  const data = [
-    {
-      label: "60% Relevance",
-      icon: "",
-      color: "",
-    },
-    {
-      label: "Recruiter Choice",
-      icon: "",
-      color: "",
-    },
-    {
-      label: "A+(96-100)",
-      icon: "",
-      color: "",
-    },
-  ];
+  // cv
+  const cvData =
+    " Having 4+ years experience to design and build advanced applications for the Web and Mobile App platform. Understanding & mapping client’s requirements / enhancements to the product, implementing solutions that effectively resolve problems or provide improvement.";
+
   return (
     <Box>
       <Box
@@ -67,95 +59,39 @@ function CandidateList() {
         mt={3}
         py={2}
       >
-        <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          alignItems={"baseline"}
-          bgcolor={"#f9fafb"}
-          px={2.5}
-          borderRadius={"8px 8px 0 0px"}
-        >
-          <Box display={"flex"}>
-            <Box>
-              <Typography
-                variant="h4"
-                color={"grey.100"}
-                bgcolor={"primary.main"}
-                px={1}
-                py={1}
-                borderRadius={"4px"}
-                sx={{ "&:hover": { bgcolor: "secondary.main" } }}
-              >
-                CJ
-              </Typography>
-            </Box>
-            <Box flexDirection={"column"} ml={1}>
-              <Box display={"flex"} alignItems={"center"}>
-                <Typography variant="h4" fontWeight={600} mr={2.5}>
-                  Crystals Jones
-                </Typography>
-
-                {/* custom chip*/}
-
-                {data.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
-              </Box>
-              <Box>
-                <Typography variant="subtitle2" fontWeight={600} mt={0.5}>
-                  Working as{" "}
-                  <Typography
-                    component={"span"}
-                    variant="subtitle2"
-                    fontWeight={600}
-                    color={"text.primary"}
-                  >{`Product Designer`}</Typography>{" "}
-                  in {`Spotify Inc. `}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-          <Stack direction={"row"} justifyContent={"flex-end"}>
-            <FileDownloadIcon
-              sx={{
-                width: 25,
-                height: 25,
-                mr: 1.5,
-                cursor: "pointer",
-                "&:hover": {
-                  color: "primary.main",
-                },
-              }}
-            />
-            <BookmarkIcon
-              sx={{
-                width: 25,
-                height: 25,
-                mr: 1.5,
-                cursor: "pointer",
-                "&:hover": {
-                  color: "primary.main",
-                },
-              }}
-              onClick={() =>
-                enqueueSnackbar("Jobs Bookmark", { variant: "success" })
-              }
-            />
-          </Stack>
+        <Box bgcolor={"#f9fafb"} px={2.5} borderRadius={"8px 8px 0 0px"}>
+          <SectionHeading />
         </Box>
-        <Box px={2.5} pt={0.5}>
+        <Box px={2.5} pt={0.5} display={"none"}>
           <Typography variant="body2">
-            Having 4+ years experience to design and build advanced applications
-            for the Web and Mobile App platform. Understanding & mapping
-            client’s requirements / enhancements to the product, implementing
-            solutions that effectively resolve problems or provide improvement.
+            {isShowMore ? cvData : cvData.slice(0, 136)}...
+            <Typography
+              component={"span"}
+              variant="subtitle2"
+              onClick={() => setIsShowMore(!isShowMore)}
+            >
+              {isShowMore ? "Show Less" : "Read More"}
+            </Typography>
           </Typography>
         </Box>
 
         {/* section for roles and about  */}
+        <Box px={2.5} py={1} display={"none"}>
+          <BasicProfile />
+        </Box>
+        <ListOfSkills />
 
         <Box py={2}>
-          <BasicTabs />
+          {/* <Grid container>
+            <Grid xs={6}>
+              <ExperianceCard />
+            </Grid>
+            <Grid xs={6}>
+            
+            </Grid>
+          </Grid> */}
+          <ExperianceCard />
+          <EducationalDetails />
         </Box>
 
         {/* Buttons for action */}
