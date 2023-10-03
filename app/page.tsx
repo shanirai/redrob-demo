@@ -7,6 +7,7 @@ import Heading from "@/feature/Heading";
 import CandidateCard from "@/feature/CandidateCard";
 import CandidateListCard from "@/feature/CandidateListCard";
 import CandidateList from "@/feature/secondOption/CandidateList";
+import CandidateDetails from "@/feature/candidateDetail/CandidateDetails";
 
 function Home() {
   return (
@@ -14,18 +15,19 @@ function Home() {
       <Heading />
       {/* candidate card  section  */}
       <Container maxWidth="lg">
-<<<<<<< Updated upstream
+
+        {/* <CandidateListCard />
+        <CandidateListCard /> */}
+        <CandidateList />
+        <CandidateList />
+
+
         {/* <CandidateListCard /> */}
         <CandidateList />
         <CandidateList />
-=======
-        <CandidateListCard />
-        <CandidateListCard />
-        {/* <CandidateList />
-        <CandidateList /> */}
 
->>>>>>> Stashed changes
         {/* footer section  */}
+        {/* <CandidateDetails /> */}
       </Container>
     </Box>
   );
