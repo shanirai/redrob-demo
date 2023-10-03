@@ -6,6 +6,8 @@ import {
   Chip,
   Stack,
   Typography,
+  Tooltip,
+  Zoom,
   Grid,
   Divider,
 } from "@mui/material";
@@ -13,7 +15,12 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 function ExperienceCompare() {
   return (
     <Box
-      sx={{ display: "flex", alignItems: "flex-start", flexDirection: "column",marginLeft:"16px"}}
+      sx={{
+        display: "flex",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        marginLeft: "16px",
+      }}
     >
       {/* <Stack direction="row" spacing={1} mb={1} mt={2} >
         <Chip label="Top Recruiter Choice" color="primary" sx={{backgroundColor:"#69A3CC"}}/>
@@ -33,6 +40,38 @@ function ExperienceCompare() {
           HQ - Sweden , | IT Services and Consultancy
         </Typography>
         <Stack direction={"row"} spacing={1} mt={1.5}>
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                implies positive feedback and reviews from both clients and
+                employees compared to your company's standards.
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"secondary.light"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontWeight={600}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> 20% Ranking
+            </Typography>
+          </Tooltip>
+
+          <Tooltip
+        title={<Typography variant="body2">Indicates a favorable comparison with the leading company in the same sector in your local region.</Typography>}
+        placement="right"
+        TransitionComponent={Zoom}
+        arrow={true}
+      >
           <Typography
             variant="caption"
             bgcolor={"secondary.light"}
@@ -44,21 +83,10 @@ function ExperienceCompare() {
             display={"flex"}
             alignItems={"center"}
           >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> Ranking
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+            10% Rating
           </Typography>
-          <Typography
-            variant="caption"
-            bgcolor={"secondary.light"}
-            ml={1}
-            px={1.5}
-            py={0.5}
-            borderRadius={1.5}
-            fontWeight={600}
-            display={"flex"}
-            alignItems={"center"}
-          >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> Rating
-          </Typography>
+          </Tooltip>
         </Stack>
       </Stack>
 
@@ -80,6 +108,12 @@ function ExperienceCompare() {
           Mumbai , | IT Services and Consultancy
         </Typography>
         <Stack direction={"row"} spacing={1} mt={1.5}>
+        <Tooltip
+        title={<Typography variant="body2">Indicates a favorable comparison with the leading company in the same sector in your local region.</Typography>}
+        placement="right"
+        TransitionComponent={Zoom}
+        arrow={true}
+      >
           <Typography
             variant="caption"
             bgcolor={"secondary.light"}
@@ -91,8 +125,16 @@ function ExperienceCompare() {
             display={"flex"}
             alignItems={"center"}
           >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> Forbes 10 Company
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />  20% Overall
           </Typography>
+          </Tooltip>
+
+          <Tooltip
+        title={<Typography variant="body2">Indicates a positive alignment with the cultural aspects of the leading company in the same sector in your local region</Typography>}
+        placement="right"
+        TransitionComponent={Zoom}
+        arrow={true}
+      >
           <Typography
             variant="caption"
             bgcolor={"secondary.light"}
@@ -104,8 +146,9 @@ function ExperienceCompare() {
             display={"flex"}
             alignItems={"center"}
           >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> Ranking
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> 20% Culture
           </Typography>
+          </Tooltip>
         </Stack>
       </Stack>
     </Box>

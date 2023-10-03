@@ -49,7 +49,7 @@ function ExperianceDetails(props: any) {
     {
       index: 1,
       points:
-        "As a ReactJS Developer I have gained expertise in Web application development. I was responsible for integrating azure B2c login and various login authentication in the applications so that only authorized user can access the application.",
+        "In a world full of ordinary, we create mobile applications for people with an extraordinary vision. It is easy to lose one's true self in this monotonous world, but since you are here looking for a team, we believe that you too are willing to go the extra mile..",
     },
     {
       index: 2,
@@ -99,7 +99,7 @@ function ExperianceDetails(props: any) {
                   fontWeight={600}
                   sx={{ cursor: "pointer" }}
                 >
-                  Tata Consultancy Services
+                 Techugo Pvt. Ltd
                 </Typography>
                 {/* custom chip */}
 
@@ -114,15 +114,15 @@ function ExperianceDetails(props: any) {
                 mt={1}
               >
                 <Typography variant="subtitle2" color={"text.primary"}>
-                  Software Developer
+                Senior Software Developer
                 </Typography>
                 <Typography variant="subtitle2" color={"text.secondary"}>
-                  Apr 2023 – Present
+                Aug 2018 – Present
                 </Typography>
               </Stack>
               <Stack direction={"row"}>
                 <Typography variant="body2" color={"text.secondary"} ml={1}>
-                  Amritsar, Punjab
+                Noida, UP
                 </Typography>
               </Stack>
               <Box mt={2}>
@@ -230,7 +230,7 @@ function ExperianceDetails(props: any) {
                   fontWeight={600}
                   sx={{ cursor: "pointer" }}
                 >
-                  L & G consultancy Software Pvt Ltd,
+                  Ginger Webs Pvt. Ltd.
                 </Typography>
                 {/* custom chip */}
 
@@ -248,12 +248,12 @@ function ExperianceDetails(props: any) {
                   Software Developer
                 </Typography>
                 <Typography variant="subtitle2" color={"text.secondary"}>
-                  Jan 2021 – Mar 2023
+                Oct 2017 – May 2018
                 </Typography>
               </Stack>
               <Stack direction={"row"}>
                 <Typography variant="body2" color={"text.secondary"} ml={1}>
-                  Amritsar, Punjab
+                Noida, UP
                 </Typography>
               </Stack>
               <Box mt={2}>

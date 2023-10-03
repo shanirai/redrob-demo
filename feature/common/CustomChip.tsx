@@ -15,14 +15,15 @@ function CustomChip(props: any) {
   return (
     <Box key={id}>
       <Tooltip
-        title={<Typography variant="body2">{data}</Typography>}
+        title={<Typography variant="body2">{item.description}</Typography>}
         placement="right"
         TransitionComponent={Zoom}
         arrow={true}
       >
         <Typography
           variant="caption"
-          bgcolor={"secondary.light"}
+          bgcolor= {`${item.education ? item.color :"secondary.light"}`}
+          // bgcolor={`${item?.color ? item.color}"secondary.light"}
           ml={1}
           px={1.5}
           py={0.4}

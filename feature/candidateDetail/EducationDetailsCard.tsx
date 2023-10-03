@@ -34,19 +34,21 @@ function EducationDetailsCard(props: any) {
   // exp data
   const eduData = [
     {
-      label: "Course Ranking",
+      label: "20% Overall",
       icon: "",
       color: "",
+      description:"Overall comparison  with  top institute  in local region"
     },
     {
-      label: "Rating",
+      label: "10% Ranking",
       icon: "",
       color: "",
+      description:"government ranking and service comparison  with  top institute  in local region"
     },
   ];
 
   const about =
-    "Guru Nanak Dev is a university near the village of Kot Khalsa. It offers higher studies degree courses online. Guru Nanak Dev University's campus is spread over 500 acres";
+    "Established in 1998 Babu Banarasi Das National Institute of Technology and Management is a known reputed Institute, located in Lucknow, Uttar Pradesh. Babu Banarasi Das National Institute of Technology and Management offers 23 diverse courses for Degree in Full Time mode. Babu Banarasi Das National Institute of Technology and Management offers a range of 20 UG courses. These courses are aimed to provide students with the necessary skills and knowledge in their field of interest. Candidate can pursue in multiple range of courses like B.E. / B.Tech, MBA/PGDM, M.E./M.Tech, MCA, BBA, BCA, B.Pharma with the stream of Engineering, Business & Management Studies, IT & Software and Medicine & Health Sciences. From introductory courses to more advanced topics, there are a variety of courses to choose from. Institute provides opportunity to students to gain proficiency & expertise in the specialization of Civil Engineering, Electrical Engineering, Mechanical Engineering, Computer Science Engineering, Electronics & Communication Engineering, Aeronautical Engineering, Chemical Engineering, Information Technology. Courses offered by institute are well recognized and acknowlegded by approving body like AICTE.";
 
   return (
     <Box position={"relative"}>
@@ -71,34 +73,14 @@ function EducationDetailsCard(props: any) {
                   fontWeight={600}
                   sx={{ cursor: "pointer" }}
                 >
-                  Guru Nanak Dev University
+                 B.B.D.N.I.T.M
                 </Typography>
                 {/* custom chip */}
 
                 {eduData.map((item, index) => (
                   <CustomChip item={item} key={index} />
                 ))}
-                <Tooltip
-                  title={<Typography variant="body2">{data}</Typography>}
-                  placement="right"
-                  TransitionComponent={Zoom}
-                  arrow={true}
-                >
-                  <Typography
-                    variant="caption"
-                    bgcolor={"secondary.light"}
-                    ml={1}
-                    px={2}
-                    py={0.5}
-                    borderRadius={1.5}
-                    fontWeight={600}
-                    display={"flex"}
-                    alignItems={"center"}
-                  >
-                    <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF
-                    Rating Top 10
-                  </Typography>
-                </Tooltip>
+             
               </Box>
               <Stack
                 direction={"row"}
@@ -107,16 +89,16 @@ function EducationDetailsCard(props: any) {
                 mt={1}
               >
                 <Typography variant="subtitle2" color={"text.primary"}>
-                  Bachelor of Technology (CSE)
+                Bachelor of Technology
                 </Typography>
                 <Typography variant="subtitle2" color={"text.secondary"}>
-                  Apr 2016 – Mar 2020
+                 2012 – 2016
                 </Typography>
               </Stack>
               <Stack direction={"row"}>
-                <Typography variant="body2" color={"text.secondary"} ml={1}>
+                {/* <Typography variant="body2" color={"text.secondary"} ml={1}>
                   Amritsar, Punjab, India
-                </Typography>
+                </Typography> */}
               </Stack>
               <Box mt={2}>
                 <Typography variant="subtitle1">About</Typography>
