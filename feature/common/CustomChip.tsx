@@ -8,7 +8,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 function CustomChip(props: any) {
   //** props --- components */
-  const { item, id } = props;
+  const { item, id, ml } = props;
   const data =
     "Indian Institute of Technology Delhi is one of the 23 IITs created to be Centres of Excellence for training, research and development in science, engineering and technology in India.";
 
@@ -23,7 +23,7 @@ function CustomChip(props: any) {
         <Typography
           variant="caption"
           bgcolor={"secondary.light"}
-          ml={1}
+          ml={ml ?? 1}
           px={1.5}
           py={0.4}
           borderRadius={1.2}

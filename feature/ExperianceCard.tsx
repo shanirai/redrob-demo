@@ -13,14 +13,17 @@ import {
   Typography,
   Grid,
   Divider,
+  Modal,
 } from "@mui/material";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
+import CompanyDetails from "./companyDetail/CompanyDetails";
 
 function ExperianceCard(props: any) {
   //** props -- components */
   const { active } = props;
+  const [open, setOpen] = useState(true);
 
   // exp data
   const expData = [
@@ -93,6 +96,19 @@ function ExperianceCard(props: any) {
           </Grid>
         </Grid>
       </Box>
+
+      {/* <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <CompanyDetails />
+      </Modal> */}
     </Box>
   );
 }
