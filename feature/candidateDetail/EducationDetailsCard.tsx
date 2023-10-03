@@ -21,11 +21,12 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
 // Custom components
 import CustomChip from "../common/CustomChip";
+import EducationCompare from "./EducationCompare";
 
 function EducationDetailsCard(props: any) {
   //** props -- components */
   const { active } = props;
-
+  const [isShowMore, setIsShowMore] = useState(false);
   // dummy data for tooltip
   const data =
     "Indian Institute of Technology Delhi is one of the 23 IITs created to be Centres of Excellence for training, research and development in science, engineering and technology in India.";
@@ -44,6 +45,9 @@ function EducationDetailsCard(props: any) {
     },
   ];
 
+  const about =
+    "Guru Nanak Dev is a university near the village of Kot Khalsa. It offers higher studies degree courses online. Guru Nanak Dev University's campus is spread over 500 acres";
+
   return (
     <Box position={"relative"}>
       <Box
@@ -57,76 +61,102 @@ function EducationDetailsCard(props: any) {
         <Stack direction={"row"} justifyContent={"space-between"}>
           <Typography variant="h5">Education</Typography>
         </Stack>
-        <Box my={1}>
-          <Box display={"flex"} alignItems={"baseline"}>
-            <Typography
-              variant="h6"
-              fontWeight={600}
-              sx={{ cursor: "pointer" }}
-            >
-              Guru Nanak Dev University
-            </Typography>
-            {/* custom chip */}
+        <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
+          {/* //left column */}
+          <Grid item xs={8}>
+            <Box my={1}>
+              <Box display={"flex"} alignItems={"baseline"}>
+                <Typography
+                  variant="h6"
+                  fontWeight={600}
+                  sx={{ cursor: "pointer" }}
+                >
+                  Guru Nanak Dev University
+                </Typography>
+                {/* custom chip */}
 
-            {eduData.map((item, index) => (
-              <CustomChip item={item} key={index} />
-            ))}
-            <Tooltip
-              title={<Typography variant="body2">{data}</Typography>}
-              placement="right"
-              TransitionComponent={Zoom}
-              arrow={true}
-            >
-              <Typography
-                variant="caption"
-                bgcolor={"secondary.light"}
-                ml={1}
-                px={2}
-                py={0.5}
-                borderRadius={1.5}
-                fontWeight={600}
-                display={"flex"}
+                {eduData.map((item, index) => (
+                  <CustomChip item={item} key={index} />
+                ))}
+                <Tooltip
+                  title={<Typography variant="body2">{data}</Typography>}
+                  placement="right"
+                  TransitionComponent={Zoom}
+                  arrow={true}
+                >
+                  <Typography
+                    variant="caption"
+                    bgcolor={"secondary.light"}
+                    ml={1}
+                    px={2}
+                    py={0.5}
+                    borderRadius={1.5}
+                    fontWeight={600}
+                    display={"flex"}
+                    alignItems={"center"}
+                  >
+                    <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF
+                    Rating Top 10
+                  </Typography>
+                </Tooltip>
+              </Box>
+              <Stack
+                direction={"row"}
+                justifyContent={"space-between"}
                 alignItems={"center"}
+                mt={1}
               >
-                <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF Rating
-                Top 10
-              </Typography>
-            </Tooltip>
-          </Box>
-          <Stack
-            direction={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            mt={1}
-          >
-            <Typography variant="subtitle2" color={"text.primary"}>
-              Bachelor of Technology (CSE)
-            </Typography>
-            <Typography variant="subtitle2" color={"text.secondary"}>
-              Apr 2016 – Mar 2020
-            </Typography>
-          </Stack>
-          <Stack direction={"row"}>
-            <Typography variant="body2" color={"text.secondary"}>
-              Full Time |{" "}
-            </Typography>
-            <Typography variant="body2" color={"text.secondary"} ml={1}>
-              Amritsar, Punjab, India
-            </Typography>
-          </Stack>
-          <Box mt={2}>
-            <Typography variant="subtitle1">About</Typography>
-            <Typography
-              variant="body2"
-              display={"flex"}
-              alignItems={"baseline"}
-            >
-              Guru Nanak Dev is a university near the village of Kot Khalsa. It
-              offers higher studies degree courses online. Guru Nanak Dev
-              University's campus is spread over 500 acres
-            </Typography>
-          </Box>
-        </Box>
+                <Typography variant="subtitle2" color={"text.primary"}>
+                  Bachelor of Technology (CSE)
+                </Typography>
+                <Typography variant="subtitle2" color={"text.secondary"}>
+                  Apr 2016 – Mar 2020
+                </Typography>
+              </Stack>
+              <Stack direction={"row"}>
+                <Typography variant="body2" color={"text.secondary"} ml={1}>
+                  Amritsar, Punjab, India
+                </Typography>
+              </Stack>
+              <Box mt={2}>
+                <Typography variant="subtitle1">About</Typography>
+
+                {/* //show more and less feature */}
+                <Typography
+                  variant="body2"
+                  display={"flex"}
+                  alignItems={"baseline"}
+                >
+                  <span>
+                    {isShowMore ? about : about.slice(0, 136)}
+                    <Typography
+                      component={"span"}
+                      variant="subtitle2"
+                      sx={{
+                        color: "red",
+                        marginLeft: "3px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setIsShowMore(!isShowMore)}
+                    >
+                      {isShowMore ? "...less" : "...more"}
+                    </Typography>
+                  </span>
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+          {/* //vertical line to differentiate left and right column */}
+          <Divider
+            orientation="vertical"
+            sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
+            flexItem
+          />
+          {/* //Right column */}
+          <Grid item xs={4}>
+            <EducationCompare />
+          </Grid>
+        </Grid>
         <Divider sx={{ my: 2 }} />
       </Box>
     </Box>
