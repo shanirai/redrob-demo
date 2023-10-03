@@ -39,15 +39,15 @@ function ListOfSkills() {
     <Box>
       <Box
         mt={0.5}
-        ml={1}
-        // border={"1px solid "}
-        // borderColor={"secondary.light"}
-        // borderRadius={1}
-        px={1.5}
-        py={0.5}
+        mx={1.5}
+        border={"1px solid "}
+        borderColor={"secondary.light"}
+        borderRadius={1}
+        px={1}
+        py={1}
       >
         <Box my={0.5} display={"flex"}>
-          <Typography variant="h6" mr={1}>
+          <Typography variant="h6" mr={6}>
             Skills
           </Typography>
           {skillsData.map((item, index) => (

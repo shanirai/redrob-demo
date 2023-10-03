@@ -40,31 +40,31 @@ const themeOptions: ThemeOptions = {
       fontFamily: roboto.style.fontFamily,
     },
     h4: {
-      fontSize: 20,
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineHeight: 1.5,
-    },
-    h5: {
       fontSize: 18,
       fontStyle: "normal",
       fontWeight: "600",
       lineHeight: 1.5,
     },
-    h6: {
+    h5: {
       fontSize: 16,
+      fontStyle: "normal",
+      fontWeight: "600",
+      lineHeight: 1.5,
+    },
+    h6: {
+      fontSize: 14,
       fontStyle: "normal",
       fontWeight: "bold",
       lineHeight: 1.5,
     },
     subtitle1: {
-      fontSize: 16,
+      fontSize: 14,
       fontStyle: "normal",
       fontWeight: 600,
       lineHeight: 1.5,
     },
     subtitle2: {
-      fontSize: 14,
+      fontSize: 12,
       fontStyle: "normal",
       fontWeight: 600,
       lineHeight: 1.5,

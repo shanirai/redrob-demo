@@ -14,9 +14,17 @@ function Home() {
       <Heading />
       {/* candidate card  section  */}
       <Container maxWidth="lg">
+<<<<<<< Updated upstream
         {/* <CandidateListCard /> */}
         <CandidateList />
         <CandidateList />
+=======
+        <CandidateListCard />
+        <CandidateListCard />
+        {/* <CandidateList />
+        <CandidateList /> */}
+
+>>>>>>> Stashed changes
         {/* footer section  */}
       </Container>
     </Box>
