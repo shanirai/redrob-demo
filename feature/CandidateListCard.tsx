@@ -28,6 +28,8 @@ import ExperianceCard from "./ExperianceCard";
 import EducationCard from "./EducationalDetails";
 import ListOfSkills from "./Skills";
 import BasicDetails from "./common/BasicDetails";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 // Third party packages
 import { useSnackbar } from "notistack";
@@ -182,14 +184,6 @@ function CandidateListCard() {
 
         <Box py={1}>
           <Grid container rowSpacing={1}>
-            <Grid item xs={2.5}>
-              <BasicDetails />
-            </Grid>
-            <Divider
-              orientation="vertical"
-              sx={{ bgcolor: "secondary.main", mt: 2 }}
-              flexItem
-            />
             <Grid item xs={9.3} onMouseOver={() => setActive(true)}>
               {/* Work experience card  */}
 
@@ -203,12 +197,20 @@ function CandidateListCard() {
 
               <ListOfSkills />
             </Grid>
+            <Divider
+              orientation="vertical"
+              sx={{ bgcolor: "secondary.main", mt: 2 }}
+              flexItem
+            />
+            <Grid item xs={2.5}>
+              <BasicDetails />
+            </Grid>
           </Grid>
         </Box>
 
         {/* Buttons for action */}
         <Box display={"flex"} justifyContent={"flex-end"} px={2.5}>
-          <Button
+          {/* <Button
             variant="contained"
             size="small"
             sx={{
@@ -221,10 +223,7 @@ function CandidateListCard() {
             }}
           >
             Rejected
-          </Button>
-          <Button variant="contained" size="small">
-            Hired
-          </Button>
+          </Button> */}
         </Box>
       </Box>
     </Box>

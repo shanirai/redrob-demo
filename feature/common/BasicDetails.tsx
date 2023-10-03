@@ -25,6 +25,8 @@ import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import PublicIcon from "@mui/icons-material/Public";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 function BasicDetails() {
   //**   useRouter  hooks    */
@@ -41,7 +43,7 @@ function BasicDetails() {
             Product Designer
           </Typography>
         </Stack> */}
-        <Stack direction={"column"}>
+        <Stack direction={"column"} display="none">
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Experience
           </Typography>
@@ -49,7 +51,7 @@ function BasicDetails() {
             5 Years
           </Typography>
         </Stack>
-        <Stack direction={"column"}>
+        <Stack direction={"column"} mb={0.5}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Email
           </Typography>
@@ -68,7 +70,7 @@ function BasicDetails() {
             </a>
           </Typography>
         </Stack>
-        <Stack direction={"column"}>
+        <Stack direction={"column"} mb={0.5}>
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Phone
           </Typography>
@@ -96,7 +98,16 @@ function BasicDetails() {
           </Typography>
         </Stack>
       </Box>
-      <Box>
+      <Box display={"flex"} justifyContent={"flex-end"}>
+        <CancelIcon sx={{ color: "#E75252", width: 30, height: 30 }} />
+        {/* <Button variant="contained" size="small">
+            Hired
+          </Button> */}
+        <CheckCircleIcon
+          sx={{ color: "primary.main", width: 30, height: 30, ml: 2 }}
+        />
+      </Box>
+      <Box display={"none"}>
         <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
           Social Links
         </Typography>
