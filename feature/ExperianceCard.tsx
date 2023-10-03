@@ -17,6 +17,7 @@ import {
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
+import CustomizeDialog from "./common/CustomizaDialog";
 
 function ExperianceCard(props: any) {
   //** props -- components */

@@ -10,6 +10,8 @@ import CandidateList from "@/feature/secondOption/CandidateList";
 import CandidateDetails from "@/feature/candidateDetail/CandidateDetails";
 import RightSidePanel from "@/feature/panel/RightSidePanel";
 import CandidateRecord from "../data/candi.json";
+import CompanyDetails from "@/feature/companyDetail/CompanyDetails";
+import CustomizeDialog from "@/feature/common/CustomizaDialog";
 
 function Home() {
   const [active, setActive] = useState(false);
