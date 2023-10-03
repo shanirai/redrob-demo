@@ -57,7 +57,7 @@ function EducationalDetails() {
           </Grid>
           <Grid item xs={10}>
             <Box flexDirection={"column"} display={"flex"} ml={1.5}>
-              <Box display={"flex"}>
+              <Box display={"flex"} alignItems={"center"}>
                 <Typography variant="h6" fontWeight={600}>
                   Indian Institute of Technology Delhi
                 </Typography>

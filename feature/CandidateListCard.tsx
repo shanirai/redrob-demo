@@ -34,10 +34,18 @@ import CancelIcon from "@mui/icons-material/Cancel";
 // Third party packages
 import { useSnackbar } from "notistack";
 import CustomChip from "./common/CustomChip";
+
 import GradeIcon from '@mui/icons-material/Grade'
 import GppGoodIcon from '@mui/icons-material/GppGood';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
-function CandidateListCard() {
+
+
+
+function CandidateListCard(props: any) {
+  //**  props -- components  */
+  const { handleActive } = props;
+
+
   //**   useRouter  hooks    */
   const router = useRouter();
   //***   useState hooks   */
@@ -157,7 +165,6 @@ function CandidateListCard() {
               sx={{
                 width: 25,
                 height: 25,
-                mr: 1.5,
                 cursor: "pointer",
                 "&:hover": {
                   color: "primary.main",

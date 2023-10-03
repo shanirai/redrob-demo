@@ -25,9 +25,9 @@ function CustomChip(props: any) {
           bgcolor={"secondary.light"}
           ml={1}
           px={1.5}
-          py={0.5}
-          borderRadius={1.5}
-          fontWeight={600}
+          py={0.4}
+          borderRadius={1.2}
+          fontWeight={500}
           display={"flex"}
           alignItems={"center"}
         >
