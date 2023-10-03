@@ -19,6 +19,7 @@ import {
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 
 function EducationalDetails() {
   // dummy data for tooltip
@@ -50,13 +51,13 @@ function EducationalDetails() {
         px={1}
         py={1}
       >
-        <Grid container>
+        <Grid container columnGap={1}>
           <Grid item xs={1}>
             <Typography variant="h6">Education</Typography>
           </Grid>
-          <Grid item xs={11}>
+          <Grid item xs={10}>
             <Box flexDirection={"column"} display={"flex"} ml={1.5}>
-              <Box display={"flex"}>
+              <Box display={"flex"} alignItems={"center"}>
                 <Typography variant="h6" fontWeight={600}>
                   Indian Institute of Technology Delhi
                 </Typography>

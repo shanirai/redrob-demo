@@ -52,15 +52,15 @@ function ExperianceCard(props: any) {
         px={1}
         py={1}
       >
-        <Grid container>
+        <Grid container columnGap={1}>
           <Grid item xs={1}>
             <Typography variant="h6" width={""}>
               Experience
             </Typography>
           </Grid>
-          <Grid item xs={11}>
+          <Grid item xs={10}>
             <Box ml={1.5}>
-              <Box display={"flex"} alignItems={"baseline"}>
+              <Box display={"flex"} alignItems={"center"}>
                 <Typography
                   variant="h6"
                   fontWeight={600}
