@@ -40,9 +40,19 @@ function OtherInfo(props: any) {
         {label === "Revenue" && revenue === "up" && (
           <ArrowCircleUpIcon color="success" />
         )}
+        {label === "Revenue" && revenue !== "up" && (
+          <ArrowCircleUpIcon color="success" />
+        )}
+        {label === "Technology" && tech === "down" && (
+          <ArrowCircleDownIcon color="error" />
+        )}
+        {label === "Technology" && tech === "up" && (
+          <ArrowCircleDownIcon color="error" />
+        )}
+        {label === "Size" && revenue === "up" && (
+          <ArrowCircleUpIcon color="success" />
+        )}
       </Typography>
-
-
     </Box>
   );
 }

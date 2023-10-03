@@ -68,12 +68,12 @@ const info = [
   {
     label: "Technology",
     value: "Android, Web, Finance",
-    icon: false,
+    icon: true,
   },
   {
     label: "Global Presence",
     value: "UK, USA, Germany,India",
-    icon: false,
+    icon: true,
   },
   {
     label: "Specialties",
