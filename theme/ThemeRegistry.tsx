@@ -126,7 +126,7 @@ const themeOptions: ThemeOptions = {
       // main: "#05264e",
       // light: "#e0e6f7",
       main: "#EB896A",
-      light: "#6BBE7929",
+      light: "#6BBE7929",  
     },
     text: {
       primary: "#05264e",

@@ -29,8 +29,8 @@ import { useSnackbar } from "notistack";
 import CustomChip from "./common/CustomChip";
 import CandidateData from "../data/candi.json";
 
-import GradeIcon from '@mui/icons-material/Grade'
-import GppGoodIcon from '@mui/icons-material/GppGood';
+import GradeIcon from '@mui/icons-material/Grade';
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
 
 
@@ -61,16 +61,20 @@ function CandidateListCard(props: any) {
       label: "60% Relevance",
       icon: <ArrowCircleUpIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
+      description:"Showcases profile relevance percentage compared with the Job Description"
     },
-    {
-      label: "Recruiter Choice",
-      icon: <GppGoodIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
-      color: "",
-    },
+    
     {
       label: "A+(96-100)",
       icon: <GradeIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
+      description:"Compared with other candidates"
+    },
+    {
+      label: "Recruiter Choice",
+      icon: <GppGoodOutlinedIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      color: "",
+      description:"Many recruiters have bookmarked this candidate and selected them for interviews."
     },
   ];
 
