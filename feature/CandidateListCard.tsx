@@ -15,11 +15,6 @@ import {
   Divider,
 } from "@mui/material";
 // MUI icons
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import PublicIcon from "@mui/icons-material/Public";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -28,12 +23,11 @@ import ExperianceCard from "./ExperianceCard";
 import EducationCard from "./EducationalDetails";
 import ListOfSkills from "./Skills";
 import BasicDetails from "./common/BasicDetails";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
-
 // Third party packages
 import { useSnackbar } from "notistack";
+// Custom components
 import CustomChip from "./common/CustomChip";
+import CandidateData from "../data/candi.json";
 
 function CandidateListCard(props: any) {
   //**  props -- components  */
@@ -75,144 +69,153 @@ function CandidateListCard(props: any) {
 
   return (
     <Box>
-      <Box
-        bgcolor={"#fff"}
-        boxShadow={" rgba(99, 99, 99, 0.1) 0px 2px 8px 0px"}
-        borderRadius={2}
-        mt={3}
-        py={2}
-      >
+      {CandidateData.map((candiData, index) => (
         <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          alignItems={"baseline"}
-          bgcolor={"#f9fafb"}
-          px={2.5}
-          borderRadius={"8px 8px 0 0px"}
+          bgcolor={"#fff"}
+          boxShadow={" rgba(99, 99, 99, 0.1) 0px 2px 8px 0px"}
+          borderRadius={2}
+          mt={3}
+          py={2}
+          key={index}
         >
-          <Box display={"flex"}>
-            <Box>
-              {/* <Typography
-                variant="h4"
-                color={"grey.100"}
-                bgcolor={"primary.main"}
-                px={1}
-                py={1}
-                borderRadius={"4px"}
-                sx={{ "&:hover": { bgcolor: "secondary.main" } }}
-              >
-                CJ
-              </Typography> */}
-              <Avatar
-                variant="rounded"
-                sx={{
-                  height: "50px",
-                  width: "50px",
-                  bgcolor: "primary.main",
-                  fontWeight: 600,
-                  fontSize: "20px",
-                }}
-              >
-                CJ
-              </Avatar>
-            </Box>
-            <Box flexDirection={"column"} ml={1}>
-              <Box display={"flex"} alignItems={"center"}>
-                <Typography variant="h4" fontWeight={600} mr={2.5}>
-                  Crystals Jones
-                </Typography>
-
-                {/* custom chip*/}
-
-                {data.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
-              </Box>
+          <Box
+            display={"flex"}
+            justifyContent={"space-between"}
+            alignItems={"baseline"}
+            bgcolor={"#f9fafb"}
+            px={2.5}
+            borderRadius={"8px 8px 0 0px"}
+          >
+            <Box display={"flex"}>
               <Box>
-                <Typography variant="subtitle2" fontWeight={600} mt={0.5}>
-                  Working as{" "}
+                <Avatar
+                  variant="rounded"
+                  sx={{
+                    height: "50px",
+                    width: "50px",
+                    bgcolor: "primary.main",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                  }}
+                >
+                  {candiData.candidate_name.charAt(0)}
+                </Avatar>
+              </Box>
+              <Box flexDirection={"column"} ml={1}>
+                <Box display={"flex"} alignItems={"center"}>
+                  <Typography variant="h4" fontWeight={600} mr={2.5}>
+                    {candiData.candidate_name}
+                  </Typography>
+
+                  {/* custom chip*/}
+
+                  {data.map((item, index) => (
+                    <CustomChip item={item} key={index} />
+                  ))}
+                </Box>
+                <Box display={"flex"}>
                   <Typography
-                    component={"span"}
                     variant="subtitle2"
                     fontWeight={600}
-                    color={"text.primary"}
-                  >{`Product Designer`}</Typography>{" "}
-                  in {`Spotify Inc. `}
-                </Typography>
+                    mt={0.5}
+                    mr={1}
+                  >
+                    Working as {candiData.candidate_position}
+                  </Typography>
+
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight={600}
+                    mt={0.5}
+                    display={"flex"}
+                    alignItems={"center"}
+                    ml={2}
+                  >
+                    <AccessAlarmsIcon
+                      sx={{ color: "text.secondary", fontSize: 14, mr: 0.5 }}
+                    />{" "}
+                    {candiData.updated_at}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
+            <Stack direction={"row"} justifyContent={"flex-end"}>
+              <FileDownloadIcon
+                sx={{
+                  width: 25,
+                  height: 25,
+                  mr: 1.5,
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
+                }}
+              />
+              <BookmarkIcon
+                sx={{
+                  width: 25,
+                  height: 25,
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
+                }}
+                onClick={() =>
+                  enqueueSnackbar("Jobs Bookmark", { variant: "success" })
+                }
+              />
+            </Stack>
           </Box>
-          <Stack direction={"row"} justifyContent={"flex-end"}>
-            <FileDownloadIcon
-              sx={{
-                width: 25,
-                height: 25,
-                mr: 1.5,
-                cursor: "pointer",
-                "&:hover": {
-                  color: "primary.main",
-                },
-              }}
-            />
-            <BookmarkIcon
-              sx={{
-                width: 25,
-                height: 25,
-                cursor: "pointer",
-                "&:hover": {
-                  color: "primary.main",
-                },
-              }}
-              onClick={() =>
-                enqueueSnackbar("Jobs Bookmark", { variant: "success" })
-              }
-            />
-          </Stack>
-        </Box>
-        <Box px={2.5} pt={0.5}>
-          <Typography variant="body2">
-            {isShowMore ? cvData : cvData.slice(0, 136)}...
-            <Typography
-              component={"span"}
-              variant="subtitle2"
-              onClick={() => setIsShowMore(!isShowMore)}
-            >
-              {isShowMore ? "Show Less" : "Read More"}
+          <Box px={2.5} pt={0.5}>
+            <Typography variant="body2">
+              {isShowMore
+                ? candiData.candidate_summary
+                : candiData.candidate_summary.slice(0, 136)}
+              ...
+              <Typography
+                component={"span"}
+                variant="subtitle2"
+                onClick={() => setIsShowMore(!isShowMore)}
+              >
+                {isShowMore ? "Show Less" : "Read More"}
+              </Typography>
             </Typography>
-          </Typography>
-        </Box>
+          </Box>
 
-        {/* section for roles and about  */}
+          {/* section for roles and about  */}
 
-        <Box py={1}>
-          <Grid container rowSpacing={1}>
-            <Grid item xs={9.3} onMouseOver={() => setActive(true)}>
-              {/* Work experience card  */}
+          <Box py={1}>
+            <Grid container rowSpacing={1}>
+              <Grid item xs={9.3} onMouseOver={() => setActive(true)}>
+                {/* Work experience card  */}
 
-              <ExperianceCard active={active} />
+                <ExperianceCard
+                  candiExpData={candiData?.experiance}
+                  active={active}
+                />
 
-              {/* education card */}
+                {/* education card */}
 
-              <EducationCard />
+                <EducationCard candiEduData={candiData?.education} />
 
-              {/* Skills */}
+                {/* Skills */}
 
-              <ListOfSkills />
+                <ListOfSkills />
+              </Grid>
+              <Divider
+                orientation="vertical"
+                sx={{ bgcolor: "secondary.main", mt: 2 }}
+                flexItem
+              />
+              <Grid item xs={2.5}>
+                <BasicDetails />
+              </Grid>
             </Grid>
-            <Divider
-              orientation="vertical"
-              sx={{ bgcolor: "secondary.main", mt: 2 }}
-              flexItem
-            />
-            <Grid item xs={2.5}>
-              <BasicDetails />
-            </Grid>
-          </Grid>
-        </Box>
+          </Box>
 
-        {/* Buttons for action */}
-        <Box display={"flex"} justifyContent={"flex-end"} px={2.5}>
-          {/* <Button
+          {/* Buttons for action */}
+          <Box display={"flex"} justifyContent={"flex-end"} px={2.5}>
+            {/* <Button
             variant="contained"
             size="small"
             sx={{
@@ -226,8 +229,9 @@ function CandidateListCard(props: any) {
           >
             Rejected
           </Button> */}
+          </Box>
         </Box>
-      </Box>
+      ))}
     </Box>
   );
 }
