@@ -11,6 +11,9 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 // Custom Components
 import CustomChip from "../common/CustomChip";
+import GradeIcon from '@mui/icons-material/Grade';
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
 import BasicProfile from "./BasicProfile";
 
 function SectionHeading() {
@@ -28,18 +31,22 @@ function SectionHeading() {
   const data = [
     {
       label: "60% Relevance",
-      icon: "",
+      icon: <ArrowCircleUpIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
+      description:"Showcases profile relevance percentage compared with the Job Description"
+    },
+    
+    {
+      label: "A+(96-100)",
+      icon: <GradeIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      color: "",
+      description:"Compared with other candidates"
     },
     {
       label: "Recruiter Choice",
-      icon: "",
+      icon: <GppGoodOutlinedIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
-    },
-    {
-      label: "A+(96-100)",
-      icon: "",
-      color: "",
+      description:"Many recruiters have bookmarked this candidate and selected them for interviews."
     },
   ];
 

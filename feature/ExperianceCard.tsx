@@ -41,12 +41,15 @@ function ExperianceCard(props: any) {
       label: "10% Reviews",
       icon: "",
       color: "",
+      description:"client and employee review  compared  with your company"
+
     },
     {
       label: "5% Overall",
       icon: "",
       education:true,
       color: "#87CEEB",
+      description:"overall comparison  with company leader in same sector in local region"
     },
   
 
