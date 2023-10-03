@@ -31,8 +31,11 @@ function CustomChip(props: any) {
           display={"flex"}
           alignItems={"center"}
         >
-          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "}
+          {item?.icon ? item.icon :  
+          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+           }{" "}
           {item?.label ? item?.label : "Forbes 10 Company"}
+
         </Typography>
       </Tooltip>
     </Box>
