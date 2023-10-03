@@ -35,11 +35,13 @@ function EducationalDetails(props: any) {
       label: "10% Overall",
       icon: "",
       color: "",
+      description:"Overall comparison  with  top institute  in local region"
     },
     {
       label: "20% Ranking",
       icon: "",
       color: "",
+      description:"government ranking and service comparison  with  top institute  in local region"
     },
     
   ];
