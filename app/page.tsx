@@ -15,19 +15,12 @@ function Home() {
       <Heading />
       {/* candidate card  section  */}
       <Container maxWidth="lg">
+        <CandidateListCard />
+        <CandidateListCard />
 
-        {/* <CandidateListCard />
-        <CandidateListCard /> */}
-        <CandidateList />
-        <CandidateList />
+        {/* candidate detail popup  */}
 
-
-        {/* <CandidateListCard /> */}
-        <CandidateList />
-        <CandidateList />
-
-        {/* footer section  */}
-        {/* <CandidateDetails /> */}
+        <CandidateDetails />
       </Container>
     </Box>
   );
