@@ -35,9 +35,16 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useSnackbar } from "notistack";
 import CustomChip from "./common/CustomChip";
 
+import GradeIcon from '@mui/icons-material/Grade'
+import GppGoodIcon from '@mui/icons-material/GppGood';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
+
+
+
 function CandidateListCard(props: any) {
   //**  props -- components  */
   const { handleActive } = props;
+
 
   //**   useRouter  hooks    */
   const router = useRouter();
@@ -58,17 +65,17 @@ function CandidateListCard(props: any) {
   const data = [
     {
       label: "60% Relevance",
-      icon: "",
+      icon: <ArrowCircleUpIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
     },
     {
       label: "Recruiter Choice",
-      icon: "",
+      icon: <GppGoodIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
     },
     {
       label: "A+(96-100)",
-      icon: "",
+      icon: <GradeIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
       color: "",
     },
   ];
