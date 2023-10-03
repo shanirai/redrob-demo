@@ -60,7 +60,7 @@ function ExperianceCard(props: any) {
           </Grid>
           <Grid item xs={10}>
             <Box ml={1.5}>
-              <Box display={"flex"} alignItems={"baseline"}>
+              <Box display={"flex"} alignItems={"center"}>
                 <Typography
                   variant="h6"
                   fontWeight={600}

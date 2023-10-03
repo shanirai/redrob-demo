@@ -155,7 +155,6 @@ function CandidateListCard() {
               sx={{
                 width: 25,
                 height: 25,
-                mr: 1.5,
                 cursor: "pointer",
                 "&:hover": {
                   color: "primary.main",
