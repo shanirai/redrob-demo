@@ -35,7 +35,10 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useSnackbar } from "notistack";
 import CustomChip from "./common/CustomChip";
 
-function CandidateListCard() {
+function CandidateListCard(props: any) {
+  //**  props -- components  */
+  const { handleActive } = props;
+
   //**   useRouter  hooks    */
   const router = useRouter();
   //***   useState hooks   */
