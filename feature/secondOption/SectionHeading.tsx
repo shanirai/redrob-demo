@@ -44,7 +44,7 @@ function SectionHeading() {
   ];
 
   return (
-    <Box display={"flex"}>
+    <Box display={"flex"} mb={1.5}>
       <Box>
         <Avatar
           variant="rounded"
@@ -56,7 +56,7 @@ function SectionHeading() {
             fontSize: "20px",
           }}
         >
-          CJ
+          N
         </Avatar>
       </Box>
 
@@ -64,7 +64,7 @@ function SectionHeading() {
         <Grid container display={"flex"} alignItems={"flex-end"}>
           <Grid item xs={2}>
             <Typography variant="h4" fontWeight={600}>
-              Crystals Jones
+              Nirmala Gond
             </Typography>
           </Grid>
           <Grid item xs={5}>
@@ -106,7 +106,10 @@ function SectionHeading() {
             </Box>
           </Grid>
         </Grid>
-        <BasicProfile />
+        <Typography variant="subtitle2">
+          Working as Senior Software Developer
+        </Typography>
+        {/* <BasicProfile /> */}
       </Box>
     </Box>
   );
