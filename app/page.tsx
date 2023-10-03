@@ -9,6 +9,7 @@ import CandidateListCard from "@/feature/CandidateListCard";
 import CandidateList from "@/feature/secondOption/CandidateList";
 import CandidateDetails from "@/feature/candidateDetail/CandidateDetails";
 import RightSidePanel from "@/feature/panel/RightSidePanel";
+import CandidateRecord from "../data/candi.json";
 
 function Home() {
   const [active, setActive] = useState(false);
@@ -19,7 +20,6 @@ function Home() {
       {/* candidate card  section  */}
       <Container maxWidth="lg">
         <RightSidePanel>
-          <CandidateListCard />
           <CandidateListCard />
         </RightSidePanel>
       </Container>
