@@ -23,7 +23,7 @@ import ExperienceCompare from "./ExperienceCompare";
 
 function ExperianceDetails(props: any) {
   //** props -- components */
-  const { active } = props;
+  const { active, filterData } = props;
   const [isShowMore, setIsShowMore] = useState(false);
   const [isShowMore2, setIsShowMore2] = useState(false);
   // exp data
@@ -32,32 +32,31 @@ function ExperianceDetails(props: any) {
       label: "10% Culture",
       icon: "",
       color: "",
-      description:"Signifies a positive alignment with the cultural aspects of your company."
+      description:
+        "Signifies a positive alignment with the cultural aspects of your company.",
     },
     {
       label: "20% Overall",
       icon: "",
       color: "",
-      description:"Indicates a favorable comparison with your company in general"
+      description:
+        "Indicates a favorable comparison with your company in general",
     },
     {
       label: "10% Reviews",
       icon: "",
       color: "",
-      description:"client and employee review  compared  with your company"
-
+      description: "client and employee review  compared  with your company",
     },
     {
       label: "5% Overall",
       icon: "",
-      education:true,
+      education: true,
       color: "#87CEEB",
-      description:"overall comparison  with company leader in same sector in local region"
+      description:
+        "overall comparison  with company leader in same sector in local region",
     },
   ];
-
-
-   
 
   const data = [
     {
@@ -94,7 +93,7 @@ function ExperianceDetails(props: any) {
         px={2.5}
         py={2.5}
       >
-        <Stack direction={"row"} justifyContent={"space-between"}>
+        <Stack direction={"row"} justifyContent={"space-between"} width={"66%"}>
           <Typography variant="h5">Experience</Typography>
           <Typography
             variant="subtitle2"
@@ -104,266 +103,123 @@ function ExperianceDetails(props: any) {
             4 years Experience
           </Typography>
         </Stack>
-        <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
-          <Grid item xs={8}>
-            <Box my={1}>
-              <Box display={"flex"} alignItems={"baseline"}>
-                <Typography
-                  variant="h6"
-                  fontWeight={600}
-                  sx={{ cursor: "pointer" }}
-                >
-                 Techugo Pvt. Ltd
-                </Typography>
-                {/* custom chip */}
+        {filterData[0]?.experiance?.map((filterExpData: any, index: any) => (
+          <Box key={index}>
+            <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
+              <Grid item xs={8}>
+                <Box my={1}>
+                  <Stack
+                    direction={"row"}
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                  >
+                    <Typography variant="h6" color={"text.primary"}>
+                      {filterExpData?.job_title}
+                    </Typography>
+                    <Typography variant="subtitle2" color={"text.secondary"}>
+                      {filterExpData?.from} - {filterExpData?.to}
+                    </Typography>
+                  </Stack>
+                  <Box display={"flex"} alignItems={"center"}>
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={500}
+                      sx={{ cursor: "pointer" }}
+                    >
+                      {filterExpData?.name}
+                    </Typography>
+                    {/* custom chip */}
 
-                {expData.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
-              </Box>
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-                mt={1}
-              >
-                <Typography variant="subtitle2" color={"text.primary"}>
-                Senior Software Developer
-                </Typography>
-                <Typography variant="subtitle2" color={"text.secondary"}>
-                Aug 2018 – Present
-                </Typography>
-              </Stack>
-              <Stack direction={"row"}>
-                <Typography variant="body2" color={"text.secondary"} ml={1}>
-                Noida, UP
-                </Typography>
-              </Stack>
-              <Box mt={2}>
-                {!isShowMore
-                  ? sliceData.map((item, index) => {
-                      return (
-                        <>
-                          {
-                            <Typography
-                              key={index}
-                              variant="body2"
-                              display={"flex"}
-                              alignItems={"baseline"}
-                              pb={1}
-                            >
-                              <CircleIcon
-                                sx={{
-                                  color: "secondary.light",
-                                  fontSize: 12,
-                                  mr: 1,
-                                }}
-                              />
-                              {item.points}
+                    {expData.map((item, index) => (
+                      <CustomChip item={item} key={index} />
+                    ))}
+                  </Box>
 
-                              {item.index == 2 ? (
-                                <Typography
-                                  component={"span"}
-                                  variant="subtitle2"
-                                  onClick={() => setIsShowMore(!isShowMore)}
-                                  sx={{
-                                    color: "red",
-                                    marginLeft: "3px",
-                                    cursor: "pointer",
-                                  }}
-                                >
-                                  {isShowMore ? "...less" : "...more"}
-                                </Typography>
-                              ) : (
-                                ""
-                              )}
-                            </Typography>
-                          }
-                        </>
-                      );
-                    })
-                  : data.map((item, index) => {
-                      return (
-                        <Typography
-                          key={index}
-                          variant="body2"
-                          display={"flex"}
-                          alignItems={"baseline"}
-                          pb={1}
-                        >
-                          <CircleIcon
+                  <Stack direction={"row"}>
+                    <Typography variant="body2" color={"text.secondary"} ml={1}>
+                      {filterExpData?.location}
+                    </Typography>
+                  </Stack>
+                  <Box mt={2}>
+                    {isShowMore ? (
+                      <Typography
+                        key={index}
+                        variant="body2"
+                        display={"flex"}
+                        alignItems={"baseline"}
+                        pb={1}
+                      >
+                        <CircleIcon
+                          sx={{
+                            color: "secondary.light",
+                            fontSize: 12,
+                            mr: 1,
+                          }}
+                        />
+                        <span>
+                          {filterExpData?.description}
+                          <Typography
+                            component={"span"}
+                            variant="subtitle2"
+                            onClick={() => setIsShowMore(!isShowMore)}
                             sx={{
-                              color: "secondary.light",
-                              fontSize: 12,
-                              mr: 1,
+                              color: "red",
+                              marginLeft: "3px",
+                              cursor: "pointer",
                             }}
-                          />
-                          <span>
-                            {item.points}
-
-                            {item.index == lastlen ? (
-                              <Typography
-                                component={"span"}
-                                variant="subtitle2"
-                                onClick={() => setIsShowMore(!isShowMore)}
-                                sx={{
-                                  color: "red",
-                                  marginLeft: "3px",
-                                  cursor: "pointer",
-                                }}
-                              >
-                                {isShowMore ? "...less" : "...more"}
-                              </Typography>
-                            ) : (
-                              ""
-                            )}
-                          </span>
-                        </Typography>
-                      );
-                    })}
-              </Box>
-            </Box>
-          </Grid>
-          <Divider
-            orientation="vertical"
-            sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
-            flexItem
-          />
-          <Grid item xs={4}>
-           <ExperienceCompare/>
-          </Grid>
-        </Grid>
-        <Divider sx={{ my: 2 }} />
-        {/* second experiance secion code replicate */}
-        <Box>
-          <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
-            <Grid item xs={8}>
-              <Box display={"flex"} alignItems={"baseline"}>
-                <Typography
-                  variant="h6"
-                  fontWeight={600}
-                  sx={{ cursor: "pointer" }}
-                >
-                  Ginger Webs Pvt. Ltd.
-                </Typography>
-                {/* custom chip */}
-
-                {expData.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
-              </Box>
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-                mt={1}
-              >
-                <Typography variant="subtitle2" color={"text.primary"}>
-                  Software Developer
-                </Typography>
-                <Typography variant="subtitle2" color={"text.secondary"}>
-                Oct 2017 – May 2018
-                </Typography>
-              </Stack>
-              <Stack direction={"row"}>
-                <Typography variant="body2" color={"text.secondary"} ml={1}>
-                Noida, UP
-                </Typography>
-              </Stack>
-              <Box mt={2}>
-              {!isShowMore2
-                  ? sliceData.map((item, index) => {
-                      return (
-                        <>
-                          {
-                            <Typography
-                              key={index}
-                              variant="body2"
-                              display={"flex"}
-                              alignItems={"baseline"}
-                              pb={1}
-                            >
-                              <CircleIcon
-                                sx={{
-                                  color: "secondary.light",
-                                  fontSize: 12,
-                                  mr: 1,
-                                }}
-                              />
-                              {item.points}
-
-                              {item.index == 2 ? (
-                                <Typography
-                                  component={"span"}
-                                  variant="subtitle2"
-                                  onClick={() => setIsShowMore2(!isShowMore2)}
-                                  sx={{
-                                    color: "red",
-                                    marginLeft: "3px",
-                                    cursor: "pointer",
-                                  }}
-                                >
-                                  {isShowMore2 ? "...less" : "...more"}
-                                </Typography>
-                              ) : (
-                                ""
-                              )}
-                            </Typography>
-                          }
-                        </>
-                      );
-                    })
-                  : data.map((item, index) => {
-                      return (
-                        <Typography
-                          key={index}
-                          variant="body2"
-                          display={"flex"}
-                          alignItems={"baseline"}
-                          pb={1}
-                        >
-                          <CircleIcon
+                          >
+                            {isShowMore ? "...less" : "...more"}
+                          </Typography>
+                        </span>
+                      </Typography>
+                    ) : (
+                      <Typography
+                        key={index}
+                        variant="body2"
+                        display={"flex"}
+                        alignItems={"baseline"}
+                        pb={1}
+                      >
+                        <CircleIcon
+                          sx={{
+                            color: "secondary.light",
+                            fontSize: 12,
+                            mr: 1,
+                          }}
+                        />
+                        <span>
+                          {filterExpData?.description.slice(0, 136)}
+                          <Typography
+                            component={"span"}
+                            variant="subtitle2"
+                            onClick={() => setIsShowMore(!isShowMore)}
                             sx={{
-                              color: "secondary.light",
-                              fontSize: 12,
-                              mr: 1,
+                              color: "red",
+                              marginLeft: "3px",
+                              cursor: "pointer",
                             }}
-                          />
-                          <span>
-                            {item.points}
+                          >
+                            {isShowMore ? "...less" : "...more"}
+                          </Typography>
+                        </span>
+                      </Typography>
+                    )}
+                  </Box>
+                </Box>
+              </Grid>
+              <Divider
+                orientation="vertical"
+                sx={{ bgcolor: "secondary.main", ml: 1.5 }}
+                flexItem
+              />
+              <Grid item xs={4}>
+                <ExperienceCompare />
+              </Grid>
+            </Grid>
 
-                            {item.index == lastlen ? (
-                              <Typography
-                                component={"span"}
-                                variant="subtitle2"
-                                onClick={() => setIsShowMore2(!isShowMore2)}
-                                sx={{
-                                  color: "red",
-                                  marginLeft: "3px",
-                                  cursor: "pointer",
-                                }}
-                              >
-                                {isShowMore2 ? "...less" : "...more"}
-                              </Typography>
-                            ) : (
-                              ""
-                            )}
-                          </span>
-                        </Typography>
-                      );
-                    })}
-              </Box>
-            </Grid>
-            <Divider
-              orientation="vertical"
-              sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
-              flexItem
-            />
-            <Grid item xs={4}>
-             <ExperienceCompare/>
-            </Grid>
-          </Grid>
-        </Box>
+            <Divider sx={{ my: 2 }} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );

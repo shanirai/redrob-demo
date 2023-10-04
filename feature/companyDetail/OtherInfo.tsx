@@ -12,7 +12,7 @@ function OtherInfo(props: any) {
   const { tech, revenue, visible, dollar } = props;
   const { label, value, icon } = props.data;
 
-  console.log("icon tech rev", label, icon, tech, revenue);
+  // console.log("icon tech rev", label, icon, tech, revenue);
 
   return (
     <Box
