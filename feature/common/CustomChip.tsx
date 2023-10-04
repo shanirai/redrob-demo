@@ -22,7 +22,7 @@ function CustomChip(props: any) {
       >
         <Typography
           variant="caption"
-          bgcolor= {`${item.education ? item.color :"secondary.light"}`}
+          bgcolor={`${item.education ? item.color : "secondary.light"}`}
           // bgcolor={`${item?.color ? item.color}"secondary.light"}
           ml={1}
           px={1.5}
@@ -33,11 +33,12 @@ function CustomChip(props: any) {
           display={"flex"}
           alignItems={"center"}
         >
-          {item?.icon ? item.icon :  
-          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
-           }{" "}
+          {item?.icon ? (
+            item.icon
+          ) : (
+            <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
+          )}{" "}
           {item?.label ? item?.label : "Forbes 10 Company"}
-
         </Typography>
       </Tooltip>
     </Box>

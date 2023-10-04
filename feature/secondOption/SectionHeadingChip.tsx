@@ -54,6 +54,7 @@ function SectionHeadingChip(props: any) {
           display={"flex"}
           alignItems={"center"}
         >
+          <Typography component={"span"}>{icon}</Typography>
           {title}
         </Typography>
       </Tooltip>

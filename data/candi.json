@@ -12,30 +12,7 @@
     "candidate_email": "nirmalaglsrm27@gmail.com",
     "candidate_phone": "9890655543",
     "jd_per": 90,
-    "candidate_tag":[
-      {
-        "label": "90",
-        "icon": "jd_per",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "A+",
-        "icon": "grade",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "true",
-        "icon": "rc",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      }
-  
-    ],
+    
     "candidate_grade": "A+(96-100)",
     "recruiter_choice": true,
     "overall_avg": "80",
@@ -204,30 +181,7 @@
     "candidate_portfolio": null,
     "candidate_email": "abhinashindia@gmail.com",
     "candidate_phone": "9505462560",
-    "candidate_tag":[
-      {
-        "label": "90",
-        "icon": "jd_per",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "A+",
-        "icon": "grade",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "true",
-        "icon": "rc",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      }
-  
-    ],
+ 
     "jd_per": 80,
     "candidate_grade": "A(80–90)",
     "recruiter_choice": false,
@@ -397,30 +351,7 @@
     "candidate_portfolio": null,
     "candidate_email": "manish.gaur19986@gmail.com",
     "candidate_phone": "6205462560",
-    "candidate_tag":[
-      {
-        "label": "90",
-        "icon": "jd_per",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "A+",
-        "icon": "grade",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      },
-      {
-        "label": "true",
-        "icon": "rc",
-        "color": true,
-        "description":
-          "Showcases profile relevance percentage compared with the Job Description"
-      }
-  
-    ],
+
     "jd_per": 60,
     "candidate_grade": "B+(65–75)",
     "recruiter_choice": true,
