@@ -8,18 +8,15 @@ import { Box, Grid, Typography } from "@mui/material";
 // MUI icons
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import HomeWorkIcon from "@mui/icons-material/HomeWork";
-import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import PublicIcon from "@mui/icons-material/Public";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
 // Custom packages
 
-function BasicInfo() {
+function BasicInfo(props: any) {
   //** useRouter hooks */
   const router = useRouter();
+
+  //** props -- components  */
+  const { filterData } = props;
 
   return (
     <Box>
@@ -39,7 +36,7 @@ function BasicInfo() {
                 Current Designation
               </Typography>
               <Typography variant="subtitle2" color={"text.primary"} mt={1}>
-                Software Developer
+                {filterData[0]?.candidate_position}
               </Typography>
             </Grid>
             <Grid item xs={4}>
@@ -47,7 +44,7 @@ function BasicInfo() {
                 Email
               </Typography>
               <Typography variant="subtitle2" color={"text.primary"} mt={1}>
-                shani.rai@mckinelyrice.com
+                {filterData[0]?.candidate_email}
               </Typography>
             </Grid>
             <Grid item xs={2}>
@@ -55,7 +52,7 @@ function BasicInfo() {
                 Phone
               </Typography>
               <Typography variant="subtitle2" color={"text.primary"} mt={1}>
-                (+91) 8005903527
+                {filterData[0]?.candidate_phone}
               </Typography>
             </Grid>
             <Grid item xs={2}>
@@ -63,54 +60,62 @@ function BasicInfo() {
                 Location
               </Typography>
               <Typography variant="subtitle2" mt={1}>
-                Noida, UP
+                {filterData[0]?.candidate_current_location}
               </Typography>
             </Grid>
             <Grid item xs={2}>
               <Typography variant="subtitle2" color={"text.secondary"}>
                 Social Links
               </Typography>
+
               <Typography component={"span"} display={"flex"} mt={1}>
-                <LinkedInIcon
-                  sx={{
-                    width: 18,
-                    height: 18,
-                    mr: 1.5,
-                    cursor: "pointer",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
-                  }}
-                  onClick={() =>
-                    router.push("https://www.linkedin.com/company/mckinley")
-                  }
-                />
-                <GitHubIcon
-                  sx={{
-                    width: 18,
-                    height: 18,
-                    mr: 1.5,
-                    cursor: "pointer",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
-                  }}
-                  onClick={() =>
-                    router.push("https://github.com/mckinley-rice-india/")
-                  }
-                />
-                <PublicIcon
-                  sx={{
-                    width: 18,
-                    height: 18,
-                    mr: 1.5,
-                    cursor: "pointer",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
-                  }}
-                  onClick={() => router.push("https://mckinleyrice.com/")}
-                />
+                {filterData[0]?.candidate_linkedin === null ? null : (
+                  <LinkedInIcon
+                    sx={{
+                      width: 18,
+                      height: 18,
+                      mr: 1.5,
+                      cursor: "pointer",
+                      "&:hover": {
+                        color: "primary.main",
+                      },
+                    }}
+                    onClick={() =>
+                      router.push(filterData[0]?.candidate_linkedin)
+                    }
+                  />
+                )}
+                {filterData[0]?.candidate_github === null ? null : (
+                  <GitHubIcon
+                    sx={{
+                      width: 18,
+                      height: 18,
+                      mr: 1.5,
+                      cursor: "pointer",
+                      "&:hover": {
+                        color: "primary.main",
+                      },
+                    }}
+                    onClick={() => router.push(filterData[0]?.candidate_github)}
+                  />
+                )}
+
+                {filterData[0]?.candidate_portfolio === null ? null : (
+                  <PublicIcon
+                    sx={{
+                      width: 18,
+                      height: 18,
+                      mr: 1.5,
+                      cursor: "pointer",
+                      "&:hover": {
+                        color: "primary.main",
+                      },
+                    }}
+                    onClick={() =>
+                      router.push(filterData[0]?.candidate_portfolio)
+                    }
+                  />
+                )}
               </Typography>
             </Grid>
           </Grid>

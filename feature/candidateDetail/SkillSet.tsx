@@ -8,23 +8,9 @@ import { Box, Typography, Chip } from "@mui/material";
 // Third party packages
 // Custom components
 
-function SkillSet() {
-  // Skills Data
-  const skillsData = [
-    "Java",
-    "PHP",
-    "AWS",
-    "Node JS",
-    "Python",
-    "Javascript",
-    "React JS",
-    "Angular JS",
-    "Mircosoft",
-    "Azure",
-    "Kafka",
-    "C++",
-    "SQL",
-  ];
+function SkillSet(props: any) {
+  //** props -- components */
+  const { filterData } = props;
 
   //** handle clickable chip */
   const handleClick = () => {
@@ -43,13 +29,14 @@ function SkillSet() {
       >
         <Typography variant="h5"> Skills </Typography>
         <Box>
-          {skillsData.map((item, index) => (
+          {filterData[0]?.skills?.map((item: any, index: any) => (
             <Chip
               label={item}
               size="small"
               sx={{
                 mr: 1,
                 mb: 1,
+                textTransform: "capitalize",
                 "&:hover": { bgcolor: "primary.main" },
               }}
               key={index}

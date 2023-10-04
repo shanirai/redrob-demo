@@ -5,7 +5,10 @@ import { Box, Typography } from "@mui/material";
 // Third party packages
 // Custom components
 
-function SummaryCard() {
+function SummaryCard(props: any) {
+  //** props -- components */
+  const { filterData } = props;
+
   return (
     <Box
       bgcolor={"#F8F8F8"}
@@ -17,9 +20,7 @@ function SummaryCard() {
       <Typography variant="h5">AI Summary</Typography>
       <Box bgcolor={"#ECECEC"} px={2} py={2} borderRadius={2} mt={1.5}>
         <Typography variant="body1">
-          Overall 4+ years of hands on experience in building web applications
-          using ReactJs and also having hands on experience in mobile
-          application development in React Native
+          {filterData[0]?.candidate_summary}
         </Typography>
       </Box>
     </Box>

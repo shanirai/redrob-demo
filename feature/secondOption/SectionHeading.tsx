@@ -11,12 +11,16 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 // Custom Components
 import CustomChip from "../common/CustomChip";
-import GradeIcon from '@mui/icons-material/Grade';
-import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
+import GradeIcon from "@mui/icons-material/Grade";
+import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import BasicProfile from "./BasicProfile";
 
-function SectionHeading() {
+function SectionHeading(props: any) {
+  //** props -- components */
+  const { filterData } = props;
+
   //**   useRouter  hooks    */
   const router = useRouter();
 
@@ -31,22 +35,24 @@ function SectionHeading() {
   const data = [
     {
       label: "60% Relevance",
-      icon: <ArrowCircleUpIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <ArrowCircleUpIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Showcases profile relevance percentage compared with the Job Description"
+      description:
+        "Showcases profile relevance percentage compared with the Job Description",
     },
-    
+
     {
       label: "A+(96-100)",
-      icon: <GradeIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <GradeIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Compared with other candidates"
+      description: "Compared with other candidates",
     },
     {
       label: "Recruiter Choice",
-      icon: <GppGoodOutlinedIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <GppGoodOutlinedIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Many recruiters have bookmarked this candidate and selected them for interviews."
+      description:
+        "Many recruiters have bookmarked this candidate and selected them for interviews.",
     },
   ];
 
@@ -63,15 +69,14 @@ function SectionHeading() {
             fontSize: "20px",
           }}
         >
-          N
+          {filterData[0]?.candidate_name.charAt(0)}
         </Avatar>
       </Box>
-
       <Box flexGrow={1} ml={1}>
-        <Grid container display={"flex"} alignItems={"flex-end"}>
+        <Grid container display={"flex"} alignItems={"center"}>
           <Grid item xs={2}>
             <Typography variant="h4" fontWeight={600}>
-              Nirmala Gond
+              {filterData[0]?.candidate_name}
             </Typography>
           </Grid>
           <Grid item xs={5}>
@@ -113,10 +118,23 @@ function SectionHeading() {
             </Box>
           </Grid>
         </Grid>
-        <Typography variant="subtitle2">
-          Working as Senior Software Developer
-        </Typography>
-        {/* <BasicProfile /> */}
+        <Box display={"flex"}>
+          <Typography variant="subtitle2">
+            Working as {filterData[0]?.candidate_position}
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            fontWeight={600}
+            display={"flex"}
+            alignItems={"center"}
+            ml={2}
+          >
+            <AccessAlarmsIcon
+              sx={{ color: "text.secondary", fontSize: 14, mr: 0.5 }}
+            />{" "}
+            {filterData[0]?.updated_at}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
