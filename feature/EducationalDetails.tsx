@@ -17,6 +17,8 @@ import {
   Zoom,
 } from "@mui/material";
 // MUI icons
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GradeIcon from "@mui/icons-material/Grade";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
@@ -86,9 +88,99 @@ function EducationalDetails(props: any) {
                     <Typography variant="subtitle2">
                       {candiEdu?.institute_name}
                     </Typography>
-                    {eduData.map((item, index) => (
+                    {/* {eduData.map((item, index) => (
                       <CustomChip item={item} key={index} />
-                    ))}
+                    ))} */}
+                    <Stack direction={"row"} spacing={1} ml={1}>
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            learning from accredited institutions in India can
+                            play a crucial role in shaping a candidate's
+                            character, behavior, and outlook in the workplace.
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />{" "}
+                          {candiEdu?.t_accreditation_tag}
+                        </Typography>
+                      </Tooltip>
+
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            Learning from top-ranking institutions in India can
+                            cultivate traits like diligence, global awareness,
+                            competitiveness, ethical values, and a drive for
+                            excellence
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                          {candiEdu?.t_ranking_per}% Ranking
+                        </Typography>
+                      </Tooltip>
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            After assessing the candidate's educational
+                            institution in comparison to a leading educational
+                            institute, using relevant data, it's evident that
+                            this candidate's institute meets a high standard and
+                            is comparable to the top institution
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"#87CEEB"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />{" "}
+                          {candiEdu.t_overall_per}% Overall
+                        </Typography>
+                      </Tooltip>
+                    </Stack>
                   </Box>
                   <Box pt={1} justifyContent={"flex-end"}>
                     <RightSidePanel cardId={cardId} />

@@ -21,6 +21,7 @@ import { TransitionProps } from "@mui/material/transitions";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
+import GradeIcon from "@mui/icons-material/Grade";
 // Custom components
 import CustomChip from "../common/CustomChip";
 import EducationCompare from "./EducationCompare";
@@ -132,7 +133,7 @@ function EducationDetailsCard(props: any) {
                           display={"flex"}
                           alignItems={"center"}
                         >
-                          {/* <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "} */}
+                          <GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />
                           {filterEduData.t_accreditation_tag}
                         </Typography>
                       </Tooltip>
@@ -185,14 +186,14 @@ function EducationDetailsCard(props: any) {
                         <Typography
                           component={"span"}
                           variant="subtitle2"
+                          fontWeight={600}
                           sx={{
-                            color: "red",
                             marginLeft: "3px",
                             cursor: "pointer",
                           }}
                           onClick={() => setIsShowMore(!isShowMore)}
                         >
-                          {isShowMore ? "...less" : "...more"}
+                          {isShowMore ? "...Show Less" : "...Show More"}
                         </Typography>
                       </span>
                     </Typography>
@@ -207,8 +208,8 @@ function EducationDetailsCard(props: any) {
               />
               {/* //Right column */}
               <Grid item xs={4}>
-                <EducationCompare 
-                onClick={() => handleClickOpen(filterEduData)}
+                <EducationCompare
+                  onClick={() => handleClickOpen(filterEduData)}
                 />
               </Grid>
             </Grid>

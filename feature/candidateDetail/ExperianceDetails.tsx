@@ -23,6 +23,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GradeIcon from "@mui/icons-material/Grade";
 // Custom components
 import CustomChip from "../common/CustomChip";
 import ExperienceCompare from "./ExperienceCompare";
@@ -228,13 +229,13 @@ function ExperianceDetails(props: any) {
                             component={"span"}
                             variant="subtitle2"
                             onClick={() => setIsShowMore(!isShowMore)}
+                            fontWeight={600}
                             sx={{
-                              color: "red",
                               marginLeft: "3px",
                               cursor: "pointer",
                             }}
                           >
-                            {isShowMore ? "...less" : "...more"}
+                            {isShowMore ? "...Show Less" : "...Show More"}
                           </Typography>
                         </span>
                       </Typography>
@@ -259,13 +260,13 @@ function ExperianceDetails(props: any) {
                             component={"span"}
                             variant="subtitle2"
                             onClick={() => setIsShowMore(!isShowMore)}
+                            fontWeight={600}
                             sx={{
-                              color: "red",
                               marginLeft: "3px",
                               cursor: "pointer",
                             }}
                           >
-                            {isShowMore ? "...less" : "...more"}
+                            {isShowMore ? "...Show Less" : "...Show More"}
                           </Typography>
                         </span>
                       </Typography>

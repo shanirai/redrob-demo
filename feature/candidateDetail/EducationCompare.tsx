@@ -24,7 +24,7 @@ function EducationCompare(props: any) {
       }}
     >
       <Stack direction={"row"} mb={1}>
-        <Typography variant="h5" sx={{ color: "#87CEEB;" }}>
+        <Typography variant="h5" sx={{ color: "#45b3e0" }}>
           AI Recommended Top in Institute
         </Typography>
       </Stack>
@@ -85,7 +85,7 @@ function EducationCompare(props: any) {
                   display={"flex"}
                   alignItems={"center"}
                 >
-                  <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                  <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
                   {item.t_overall_per}% Overall
                 </Typography>
               </Tooltip>

@@ -130,9 +130,7 @@ function CandidateListCard(props: any) {
                     <SectionHeadingChip
                       title={`${candiData?.candidate_grade}`}
                       icon={<GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />}
-                      tooltip_desc={
-                        "Showcases profile relevance percentage compared with the Job Description"
-                      }
+                      tooltip_desc={"Compared with other candidates"}
                     />
                     {candiData?.recruiter_choice === true && (
                       <SectionHeadingChip
@@ -141,7 +139,7 @@ function CandidateListCard(props: any) {
                           <GppGoodOutlinedIcon sx={{ fontSize: 10, mr: 0.5 }} />
                         }
                         tooltip_desc={
-                          "Showcases profile relevance percentage compared with the Job Description"
+                          "Many recruiters have bookmarked this candidate and selected them for interviews."
                         }
                       />
                     )}
@@ -218,9 +216,10 @@ function CandidateListCard(props: any) {
                 <Typography
                   component={"span"}
                   variant="body2"
+                  fontWeight={600}
                   onClick={() => setIsShowMore(!isShowMore)}
                 >
-                  {isShowMore ? "Show Less" : "Read More"}
+                  {isShowMore ? "Show Less" : "Show More"}
                 </Typography>
               </Typography>
             </Box>
