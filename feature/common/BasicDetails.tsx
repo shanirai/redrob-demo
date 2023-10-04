@@ -100,7 +100,7 @@ function BasicDetails(props: any) {
             },
           }}
         >
-          Rejected
+          Reject
         </Button>
         <Button
           variant="contained"
@@ -113,7 +113,7 @@ function BasicDetails(props: any) {
             py: 1.5,
           }}
         >
-          Hired
+          Hire
         </Button>
       </Box>
     </Box>

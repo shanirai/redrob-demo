@@ -16,6 +16,7 @@ import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import BasicProfile from "./BasicProfile";
+import SectionHeadingChip from "./SectionHeadingChip";
 
 function SectionHeading(props: any) {
   //** props -- components */
@@ -30,31 +31,6 @@ function SectionHeading(props: any) {
   //**  useState hooks   */
   const [active, setActive] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false);
-
-  //**  data    */
-  const data = [
-    {
-      label: "60% Relevance",
-      icon: <ArrowCircleUpIcon sx={{ fontSize: 14, mr: 0.5 }} />,
-      color: "",
-      description:
-        "Showcases profile relevance percentage compared with the Job Description",
-    },
-
-    {
-      label: "A+(96-100)",
-      icon: <GradeIcon sx={{ fontSize: 14, mr: 0.5 }} />,
-      color: "",
-      description: "Compared with other candidates",
-    },
-    {
-      label: "Recruiter Choice",
-      icon: <GppGoodOutlinedIcon sx={{ fontSize: 14, mr: 0.5 }} />,
-      color: "",
-      description:
-        "Many recruiters have bookmarked this candidate and selected them for interviews.",
-    },
-  ];
 
   return (
     <Box display={"flex"} mb={1.5}>
@@ -81,9 +57,27 @@ function SectionHeading(props: any) {
           </Grid>
           <Grid item xs={5}>
             <Box display={"flex"}>
-              {data.map((item, index) => (
-                <CustomChip item={item} key={index} />
-              ))}
+              <SectionHeadingChip
+                title={`${filterData[0]?.jd_per}% Relevance`}
+                icon={<ArrowCircleUpIcon sx={{ fontSize: 10, mr: 0.5 }} />}
+                tooltip_desc={
+                  "Showcases profile relevance percentage compared with the Job Description"
+                }
+              />
+              <SectionHeadingChip
+                title={`${filterData[0]?.candidate_grade}`}
+                icon={<GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />}
+                tooltip_desc={"Compared with other candidates"}
+              />
+              {filterData[0]?.recruiter_choice === true && (
+                <SectionHeadingChip
+                  title={"Recruiter Choice"}
+                  icon={<GppGoodOutlinedIcon sx={{ fontSize: 10, mr: 0.5 }} />}
+                  tooltip_desc={
+                    "Many recruiters have bookmarked this candidate and selected them for interviews."
+                  }
+                />
+              )}
             </Box>
           </Grid>
           <Grid item xs={5} display={"flex"} justifyContent={"flex-end"}>

@@ -13,12 +13,16 @@ import {
   Typography,
   Grid,
   Divider,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
 import CustomizeDialog from "./common/CustomizaDialog";
 import RightSidePanel from "./panel/RightSidePanel";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GradeIcon from "@mui/icons-material/Grade";
 
 function ExperianceCard(props: any) {
   //** props -- components */
@@ -102,9 +106,99 @@ function ExperianceCard(props: any) {
                   </Typography>
                   {/* custom chip */}
 
-                  {expData.map((item, index) => (
+                  {/* {expData.map((item, index) => (
                     <CustomChip item={item} key={index} />
-                  ))}
+                  ))} */}
+                  <Stack direction={"row"} spacing={1} ml={1}>
+                    <Tooltip
+                      title={
+                        <Typography variant="body2">
+                          learning from accredited institutions in India can
+                          play a crucial role in shaping a candidate's
+                          character, behavior, and outlook in the workplace.
+                        </Typography>
+                      }
+                      placement="right"
+                      TransitionComponent={Zoom}
+                      arrow={true}
+                    >
+                      <Typography
+                        variant="caption"
+                        bgcolor={"secondary.light"}
+                        ml={1}
+                        px={1.5}
+                        py={0.5}
+                        borderRadius={1.5}
+                        fontSize={10}
+                        fontWeight={500}
+                        display={"flex"}
+                        alignItems={"center"}
+                      >
+                        <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />{" "}
+                        {candiExp?.s_overall_per}% Potential
+                      </Typography>
+                    </Tooltip>
+
+                    <Tooltip
+                      title={
+                        <Typography variant="body2">
+                          Learning from top-ranking institutions in India can
+                          cultivate traits like diligence, global awareness,
+                          competitiveness, ethical values, and a drive for
+                          excellence
+                        </Typography>
+                      }
+                      placement="right"
+                      TransitionComponent={Zoom}
+                      arrow={true}
+                    >
+                      <Typography
+                        variant="caption"
+                        bgcolor={"secondary.light"}
+                        ml={1}
+                        px={1.5}
+                        py={0.5}
+                        borderRadius={1.5}
+                        fontSize={10}
+                        fontWeight={500}
+                        display={"flex"}
+                        alignItems={"center"}
+                      >
+                        <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                        {candiExp?.s_culture_per}% Culture Fit
+                      </Typography>
+                    </Tooltip>
+                    <Tooltip
+                      title={
+                        <Typography variant="body2">
+                          After assessing the candidate's educational
+                          institution in comparison to a leading educational
+                          institute, using relevant data, it's evident that this
+                          candidate's institute meets a high standard and is
+                          comparable to the top institution
+                        </Typography>
+                      }
+                      placement="right"
+                      TransitionComponent={Zoom}
+                      arrow={true}
+                    >
+                      <Typography
+                        variant="caption"
+                        bgcolor={"#87CEEB"}
+                        ml={1}
+                        px={1.5}
+                        py={0.5}
+                        borderRadius={1.5}
+                        fontSize={10}
+                        fontWeight={500}
+                        display={"flex"}
+                        alignItems={"center"}
+                      >
+                        <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />{" "}
+                        {candiExp.t_overall_per}% Overall
+                      </Typography>
+                    </Tooltip>
+                  </Stack>
                 </Box>
                 <Box pt={1}>
                   <RightSidePanel cardId={cardId} />
