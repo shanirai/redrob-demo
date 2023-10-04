@@ -32,15 +32,18 @@ function EducationalDetails(props: any) {
   // exp data
   const eduData = [
     {
-      label: "Course Ranking",
+      label: "10% Overall",
       icon: "",
       color: "",
+      description:"Overall comparison  with  top institute  in local region"
     },
     {
-      label: "Rating",
+      label: "20% Ranking",
       icon: "",
       color: "",
+      description:"government ranking and service comparison  with  top institute  in local region"
     },
+    
   ];
 
   return (
@@ -70,7 +73,7 @@ function EducationalDetails(props: any) {
                     <CustomChip item={item} key={index} />
                   ))}
 
-                  <Tooltip
+                  {/* <Tooltip
                     title={<Typography variant="body2">{data}</Typography>}
                     placement="right"
                     TransitionComponent={Zoom}
@@ -90,7 +93,7 @@ function EducationalDetails(props: any) {
                       <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF
                       Rating Top 10
                     </Typography>
-                  </Tooltip>
+                  </Tooltip> */}
                 </Box>
                 <Stack direction={"row"} justifyContent={"space-between"}>
                   <Typography variant="subtitle2">

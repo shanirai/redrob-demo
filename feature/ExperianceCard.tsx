@@ -26,21 +26,40 @@ function ExperianceCard(props: any) {
   // exp data
   const expData = [
     {
-      label: "Forbes 10 Company",
+      label: "10% Culture",
       icon: "",
       color: "",
+      description:"Signifies a positive alignment with the cultural aspects of your company."
     },
     {
-      label: "Ranking",
+      label: "20% Overall",
       icon: "",
       color: "",
+      description:"Indicates a favorable comparison with your company in general"
     },
     {
-      label: "Rating",
+      label: "10% Reviews",
       icon: "",
       color: "",
+      description:"client and employee review  compared  with your company"
+
     },
+    {
+      label: "5% Overall",
+      icon: "",
+      education:true,
+      color: "#87CEEB",
+      description:"overall comparison  with company leader in same sector in local region"
+    },
+  
+
+
+    
+    
+
   ];
+
+
 
   return (
     <Box position={"relative"}>
