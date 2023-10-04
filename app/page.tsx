@@ -15,9 +15,11 @@ function Home() {
       <Heading />
       {/* candidate card  section  */}
       <Container maxWidth="lg">
-        <RightSidePanel>
+        {/* <RightSidePanel>
           <CandidateListCard />
-        </RightSidePanel>
+        </RightSidePanel> */}
+
+        <CandidateListCard />
       </Container>
     </Box>
   );
