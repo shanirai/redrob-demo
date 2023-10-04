@@ -15,15 +15,16 @@ function CustomChip(props: any) {
   return (
     <Box key={id}>
       <Tooltip
-        title={<Typography variant="body2">{data}</Typography>}
+        title={<Typography variant="body2">{item.description}</Typography>}
         placement="right"
         TransitionComponent={Zoom}
         arrow={true}
       >
         <Typography
           variant="caption"
-          bgcolor={"secondary.light"}
-          ml={ml ?? 1}
+          bgcolor= {`${item.education ? item.color :"secondary.light"}`}
+          // bgcolor={`${item?.color ? item.color}"secondary.light"}
+          ml={1}
           px={1.5}
           py={0.4}
           borderRadius={1.2}
@@ -31,8 +32,11 @@ function CustomChip(props: any) {
           display={"flex"}
           alignItems={"center"}
         >
-          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "}
+          {item?.icon ? item.icon :  
+          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+           }{" "}
           {item?.label ? item?.label : "Forbes 10 Company"}
+
         </Typography>
       </Tooltip>
     </Box>

@@ -13,102 +13,108 @@ import {
   Typography,
   Grid,
   Divider,
-  Modal,
 } from "@mui/material";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
-import CompanyDetails from "./companyDetail/CompanyDetails";
+import CustomizeDialog from "./common/CustomizaDialog";
 
 function ExperianceCard(props: any) {
   //** props -- components */
-  const { active } = props;
-  const [open, setOpen] = useState(true);
+  const { active, candiExpData } = props;
 
   // exp data
   const expData = [
     {
-      label: "Forbes 10 Company",
+      label: "10% Culture",
       icon: "",
       color: "",
+      description:"Signifies a positive alignment with the cultural aspects of your company."
     },
     {
-      label: "Ranking",
+      label: "20% Overall",
       icon: "",
       color: "",
+      description:"Indicates a favorable comparison with your company in general"
     },
     {
-      label: "Rating",
+      label: "10% Reviews",
       icon: "",
       color: "",
+      description:"client and employee review  compared  with your company"
+
     },
+    {
+      label: "5% Overall",
+      icon: "",
+      education:true,
+      color: "#87CEEB",
+      description:"overall comparison  with company leader in same sector in local region"
+    },
+  
+
+
+    
+    
+
   ];
+
+
 
   return (
     <Box position={"relative"}>
-      <Box
-        mt={0.5}
-        mx={1.5}
-        border={"1px solid "}
-        borderColor={"secondary.light"}
-        borderRadius={1}
-        px={1}
-        py={1}
-      >
-        <Grid container columnGap={1}>
-          <Grid item xs={1}>
-            <Typography variant="h6" width={""}>
-              Experience
-            </Typography>
-          </Grid>
-          <Grid item xs={10}>
-            <Box ml={1.5}>
-              <Box display={"flex"} alignItems={"center"}>
-                <Typography
-                  variant="h6"
-                  fontWeight={600}
-                  sx={{
-                    cursor: "pointer",
-                    "&:hover": { color: "primary.main" },
-                  }}
+      {candiExpData?.slice(0, 1).map((candiExp: any, index: any) => (
+        <Box
+          mt={0.5}
+          mx={1.5}
+          border={"1px solid "}
+          borderColor={"secondary.light"}
+          borderRadius={1}
+          px={1}
+          py={1}
+        >
+          <Grid container columnGap={1}>
+            <Grid item xs={1}>
+              <Typography variant="h6" width={""}>
+                Experience
+              </Typography>
+            </Grid>
+            <Grid item xs={10}>
+              <Box ml={1.5}>
+                <Box display={"flex"} alignItems={"center"}>
+                  <Typography
+                    variant="h6"
+                    fontWeight={600}
+                    sx={{
+                      cursor: "pointer",
+                      "&:hover": { color: "primary.main" },
+                    }}
+                  >
+                    {candiExp?.name}
+                  </Typography>
+                  {/* custom chip */}
+
+                  {expData.map((item, index) => (
+                    <CustomChip item={item} key={index} />
+                  ))}
+                </Box>
+                <Stack
+                  direction={"row"}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
                 >
-                  Spotify Inc.
-                </Typography>
-                {/* custom chip */}
-
-                {expData.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
+                  <Typography variant="subtitle2" color={"text.primary"}>
+                    {candiExp?.job_title}
+                  </Typography>
+                  <Typography variant="subtitle2" color={"text.secondary"}>
+                    {candiExp?.from} - {candiExp?.to}
+                  </Typography>
+                </Stack>
               </Box>
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-              >
-                <Typography variant="subtitle2" color={"text.primary"}>
-                  Product Designer
-                </Typography>
-                <Typography variant="subtitle2" color={"text.secondary"}>
-                  February 2021 - Current
-                </Typography>
-              </Stack>
-            </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
-
-      {/* <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        sx={{
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <CompanyDetails />
-      </Modal> */}
+        </Box>
+      ))}
     </Box>
   );
 }
