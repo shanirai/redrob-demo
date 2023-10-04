@@ -47,8 +47,6 @@ function ExperianceDetails(props: any) {
     },
   ];
 
- 
-
   return (
     <Box position={"relative"}>
       <Box
@@ -104,8 +102,10 @@ function ExperianceDetails(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                           After evaluating candidates' companies alongside yours, and considering pertinent company data, 
-                           it's apparent that this candidate exhibits greater performance potential
+                            After evaluating candidates' companies alongside
+                            yours, and considering pertinent company data, it's
+                            apparent that this candidate exhibits greater
+                            performance potential
                           </Typography>
                         }
                         placement="right"
@@ -124,7 +124,7 @@ function ExperianceDetails(props: any) {
                           display={"flex"}
                           alignItems={"center"}
                         >
-                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "}
+                          <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />{" "}
                           {filterExpData.s_overall_per}% Potential
                         </Typography>
                       </Tooltip>
@@ -132,8 +132,9 @@ function ExperianceDetails(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            It's evident that this candidate is a better cultural fit. 
-                            Candidate is likely to understand and align with your company's standards and values
+                            It's evident that this candidate is a better
+                            cultural fit. Candidate is likely to understand and
+                            align with your company's standards and values
                           </Typography>
                         }
                         placement="right"
@@ -152,7 +153,7 @@ function ExperianceDetails(props: any) {
                           display={"flex"}
                           alignItems={"center"}
                         >
-                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                          <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
                           {filterExpData.s_culture_per}% Cultural Fit
                         </Typography>
                       </Tooltip>

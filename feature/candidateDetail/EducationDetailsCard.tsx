@@ -29,9 +29,7 @@ function EducationDetailsCard(props: any) {
   const { active, filterData } = props;
   const [isShowMore, setIsShowMore] = useState(false);
   // dummy data for tooltip
-  
 
-  
   return (
     <Box position={"relative"}>
       <Box
@@ -81,8 +79,9 @@ function EducationDetailsCard(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            learning from accredited institutions in India can play a crucial role in shaping
-                             a candidate's character, behavior, and outlook in the workplace.
+                            learning from accredited institutions in India can
+                            play a crucial role in shaping a candidate's
+                            character, behavior, and outlook in the workplace.
                           </Typography>
                         }
                         placement="right"
@@ -109,8 +108,10 @@ function EducationDetailsCard(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            Learning from top-ranking institutions in India can cultivate traits like diligence, global awareness, 
-                            competitiveness, ethical values, and a drive for excellence
+                            Learning from top-ranking institutions in India can
+                            cultivate traits like diligence, global awareness,
+                            competitiveness, ethical values, and a drive for
+                            excellence
                           </Typography>
                         }
                         placement="right"
@@ -129,12 +130,10 @@ function EducationDetailsCard(props: any) {
                           display={"flex"}
                           alignItems={"center"}
                         >
-                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                          <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
                           {filterEduData.ranking_p}% Ranking
                         </Typography>
                       </Tooltip>
-
-                      
                     </Stack>
                   </Box>
 
