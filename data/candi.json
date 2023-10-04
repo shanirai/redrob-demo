@@ -14,6 +14,7 @@
     "candidate_grade": "A+",
     "recruiter_choice": true,
     "overall_avg": "80",
+    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -178,6 +179,7 @@
     "candidate_grade": "A+",
     "recruiter_choice": true,
     "overall_avg": "80",
+    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -342,6 +344,7 @@
     "candidate_grade": "A+",
     "recruiter_choice": true,
     "overall_avg": "80",
+    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -491,4 +494,5 @@
       }
     ]
   }
+
 ]
