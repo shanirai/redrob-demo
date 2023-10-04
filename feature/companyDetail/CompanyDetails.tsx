@@ -13,6 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 import CallIcon from "@mui/icons-material/Call";
 import OtherInfo from "./OtherInfo";
@@ -20,10 +22,6 @@ import Comparison from "./Comparison";
 import CustomChip from "../common/CustomChip";
 // Third party packages
 // Custom components
-
-const about = `HCL Technologies Limited, is an Indian
-multinational information technology services and consulting
-company headquartered in Noida.`;
 
 // exp data
 const expData = [
@@ -44,45 +42,6 @@ const expData = [
   },
 ];
 
-const info = [
-  {
-    label: "Size",
-    value: "1Lakh+",
-    icon: false,
-  },
-  {
-    label: "Type",
-    value: "Information Technolgy",
-    icon: true,
-  },
-  {
-    label: "Revenue",
-    value: "$7000",
-    icon: true,
-  },
-  {
-    label: "Location",
-    value: "Noida",
-    icon: false,
-  },
-  {
-    label: "Technology",
-    value: "Android, Web, Finance",
-    icon: true,
-  },
-  {
-    label: "Global Presence",
-    value: "UK, USA, Germany,India",
-    icon: true,
-  },
-  {
-    label: "Specialties",
-    value:
-      "International Commerce, Artificial Intelligence, B2B, Innovative Product Development",
-    icon: false,
-  },
-];
-
 const perks = [
   "Health Insurance",
   "Social Security",
@@ -90,8 +49,34 @@ const perks = [
   "Paid Vacation",
 ];
 
+const getIcon = (val: any) => {
+  if (val == "up") {
+    return <ArrowCircleUpIcon color="success" />;
+  }
+  return <ArrowCircleDownIcon color="error" />;
+};
+
 const Company = (props: any) => {
-  const { name, url, tagLine, tech, revenue, dollar } = props;
+  const {
+    name,
+    description,
+    website_link,
+    size,
+    industry_sector,
+    location,
+    specialties,
+    overall,
+    tagLine,
+  } = props?.data;
+
+  const [showMore, setShowMore] = React.useState(false);
+
+  // useEffect(()=>{
+  //   if(description.length > 110){
+
+  //   }
+  // },[description])
+
   return (
     <>
       <Box
@@ -102,6 +87,11 @@ const Company = (props: any) => {
         mb={2}
       >
         <Box display={"flex"} flexDirection={"column"} textAlign={"left"}>
+          <Typography variant="h6" color={"primary.main"}>
+            {props.left && "Candidate's company"}
+            {props.right && "AI recommended top company in sector"}
+          </Typography>
+
           <Typography variant="h4" fontWeight={600}>
             {name}
           </Typography>
@@ -109,8 +99,9 @@ const Company = (props: any) => {
             variant="subtitle1"
             fontWeight={500}
             color={"text.secondary"}
+            fontStyle={"italic"}
           >
-            {tagLine}
+            {`"${tagLine}"`}
           </Typography>
         </Box>
       </Box>
@@ -124,7 +115,26 @@ const Company = (props: any) => {
       {/* <Comparison /> */}
 
       <Box pt={0.5} mt={2}>
-        <Typography variant="body2">{about}</Typography>
+        <Typography
+          // sx={{
+          //   overflow: "hidden",
+          //   textOverflow: "ellipsis",
+          //   display: "-webkit-box",
+          //   WebkitLineClamp: "2",
+          //   WebkitBoxOrient: "vertical",
+          // }}
+          variant="body2"
+        >
+          {!showMore ? description.slice(0, 110) : description}
+          <span
+            onClick={() => {
+              setShowMore(!showMore);
+            }}
+            style={{ color: "red", fontWeight: 500 }}
+          >
+            {!showMore ? "...more" : "  less"}
+          </span>
+        </Typography>
       </Box>
 
       <Box
@@ -136,31 +146,44 @@ const Company = (props: any) => {
         }}
       >
         <LanguageIcon />
-        <Link href={url} target="_blank" rel="noreferrer" px={1} fontSize={14}>
-          {url}
+        <Link
+          href={website_link}
+          target="_blank"
+          rel="noreferrer"
+          px={1}
+          fontSize={14}
+        >
+          {website_link}
         </Link>
       </Box>
 
       <Box
-        pt={0.5}
+        pt={0}
         sx={{
           alignItems: "flex-start",
           flexDirection: "column",
           display: "flex",
         }}
       >
-        {info.map((item) => {
-          return (
-            <OtherInfo
-              key={item.label}
-              data={item}
-              icon={item.icon}
-              tech={tech}
-              revenue={revenue}
-              dollar={dollar}
-            />
-          );
-        })}
+        <OtherInfo
+          label="Size"
+          value={size}
+          icon={size == "500+" ? getIcon("up") : getIcon("down")}
+        />
+        <OtherInfo label="Type" value={industry_sector} icon={getIcon("up")} />
+        <OtherInfo
+          label="Revenue"
+          value={"$7000"}
+          icon={overall >= 50 ? getIcon("up") : getIcon("down")}
+        />
+        <OtherInfo label="Location" value={location} />
+        <OtherInfo
+          label="Technology"
+          value={"Android, Web, Finance"}
+          icon={getIcon("up")}
+        />
+        <OtherInfo label="Global Presence" value={"UK, USA, Germany,India"} />
+        <OtherInfo label="Specialties" value={specialties} />
       </Box>
 
       {/* <Typography variant="h5" fontWeight={600} mt={2} mb={1}>
@@ -175,19 +198,16 @@ const Company = (props: any) => {
   );
 };
 
-function CompanyDetails() {
+function CompanyDetails(props: any) {
+  const { leftCompanyData, rightCompanyData } = props;
+  console.log("leftCompanyData", leftCompanyData);
+
   return (
     <Container maxWidth="lg">
       <Box bgcolor={"#fff"} borderRadius={"8px"} my={3.5} py={2.5}>
         <Grid rowSpacing={1} direction={"row"} display={"flex"}>
           <Grid item xs={6} px={2} flexWrap={"wrap"} width={"50%"}>
-            <Company
-              name="HCL Technologies"
-              url="https://www.hcltech.com"
-              tagLine="HCLTech – Supercharging Progress"
-              tech="down"
-              visible
-            />
+            {leftCompanyData && <Company data={leftCompanyData} left />}
           </Grid>
           <Divider
             orientation="vertical"
@@ -195,14 +215,7 @@ function CompanyDetails() {
             flexItem
           />
           <Grid item xs={6} px={2} width={"50%"}>
-            <Company
-              name="Accenture"
-              url="https://www.accenture.com/in-en"
-              tagLine="Let there be change"
-              revenue="up"
-              dollar={7700}
-              visible
-            />
+            {rightCompanyData && <Company data={rightCompanyData} right />}
           </Grid>
         </Grid>
       </Box>

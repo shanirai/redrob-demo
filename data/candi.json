@@ -18,6 +18,7 @@
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
+        "tagLine" : "We together build successfull",
         "job_title": "Senior Software Developer",
         "from": "Aug 2018",
         "to": "Present",
@@ -58,13 +59,14 @@
       },
       {
         "name": "Ginger Webs Pvt. Ltd.",
+        "tagLine" : "Let there be change",
         "job_title": "Software Developer",
         "from": "Oct 2017",
         "to": "May 2018",
         "description": "Think Exam, a Ginger Webs Company, is a global leader in assessment, helping businesses transform their assessments with its AI-enabled technology and tailor-made solutions. From talent acquisition and campus hiring to talent development, we help you find diverse, agile and innovative talent for your company.",
         "industry_sector": "IT Services and IT Consulting",
         "company_type": "Private",
-        "size": "200+",
+        "size": "500+",
         "culture": null,
         "location": "Noida, UP",
         "technology": null,
@@ -183,6 +185,7 @@
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
+        "tagLine" : "abc kjshdfkjshkfnsklgn",
         "job_title": "Senior Software Developer",
         "from": "Aug 2018",
         "to": "Present",
@@ -223,6 +226,7 @@
       },
       {
         "name": "Ginger Webs Pvt. Ltd.",
+        "tagLine" : "We together build successfull",
         "job_title": "Software Developer",
         "from": "Oct 2017",
         "to": "May 2018",

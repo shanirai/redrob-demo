@@ -60,6 +60,7 @@ function ExperianceCard(props: any) {
     <Box position={"relative"}>
       {candiExpData?.slice(0, 1).map((candiExp: any, index: any) => (
         <Box
+          key={index + 1}
           mt={0.5}
           mx={1.5}
           // border={"1px solid "}

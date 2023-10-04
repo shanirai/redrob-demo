@@ -9,10 +9,26 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 // Custom components
 
 function OtherInfo(props: any) {
-  const { tech, revenue, visible, dollar } = props;
-  const { label, value, icon } = props.data;
+  const { label, value, icon } = props;
+  const [showMore, setShowMore] = useState(false);
 
-  console.log("icon tech rev", label, icon, tech, revenue);
+  // console.log("icon tech rev", label, icon, tech, revenue);
+
+  const displayvalue = () => {
+    return (
+      <span>
+        {!showMore ? value.slice(0, 30) : value}
+        <span
+          onClick={() => {
+            setShowMore(!showMore);
+          }}
+          style={{ color: "red", fontWeight: 500 }}
+        >
+          {!showMore ? "...more" : "  less"}
+        </span>
+      </span>
+    );
+  };
 
   return (
     <Box
@@ -33,25 +49,8 @@ function OtherInfo(props: any) {
         width="70%"
         sx={{ display: "flex", alignItems: "center" }}
       >
-        {value}
-        {label === "Type" && tech === "down" && (
-          <ArrowCircleDownIcon color="error" />
-        )}
-        {label === "Revenue" && revenue === "up" && (
-          <ArrowCircleUpIcon color="success" />
-        )}
-        {label === "Revenue" && revenue !== "up" && (
-          <ArrowCircleUpIcon color="success" />
-        )}
-        {label === "Technology" && tech === "down" && (
-          <ArrowCircleDownIcon color="error" />
-        )}
-        {label === "Technology" && tech === "up" && (
-          <ArrowCircleDownIcon color="error" />
-        )}
-        {label === "Size" && revenue === "up" && (
-          <ArrowCircleUpIcon color="success" />
-        )}
+        {value.length > 30 ? displayvalue() : value}
+        {icon && icon}
       </Typography>
     </Box>
   );
