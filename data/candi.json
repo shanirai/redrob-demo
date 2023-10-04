@@ -12,13 +12,25 @@
     "candidate_email": "nirmalaglsrm27@gmail.com",
     "candidate_phone": "9890655543",
     "jd_per": 90,
-  
+
     "candidate_grade": "A+(96-100)",
     "recruiter_choice": true,
     "overall_avg": "80",
-    "match_found":"2",
-    "total_skills":"12",
-    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
+    "match_found": "2",
+    "total_skills": "12",
+    "skills": [
+      "python",
+      "javascript",
+      "java",
+      "c++",
+      "c",
+      "html",
+      "css",
+      "sql",
+      "php",
+      "c#",
+      "typescript"
+    ],
 
     "experiance": [
       {
@@ -97,8 +109,8 @@
         "global_presence_p": 5,
         "customer_satisfaction_p": 0,
         "reviews_p": "3 ",
-        "s_overall_per": 6,
-        "s_culture_per": 70,
+        "s_overall_per": 116,
+        "s_culture_per": 72,
         "s_reviews_per": -20,
         "t_overall_per": -10,
         "t_culture_per": -40
@@ -250,15 +262,26 @@
     "candidate_portfolio": null,
     "candidate_email": "abhinashindia@gmail.com",
     "candidate_phone": "9505462560",
- 
     "jd_per": 80,
     "candidate_grade": "A(80–90)",
     "recruiter_choice": false,
     "overall_avg": "80",
-    "match_found":"4",
-    "total_skills":"12",
-    
-    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
+    "match_found": "4",
+    "total_skills": "12",
+
+    "skills": [
+      "python",
+      "javascript",
+      "java",
+      "c++",
+      "c",
+      "html",
+      "css",
+      "sql",
+      "php",
+      "c#",
+      "typescript"
+    ],
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -294,7 +317,7 @@
         "global_presence_p": 7,
         "customer_satisfaction_p": 5,
         "reviews_p": 5,
-        "s_overall_per": 7,
+        "s_overall_per": 110,
         "s_culture_per": 75,
         "s_reviews_per": -5,
         "t_overall_per": -10,
@@ -530,9 +553,21 @@
     "candidate_grade": "B+(65–75)",
     "recruiter_choice": true,
     "overall_avg": "80",
-    "match_found":"8",
-    "total_skills":"12",
-    "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
+    "match_found": "8",
+    "total_skills": "12",
+    "skills": [
+      "python",
+      "javascript",
+      "java",
+      "c++",
+      "c",
+      "html",
+      "css",
+      "sql",
+      "php",
+      "c#",
+      "typescript"
+    ],
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -568,7 +603,7 @@
         "global_presence_p": 7,
         "customer_satisfaction_p": 5,
         "reviews_p": 5,
-        "s_overall_per": 7,
+        "s_overall_per": 80,
         "s_culture_per": 60,
         "s_reviews_per": -5,
         "t_overall_per": -10,
@@ -608,7 +643,7 @@
         "global_presence_p": 5,
         "customer_satisfaction_p": 0,
         "reviews_p": "3 ",
-        "s_overall_per": 6,
+        "s_overall_per": 70,
         "s_culture_per": 60,
         "s_reviews_per": -20,
         "t_overall_per": -10,
