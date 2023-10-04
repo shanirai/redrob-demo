@@ -37,7 +37,17 @@ export default function RightSidePanel(props: any) {
     <div>
       {(["right"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Box onClick={toggleDrawer(anchor, true)}>{children}</Box>
+          <Box
+            onClick={toggleDrawer(anchor, true)}
+            sx={{
+              color: "primary.main",
+              fontSize: "12px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            View All
+          </Box>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}

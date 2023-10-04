@@ -18,6 +18,7 @@ import {
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
 import CustomizeDialog from "./common/CustomizaDialog";
+import RightSidePanel from "./panel/RightSidePanel";
 
 function ExperianceCard(props: any) {
   //** props -- components */
@@ -87,7 +88,7 @@ function ExperianceCard(props: any) {
                   {candiExp?.from} - {candiExp?.to}
                 </Typography>
               </Stack>
-              <Box ml={1.5}>
+              <Box ml={1.5} display={"flex"} justifyContent={"space-between"}>
                 <Box display={"flex"} alignItems={"center"}>
                   <Typography
                     variant="subtitle2"
@@ -103,6 +104,9 @@ function ExperianceCard(props: any) {
                   {expData.map((item, index) => (
                     <CustomChip item={item} key={index} />
                   ))}
+                </Box>
+                <Box pt={1}>
+                  <RightSidePanel />
                 </Box>
               </Box>
             </Grid>
