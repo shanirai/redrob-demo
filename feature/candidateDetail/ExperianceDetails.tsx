@@ -13,9 +13,12 @@ import {
   Typography,
   Grid,
   Divider,
+  Dialog,
+  Slide,
   Tooltip,
   Zoom,
 } from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
@@ -23,12 +26,42 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 // Custom components
 import CustomChip from "../common/CustomChip";
 import ExperienceCompare from "./ExperienceCompare";
+import CandidateData from "../../data/candi.json";
+import AIRecommended from "../../data/static.json";
+import CompanyDetails from "../companyDetail/CompanyDetails";
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function ExperianceDetails(props: any) {
   //** props -- components */
+
+  const singleCandData = CandidateData[0];
   const { active, filterData } = props;
   const [isShowMore, setIsShowMore] = useState(false);
   const [isShowMore2, setIsShowMore2] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [isAIRec, setisAIRec] = useState("no");
+  const [comparisonFrom, setComparisonFrom] = useState(
+    singleCandData.experiance[0]
+  );
+
+  const [comparisonTo, setComparisonTo] = useState<any>();
+
+  const handleClickOpen = (data: any) => {
+    setComparisonFrom(data);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   // exp data
   const expData = [
     {
@@ -86,6 +119,11 @@ function ExperianceDetails(props: any) {
                   </Stack>
                   <Box display={"flex"} alignItems={"center"}>
                     <Typography
+                      onClick={() => {
+                        setisAIRec("no");
+                        setComparisonTo(AIRecommended?.comparison?.company[1]);
+                        handleClickOpen(filterExpData);
+                      }}
                       variant="subtitle2"
                       fontWeight={500}
                       sx={{ cursor: "pointer" }}
@@ -102,10 +140,8 @@ function ExperianceDetails(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            After evaluating candidates' companies alongside
-                            yours, and considering pertinent company data, it's
-                            apparent that this candidate exhibits greater
-                            performance potential
+                            {` After evaluating candidates' companies alongside yours, and considering pertinent company data, 
+                           it's apparent that this candidate exhibits greater performance potential`}
                           </Typography>
                         }
                         placement="right"
@@ -132,9 +168,9 @@ function ExperianceDetails(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            It's evident that this candidate is a better
+                            {` It's evident that this candidate is a better
                             cultural fit. Candidate is likely to understand and
-                            align with your company's standards and values
+                            align with your company's standards and values`}
                           </Typography>
                         }
                         placement="right"
@@ -243,14 +279,38 @@ function ExperianceDetails(props: any) {
                 flexItem
               />
               <Grid item xs={4}>
-                <ExperienceCompare />
+                <ExperienceCompare
+                  onClick={(data: any) => {
+                    setisAIRec("yes");
+                    setComparisonTo(data);
+                    handleClickOpen(filterExpData);
+                  }}
+                />
               </Grid>
             </Grid>
 
-            <Divider sx={{ my: 2 }} />
+            {/* <Divider sx={{ my: 2 }} /> */}
           </Box>
         ))}
       </Box>
+
+      <Dialog
+        maxWidth="md"
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{ padding: 0 }}
+      >
+        {comparisonFrom && comparisonTo && (
+          <CompanyDetails
+            isAIRec={isAIRec}
+            leftCompanyData={comparisonFrom}
+            rightCompanyData={comparisonTo}
+          />
+        )}
+      </Dialog>
     </Box>
   );
 }

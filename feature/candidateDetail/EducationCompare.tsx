@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import CompanyJson from "../../data/static.json";
-function EducationCompare() {
+function EducationCompare(props: any) {
   return (
     <Box
       sx={{
@@ -30,14 +30,15 @@ function EducationCompare() {
       </Stack>
       {CompanyJson?.comparison?.institute.slice(0, 1).map((item, index) => {
         return (
-          <Stack direction={"column"} mb={0.5}>
+          <Stack key={index + 1} direction={"column"} mb={0.5}>
             <Typography
+              onClick={props.onClick}
               variant="subtitle2"
               fontWeight={600}
               fontSize={14}
               display={"flex"}
               flexWrap={"nowrap"}
-              sx={{ wordBreak: "break-word" }}
+              sx={{ wordBreak: "break-word", cursor: "pointer" }}
             >
               {item.institute_name}
             </Typography>
@@ -84,7 +85,7 @@ function EducationCompare() {
                   display={"flex"}
                   alignItems={"center"}
                 >
-                  <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                  <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
                   {item.t_overall_per}% Overall
                 </Typography>
               </Tooltip>

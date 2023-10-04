@@ -10,9 +10,14 @@ import {
   Grid,
   Link,
   Stack,
+  Tooltip,
   Typography,
+  Zoom,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 import CallIcon from "@mui/icons-material/Call";
 import OtherInfo from "./OtherInfo";
@@ -21,65 +26,25 @@ import CustomChip from "../common/CustomChip";
 // Third party packages
 // Custom components
 
-const about = `HCL Technologies Limited, is an Indian
-multinational information technology services and consulting
-company headquartered in Noida.`;
-
 // exp data
 const expData = [
   {
     label: "Forbes 10 Company",
     icon: "",
     color: "",
+    description: "",
   },
   {
     label: "Ranking",
     icon: "",
     color: "",
+    description: "",
   },
   {
     label: "Rating",
     icon: "",
     color: "",
-  },
-];
-
-const info = [
-  {
-    label: "Size",
-    value: "1Lakh+",
-    icon: false,
-  },
-  {
-    label: "Type",
-    value: "Information Technolgy",
-    icon: true,
-  },
-  {
-    label: "Revenue",
-    value: "$7000",
-    icon: true,
-  },
-  {
-    label: "Location",
-    value: "Noida",
-    icon: false,
-  },
-  {
-    label: "Technology",
-    value: "Android, Web, Finance",
-    icon: true,
-  },
-  {
-    label: "Global Presence",
-    value: "UK, USA, Germany,India",
-    icon: true,
-  },
-  {
-    label: "Specialties",
-    value:
-      "International Commerce, Artificial Intelligence, B2B, Innovative Product Development",
-    icon: false,
+    description: "",
   },
 ];
 
@@ -90,8 +55,29 @@ const perks = [
   "Paid Vacation",
 ];
 
+const getIcon = (val: any) => {
+  if (val == "up") {
+    return <ArrowCircleUpIcon color="success" />;
+  }
+  return <ArrowCircleDownIcon color="error" />;
+};
+
 const Company = (props: any) => {
-  const { name, url, tagLine, tech, revenue, dollar } = props;
+  const {
+    name,
+    description,
+    website_link,
+    size,
+    industry_sector,
+    location,
+    specialties,
+    overall,
+    s_overall_per,
+    s_culture_per,
+  } = props?.data;
+
+  const [showMore, setShowMore] = React.useState(false);
+
   return (
     <>
       <Box
@@ -101,66 +87,159 @@ const Company = (props: any) => {
         alignItems={"center"}
         mb={2}
       >
-        <Box display={"flex"} flexDirection={"column"} textAlign={"left"}>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          textAlign={"left"}
+          width={"100%"}
+        >
+          <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            <Typography
+              variant="h4"
+              color={"primary.main"}
+              textAlign={"center"}
+              mb={2}
+            >
+              {props.left && "Candidate's company"}
+              {props.right &&
+                props.isAIRec == "yes" &&
+                "AI recommended top company in the sector"}
+              {props.right && props.isAIRec == "no" && "Your's company"}
+            </Typography>
+          </Box>
+
           <Typography variant="h4" fontWeight={600}>
             {name}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            fontWeight={500}
-            color={"text.secondary"}
+          <Link
+            href={website_link}
+            target="_blank"
+            rel="noreferrer"
+            px={0}
+            mx={0}
+            fontSize={12}
           >
-            {tagLine}
-          </Typography>
+            {website_link}
+          </Link>
         </Box>
       </Box>
 
-      <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
+      {/* <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
         {expData.map((item, index) => (
           <CustomChip item={item} key={index} ml={0} />
         ))}
+      </Stack> */}
+      <Stack direction={"row"} spacing={1} ml={0}>
+        <Tooltip
+          title={
+            <Typography variant="body2">
+              {` After evaluating candidates' companies alongside yours, and considering pertinent company data, 
+                           it's apparent that this candidate exhibits greater performance potential`}
+            </Typography>
+          }
+          placement="right"
+          TransitionComponent={Zoom}
+          arrow={true}
+        >
+          <Typography
+            variant="caption"
+            bgcolor={"secondary.light"}
+            ml={1}
+            px={1.5}
+            py={0.5}
+            borderRadius={1.5}
+            fontSize={10}
+            fontWeight={500}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> {s_overall_per}%
+            Potential
+          </Typography>
+        </Tooltip>
+
+        <Tooltip
+          title={
+            <Typography variant="body2">
+              {` It's evident that this candidate is a better
+                            cultural fit. Candidate is likely to understand and
+                            align with your company's standards and values`}
+            </Typography>
+          }
+          placement="right"
+          TransitionComponent={Zoom}
+          arrow={true}
+        >
+          <Typography
+            variant="caption"
+            bgcolor={"secondary.light"}
+            ml={1}
+            px={1.5}
+            py={0.5}
+            borderRadius={1.5}
+            fontSize={10}
+            fontWeight={500}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+            {s_culture_per}% Cultural Fit
+          </Typography>
+        </Tooltip>
       </Stack>
 
       {/* <Comparison /> */}
 
       <Box pt={0.5} mt={2}>
-        <Typography variant="body2">{about}</Typography>
+        <Typography
+          // sx={{
+          //   overflow: "hidden",
+          //   textOverflow: "ellipsis",
+          //   display: "-webkit-box",
+          //   WebkitLineClamp: "2",
+          //   WebkitBoxOrient: "vertical",
+          // }}
+          variant="body2"
+        >
+          {!showMore ? description.slice(0, 110) : description}
+          <span
+            onClick={() => {
+              setShowMore(!showMore);
+            }}
+            style={{ color: "red", fontWeight: 500 }}
+          >
+            {!showMore ? "...more" : "  less"}
+          </span>
+        </Typography>
       </Box>
 
       <Box
-        py={2}
-        sx={{
-          alignItems: "center",
-          flexDirection: "row",
-          display: "flex",
-        }}
-      >
-        <LanguageIcon />
-        <Link href={url} target="_blank" rel="noreferrer" px={1} fontSize={14}>
-          {url}
-        </Link>
-      </Box>
-
-      <Box
-        pt={0.5}
+        pt={2}
         sx={{
           alignItems: "flex-start",
           flexDirection: "column",
           display: "flex",
         }}
       >
-        {info.map((item) => {
-          return (
-            <OtherInfo
-              key={item.label}
-              data={item}
-              icon={item.icon}
-              tech={tech}
-              revenue={revenue}
-              dollar={dollar}
-            />
-          );
-        })}
+        <OtherInfo
+          label="Size"
+          value={size}
+          icon={size == "500+" ? getIcon("up") : getIcon("down")}
+        />
+        <OtherInfo label="Type" value={industry_sector} icon={getIcon("up")} />
+        <OtherInfo
+          label="Revenue"
+          value={"$7000"}
+          icon={overall >= 50 ? getIcon("up") : getIcon("down")}
+        />
+        <OtherInfo label="Location" value={location} />
+        <OtherInfo
+          label="Technology"
+          value={"Android, Web, Finance"}
+          icon={getIcon("up")}
+        />
+        <OtherInfo label="Global Presence" value={"UK, USA, Germany,India"} />
+        <OtherInfo label="Specialties" value={specialties} />
       </Box>
 
       {/* <Typography variant="h5" fontWeight={600} mt={2} mb={1}>
@@ -175,19 +254,17 @@ const Company = (props: any) => {
   );
 };
 
-function CompanyDetails() {
+function CompanyDetails(props: any) {
+  const { leftCompanyData, rightCompanyData, isAIRec } = props;
+
   return (
     <Container maxWidth="lg">
       <Box bgcolor={"#fff"} borderRadius={"8px"} my={3.5} py={2.5}>
         <Grid rowSpacing={1} direction={"row"} display={"flex"}>
           <Grid item xs={6} px={2} flexWrap={"wrap"} width={"50%"}>
-            <Company
-              name="HCL Technologies"
-              url="https://www.hcltech.com"
-              tagLine="HCLTech – Supercharging Progress"
-              tech="down"
-              visible
-            />
+            {leftCompanyData && (
+              <Company data={leftCompanyData} left isAIRec={isAIRec} />
+            )}
           </Grid>
           <Divider
             orientation="vertical"
@@ -195,14 +272,9 @@ function CompanyDetails() {
             flexItem
           />
           <Grid item xs={6} px={2} width={"50%"}>
-            <Company
-              name="Accenture"
-              url="https://www.accenture.com/in-en"
-              tagLine="Let there be change"
-              revenue="up"
-              dollar={7700}
-              visible
-            />
+            {rightCompanyData && (
+              <Company data={rightCompanyData} right isAIRec={isAIRec} />
+            )}
           </Grid>
         </Grid>
       </Box>
