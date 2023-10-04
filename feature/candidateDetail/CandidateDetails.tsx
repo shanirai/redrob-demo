@@ -11,8 +11,11 @@ import BasicInfo from "../common/BasicInfo";
 import SkillSet from "./SkillSet";
 import CustomizeDialog from "../common/CustomizaDialog";
 import SectionHeading from "../secondOption/SectionHeading";
+import CandidateData from "../../data/candi.json";
 
-function CandidateDetails() {
+function CandidateDetails(props: any) {
+  //** props -- components */
+  const { cardId } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,15 +26,28 @@ function CandidateDetails() {
     setOpen(false);
   };
 
+  const filterData = CandidateData.filter((item) => {
+    if (item.id === cardId + 1) {
+      return item;
+    }
+  });
+
+  console.log(
+    "check filterData of Candidate",
+    filterData,
+    "What is Index Key ======",
+    cardId
+  );
+
   return (
     <Container maxWidth="lg">
       <Box bgcolor={"#f8f8f8"} borderRadius={"8px"} my={3.5} py={2.5} px={2.5}>
-        <SectionHeading />
-        <SummaryCard />
-        <BasicInfo />
-        <SkillSet />
-        <ExperianceDetails />
-        <EducationDetailsCard />
+        <SectionHeading filterData={filterData} />
+        <SummaryCard filterData={filterData} />
+        <BasicInfo filterData={filterData} />
+        <SkillSet filterData={filterData} />
+        <ExperianceDetails filterData={filterData} />
+        <EducationDetailsCard filterData={filterData} />
         <CustomizeDialog />
       </Box>
     </Container>

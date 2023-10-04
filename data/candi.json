@@ -1,12 +1,13 @@
 [
   {
+    "id":1,
     "candidate_name": "Nirmala Gond",
     "candidate_position": "Senior Software Developer",
     "candidate_current_location": "Ravet, Pune, Maharashtra",
     "updated_at": "2023-10-03",
     "candidate_summary": "Detail-oriented and organized Programmer with 6.4 years of experience in designing and developing dynamic web application/software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products. I have experience of 2 years in Angular and 4.2 years in Nodejs.",
     "candidate_linkedin": null,
-    "candidate_github": null,
+    "candidate_github": "shsniakak",
     "candidate_portfolio": null,
     "candidate_email": "nirmalaglsrm27@gmail.com",
     "candidate_phone": "9890655543",
@@ -15,6 +16,7 @@
     "recruiter_choice": true,
     "overall_avg": "80",
     "skills":["python","javascript","java","c++","c","html","css","sql","php","c#","typescript"],
+
     "experiance": [
       {
         "name": "Techugo Pvt. Ltd.",
@@ -167,7 +169,8 @@
     ]
   },
   {
-    "candidate_name": "Nirmala Gond",
+    "id":2,
+    "candidate_name": "Abhinash Kumar ",
     "candidate_position": "Senior Software Developer",
     "candidate_current_location": "Ravet, Pune, Maharashtra",
     "updated_at": "2023-10-03",
@@ -334,7 +337,8 @@
     ]
   },
   {
-    "candidate_name": "Nirmala Gond",
+    "id":3,
+    "candidate_name": "Manish Gaur",
     "candidate_position": "Senior Software Developer",
     "candidate_current_location": "Ravet, Pune, Maharashtra",
     "updated_at": "2023-10-03",

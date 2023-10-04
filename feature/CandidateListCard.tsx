@@ -202,6 +202,7 @@ function CandidateListCard(props: any) {
                 <ExperianceCard
                   candiExpData={candiData?.experiance}
                   active={active}
+                  cardId={index}
                 />
 
                 {/* education card */}
@@ -221,24 +222,6 @@ function CandidateListCard(props: any) {
                 <BasicDetails />
               </Grid>
             </Grid>
-          </Box>
-
-          {/* Buttons for action */}
-          <Box display={"flex"} justifyContent={"flex-end"} px={2.5}>
-            {/* <Button
-            variant="contained"
-            size="small"
-            sx={{
-              bgcolor: "#E75252",
-
-              mr: 2,
-              "&:hover": {
-                bgcolor: "#E75252",
-              },
-            }}
-          >
-            Rejected
-          </Button> */}
           </Box>
         </Box>
       ))}

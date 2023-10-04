@@ -75,35 +75,13 @@ function EducationalDetails(props: any) {
                     {`From ${candiEdu?.from}`} - {`to ${candiEdu?.to}`}
                   </Typography>
                 </Stack>
-                <Box display={"flex"} alignItems={"center"}>
+                <Box display={"flex"} alignItems={"center"} mt={0.5}>
                   <Typography variant="subtitle2">
                     {candiEdu?.institute_name}
                   </Typography>
                   {eduData.map((item, index) => (
                     <CustomChip item={item} key={index} />
                   ))}
-
-                  {/* <Tooltip
-                    title={<Typography variant="body2">{data}</Typography>}
-                    placement="right"
-                    TransitionComponent={Zoom}
-                    arrow={true}
-                  >
-                    <Typography
-                      variant="caption"
-                      bgcolor={"secondary.light"}
-                      ml={1}
-                      px={2}
-                      py={0.5}
-                      borderRadius={1.5}
-                      fontWeight={600}
-                      display={"flex"}
-                      alignItems={"center"}
-                    >
-                      <StarBorderIcon sx={{ fontSize: 12, mr: 0.5 }} /> NIRF
-                      Rating Top 10
-                    </Typography>
-                  </Tooltip> */}
                 </Box>
               </Box>
             </Grid>

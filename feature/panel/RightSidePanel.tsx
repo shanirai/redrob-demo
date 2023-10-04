@@ -12,7 +12,7 @@ type Anchor = "right";
 
 export default function RightSidePanel(props: any) {
   //** props -- components */
-  const { children } = props;
+  const { children, cardId } = props;
 
   const [state, setState] = React.useState({
     right: false,
@@ -31,6 +31,7 @@ export default function RightSidePanel(props: any) {
       }
 
       setState({ ...state, [anchor]: open });
+      console.log("lookjig  for index");
     };
 
   return (
@@ -66,7 +67,7 @@ export default function RightSidePanel(props: any) {
               }}
               onClick={toggleDrawer(anchor, false)}
             />
-            <CandidateDetails />
+            <CandidateDetails cardId={cardId} />
           </SwipeableDrawer>
         </React.Fragment>
       ))}

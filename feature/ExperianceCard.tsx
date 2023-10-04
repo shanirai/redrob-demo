@@ -22,7 +22,7 @@ import RightSidePanel from "./panel/RightSidePanel";
 
 function ExperianceCard(props: any) {
   //** props -- components */
-  const { active, candiExpData } = props;
+  const { active, candiExpData, cardId } = props;
 
   // exp data
   const expData = [
@@ -107,7 +107,7 @@ function ExperianceCard(props: any) {
                   ))}
                 </Box>
                 <Box pt={1}>
-                  <RightSidePanel />
+                  <RightSidePanel cardId={cardId} />
                 </Box>
               </Box>
             </Grid>
