@@ -40,25 +40,25 @@ const themeOptions: ThemeOptions = {
       fontFamily: roboto.style.fontFamily,
     },
     h4: {
-      fontSize: 18,
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineHeight: 1.5,
-    },
-    h5: {
       fontSize: 16,
       fontStyle: "normal",
       fontWeight: "600",
       lineHeight: 1.5,
     },
-    h6: {
+    h5: {
       fontSize: 14,
+      fontStyle: "normal",
+      fontWeight: "600",
+      lineHeight: 1.5,
+    },
+    h6: {
+      fontSize: 12,
       fontStyle: "normal",
       fontWeight: "bold",
       lineHeight: 1.5,
     },
     subtitle1: {
-      fontSize: 14,
+      fontSize: 12,
       fontStyle: "normal",
       fontWeight: 600,
       lineHeight: 1.5,
@@ -66,17 +66,17 @@ const themeOptions: ThemeOptions = {
     subtitle2: {
       fontSize: 12,
       fontStyle: "normal",
-      fontWeight: 600,
+      fontWeight: 500,
       lineHeight: 1.5,
     },
     body1: {
       fontStyle: "normal",
       fontWeight: "normal",
-      fontSize: 16,
+      fontSize: 14,
       lineHeight: 1.5,
     },
     body2: {
-      fontSize: 14,
+      fontSize: 12,
       fontStyle: "normal",
       fontWeight: "normal",
       lineHeight: 1.5,
@@ -126,7 +126,7 @@ const themeOptions: ThemeOptions = {
       // main: "#05264e",
       // light: "#e0e6f7",
       main: "#EB896A",
-      light: "#6BBE7929",  
+      light: "#6BBE7929",
     },
     text: {
       primary: "#05264e",
@@ -177,12 +177,12 @@ const themeOptions: ThemeOptions = {
         root: {
           // backgroundColor: "#FBE0CD",
           backgroundColor: "#e0e6f7",
-          fontSize: 12,
+          fontSize: 10,
           lineHeight: 1.5,
           fontWeight: 600,
         },
         label: {
-          fontSize: 12,
+          fontSize: 10,
           lineHeight: 1.5,
           fontWeight: 600,
           // color: "#EC6607",
@@ -192,7 +192,7 @@ const themeOptions: ThemeOptions = {
           },
         },
         sizeSmall: {
-          height: 26,
+          height: 24,
           borderRadius: 50,
         },
         sizeMedium: {
