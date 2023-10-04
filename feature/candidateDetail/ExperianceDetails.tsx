@@ -27,6 +27,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import CustomChip from "../common/CustomChip";
 import ExperienceCompare from "./ExperienceCompare";
 import CandidateData from "../../data/candi.json";
+import AIRecommended from "../../data/static.json";
 import CompanyDetails from "../companyDetail/CompanyDetails";
 
 const Transition = React.forwardRef(function Transition(
@@ -46,11 +47,12 @@ function ExperianceDetails(props: any) {
   const [isShowMore, setIsShowMore] = useState(false);
   const [isShowMore2, setIsShowMore2] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isAIRec, setisAIRec] = useState("no");
   const [comparisonFrom, setComparisonFrom] = useState(
     singleCandData.experiance[0]
   );
 
-  const comparisonTo = singleCandData.experiance[1];
+  const [comparisonTo, setComparisonTo] = useState<any>();
 
   const handleClickOpen = (data: any) => {
     setComparisonFrom(data);
@@ -117,6 +119,11 @@ function ExperianceDetails(props: any) {
                   </Stack>
                   <Box display={"flex"} alignItems={"center"}>
                     <Typography
+                      onClick={() => {
+                        setisAIRec("no");
+                        setComparisonTo(AIRecommended?.comparison?.company[1]);
+                        handleClickOpen(filterExpData);
+                      }}
                       variant="subtitle2"
                       fontWeight={500}
                       sx={{ cursor: "pointer" }}
@@ -272,11 +279,17 @@ function ExperianceDetails(props: any) {
                 flexItem
               />
               <Grid item xs={4}>
-                <ExperienceCompare />
+                <ExperienceCompare
+                  onClick={(data: any) => {
+                    setisAIRec("yes");
+                    setComparisonTo(data);
+                    handleClickOpen(filterExpData);
+                  }}
+                />
               </Grid>
             </Grid>
 
-            <Divider sx={{ my: 2 }} />
+            {/* <Divider sx={{ my: 2 }} /> */}
           </Box>
         ))}
       </Box>
@@ -292,6 +305,7 @@ function ExperianceDetails(props: any) {
       >
         {comparisonFrom && comparisonTo && (
           <CompanyDetails
+            isAIRec={isAIRec}
             leftCompanyData={comparisonFrom}
             rightCompanyData={comparisonTo}
           />

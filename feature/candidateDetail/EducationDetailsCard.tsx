@@ -2,7 +2,6 @@
 // React , Next Js packages
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 //  Mui packages
 import {
   Avatar,
@@ -15,7 +14,10 @@ import {
   Divider,
   Tooltip,
   Zoom,
+  Dialog,
+  Slide,
 } from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
@@ -23,15 +25,42 @@ import CircleIcon from "@mui/icons-material/Circle";
 import CustomChip from "../common/CustomChip";
 import EducationCompare from "./EducationCompare";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+// json data
+import CandidateData from "../../data/candi.json";
+import AIRecommended from "../../data/static.json";
+import EducationDetails from "../educationDetail/EducationDetails";
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function EducationDetailsCard(props: any) {
   //** props -- components */
   const { active, filterData } = props;
-  const [isShowMore, setIsShowMore] = useState(false);
-  // dummy data for tooltip
-  
 
-  
+  const singleCandData = CandidateData[0];
+  const [isShowMore, setIsShowMore] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [comparisonFrom, setComparisonFrom] = useState();
+
+  const comparisonTo = AIRecommended.comparison.institute[0];
+
+  const handleClickOpen = (data: any) => {
+    setComparisonFrom(data);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  // dummy data for tooltip
+
   return (
     <Box position={"relative"}>
       <Box
@@ -65,6 +94,7 @@ function EducationDetailsCard(props: any) {
                   </Stack>
                   <Box display={"flex"} alignItems={"center"}>
                     <Typography
+                      onClick={() => handleClickOpen(filterEduData)}
                       variant="subtitle2"
                       fontWeight={500}
                       sx={{ cursor: "pointer" }}
@@ -81,8 +111,9 @@ function EducationDetailsCard(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            learning from accredited institutions in India can play a crucial role in shaping
-                             a candidate's character, behavior, and outlook in the workplace.
+                            learning from accredited institutions in India can
+                            play a crucial role in shaping a candidate's
+                            character, behavior, and outlook in the workplace.
                           </Typography>
                         }
                         placement="right"
@@ -109,8 +140,10 @@ function EducationDetailsCard(props: any) {
                       <Tooltip
                         title={
                           <Typography variant="body2">
-                            Learning from top-ranking institutions in India can cultivate traits like diligence, global awareness, 
-                            competitiveness, ethical values, and a drive for excellence
+                            Learning from top-ranking institutions in India can
+                            cultivate traits like diligence, global awareness,
+                            competitiveness, ethical values, and a drive for
+                            excellence
                           </Typography>
                         }
                         placement="right"
@@ -133,8 +166,6 @@ function EducationDetailsCard(props: any) {
                           {filterEduData.ranking_p}% Ranking
                         </Typography>
                       </Tooltip>
-
-                      
                     </Stack>
                   </Box>
 
@@ -176,13 +207,32 @@ function EducationDetailsCard(props: any) {
               />
               {/* //Right column */}
               <Grid item xs={4}>
-                <EducationCompare />
+                <EducationCompare 
+                onClick={() => handleClickOpen(filterEduData)}
+                />
               </Grid>
             </Grid>
             <Divider sx={{ my: 2 }} />
           </Box>
         ))}
       </Box>
+
+      <Dialog
+        maxWidth="md"
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{ padding: 0 }}
+      >
+        {comparisonFrom && comparisonTo && (
+          <EducationDetails
+            leftInstituteData={comparisonFrom}
+            rightInstituteData={comparisonTo}
+          />
+        )}
+      </Dialog>
     </Box>
   );
 }

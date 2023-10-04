@@ -4,6 +4,9 @@
         {
           "name": "Ernst & Young Global Limited",
           "id":1,
+          "from": "Aug 2018",
+          "to": "Present",
+          "job_title": "Senior Software Developer",
           "description": "EY is a global leader in assurance, tax, transaction and advisory services. The insights and quality services we deliver help build trust and confidence in the capital markets and in economies the world over. We develop outstanding leaders who team to deliver on our promises to all of our stakeholders. In so doing, we play a critical role in building a better working world for our people, for our clients and for our communities.",
           "industry_sector": "Private",
           "company_type": "Professional Services",
@@ -119,7 +122,7 @@
           "description": "Recognised as an 'Institute of Excellence' by the UGC, the University of Delhi (also known as DU or Delhi University) is listed among the country's most prestigious educational institutions. Established in 1922, Delhi Univerity has grown into one of India's largest universities with more than 6 lakh students under UG, PG, certificate, diploma, PG diploma and distance programmes. It is ranked 11 and 22 under the 'University' and 'Overall' categories by the NIRF 2023 Rankings, respectively. DU University has two campuses- North and South. It also has 91 colleges affiliated with it, along with 86 departments, 23 centres, 16 faculties and three institutes spread all across Delhi.",
           "website": "https://du.ac.in",
           "reputation": 4,
-          "ranking": null,
+          "ranking": 83,
           "accreditation": true,
           "placement": " ",
           "alumni_network": " ",

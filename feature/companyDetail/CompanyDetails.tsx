@@ -10,11 +10,14 @@ import {
   Grid,
   Link,
   Stack,
+  Tooltip,
   Typography,
+  Zoom,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 import CallIcon from "@mui/icons-material/Call";
 import OtherInfo from "./OtherInfo";
@@ -29,16 +32,19 @@ const expData = [
     label: "Forbes 10 Company",
     icon: "",
     color: "",
+    description: "",
   },
   {
     label: "Ranking",
     icon: "",
     color: "",
+    description: "",
   },
   {
     label: "Rating",
     icon: "",
     color: "",
+    description: "",
   },
 ];
 
@@ -66,16 +72,11 @@ const Company = (props: any) => {
     location,
     specialties,
     overall,
-    tagLine,
+    s_overall_per,
+    s_culture_per,
   } = props?.data;
 
   const [showMore, setShowMore] = React.useState(false);
-
-  // useEffect(()=>{
-  //   if(description.length > 110){
-
-  //   }
-  // },[description])
 
   return (
     <>
@@ -86,30 +87,105 @@ const Company = (props: any) => {
         alignItems={"center"}
         mb={2}
       >
-        <Box display={"flex"} flexDirection={"column"} textAlign={"left"}>
-          <Typography variant="h6" color={"primary.main"}>
-            {props.left && "Candidate's company"}
-            {props.right && "AI recommended top company in sector"}
-          </Typography>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          textAlign={"left"}
+          width={"100%"}
+        >
+          <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            <Typography
+              variant="h4"
+              color={"primary.main"}
+              textAlign={"center"}
+              mb={2}
+            >
+              {props.left && "Candidate's company"}
+              {props.right &&
+                props.isAIRec == "yes" &&
+                "AI recommended top company in the sector"}
+              {props.right && props.isAIRec == "no" && "Your's company"}
+            </Typography>
+          </Box>
 
           <Typography variant="h4" fontWeight={600}>
             {name}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            fontWeight={500}
-            color={"text.secondary"}
-            fontStyle={"italic"}
+          <Link
+            href={website_link}
+            target="_blank"
+            rel="noreferrer"
+            px={0}
+            mx={0}
+            fontSize={12}
           >
-            {`"${tagLine}"`}
-          </Typography>
+            {website_link}
+          </Link>
         </Box>
       </Box>
 
-      <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
+      {/* <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
         {expData.map((item, index) => (
           <CustomChip item={item} key={index} ml={0} />
         ))}
+      </Stack> */}
+      <Stack direction={"row"} spacing={1} ml={0}>
+        <Tooltip
+          title={
+            <Typography variant="body2">
+              {` After evaluating candidates' companies alongside yours, and considering pertinent company data, 
+                           it's apparent that this candidate exhibits greater performance potential`}
+            </Typography>
+          }
+          placement="right"
+          TransitionComponent={Zoom}
+          arrow={true}
+        >
+          <Typography
+            variant="caption"
+            bgcolor={"secondary.light"}
+            ml={1}
+            px={1.5}
+            py={0.5}
+            borderRadius={1.5}
+            fontSize={10}
+            fontWeight={500}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> {s_overall_per}%
+            Potential
+          </Typography>
+        </Tooltip>
+
+        <Tooltip
+          title={
+            <Typography variant="body2">
+              {` It's evident that this candidate is a better
+                            cultural fit. Candidate is likely to understand and
+                            align with your company's standards and values`}
+            </Typography>
+          }
+          placement="right"
+          TransitionComponent={Zoom}
+          arrow={true}
+        >
+          <Typography
+            variant="caption"
+            bgcolor={"secondary.light"}
+            ml={1}
+            px={1.5}
+            py={0.5}
+            borderRadius={1.5}
+            fontSize={10}
+            fontWeight={500}
+            display={"flex"}
+            alignItems={"center"}
+          >
+            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+            {s_culture_per}% Cultural Fit
+          </Typography>
+        </Tooltip>
       </Stack>
 
       {/* <Comparison /> */}
@@ -138,27 +214,7 @@ const Company = (props: any) => {
       </Box>
 
       <Box
-        py={2}
-        sx={{
-          alignItems: "center",
-          flexDirection: "row",
-          display: "flex",
-        }}
-      >
-        <LanguageIcon />
-        <Link
-          href={website_link}
-          target="_blank"
-          rel="noreferrer"
-          px={1}
-          fontSize={14}
-        >
-          {website_link}
-        </Link>
-      </Box>
-
-      <Box
-        pt={0}
+        pt={2}
         sx={{
           alignItems: "flex-start",
           flexDirection: "column",
@@ -199,15 +255,16 @@ const Company = (props: any) => {
 };
 
 function CompanyDetails(props: any) {
-  const { leftCompanyData, rightCompanyData } = props;
-  console.log("leftCompanyData", leftCompanyData);
+  const { leftCompanyData, rightCompanyData, isAIRec } = props;
 
   return (
     <Container maxWidth="lg">
       <Box bgcolor={"#fff"} borderRadius={"8px"} my={3.5} py={2.5}>
         <Grid rowSpacing={1} direction={"row"} display={"flex"}>
           <Grid item xs={6} px={2} flexWrap={"wrap"} width={"50%"}>
-            {leftCompanyData && <Company data={leftCompanyData} left />}
+            {leftCompanyData && (
+              <Company data={leftCompanyData} left isAIRec={isAIRec} />
+            )}
           </Grid>
           <Divider
             orientation="vertical"
@@ -215,7 +272,9 @@ function CompanyDetails(props: any) {
             flexItem
           />
           <Grid item xs={6} px={2} width={"50%"}>
-            {rightCompanyData && <Company data={rightCompanyData} right />}
+            {rightCompanyData && (
+              <Company data={rightCompanyData} right isAIRec={isAIRec} />
+            )}
           </Grid>
         </Grid>
       </Box>

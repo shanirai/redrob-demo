@@ -12,8 +12,6 @@ function OtherInfo(props: any) {
   const { label, value, icon } = props;
   const [showMore, setShowMore] = useState(false);
 
-  // console.log("icon tech rev", label, icon, tech, revenue);
-
   const displayvalue = () => {
     return (
       <span>
@@ -42,14 +40,14 @@ function OtherInfo(props: any) {
     >
       <Typography variant="caption" width="30%" sx={{ fontWeight: 600 }}>
         {label}
+        {" : "}
       </Typography>
       <Typography
         variant="caption"
         width="70%"
         sx={{ display: "flex", alignItems: "center" }}
       >
-        <span style={{ marginRight: 8, fontWeight: 600 }}>:</span>
-        {value.length > 30 ? displayvalue() : value}
+        {value?.length > 30 ? displayvalue() : value}
         {icon && icon}
       </Typography>
     </Box>
