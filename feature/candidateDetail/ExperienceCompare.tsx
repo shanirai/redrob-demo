@@ -25,14 +25,19 @@ function ExperienceCompare(props: any) {
     >
       <Stack direction={"row"} mb={1}>
         <Typography variant="h5" sx={{ color: "#45b3e0" }}>
-          AI Recommended Top in Sector
+          AI Recommended Top In Sector
         </Typography>
       </Stack>
       {CompanyJson?.comparison?.company.slice(0, 1).map((item, index) => {
         return (
-          <Stack key={index + 1} direction={"column"} mb={0.5}>
+          <Stack
+            onClick={() => props.onClick(item)}
+            key={index + 1}
+            direction={"column"}
+            mb={0.5}
+            sx={{ cursor: "pointer" }}
+          >
             <Typography
-              onClick={() => props.onClick(item)}
               variant="subtitle2"
               fontWeight={600}
               fontSize={14}

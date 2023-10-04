@@ -20,9 +20,9 @@ function OtherInfo(props: any) {
           onClick={() => {
             setShowMore(!showMore);
           }}
-          style={{ color: "red", fontWeight: 500 }}
+          style={{ fontWeight: 600 }}
         >
-          {!showMore ? "...more" : "  less"}
+          {!showMore ? "...Show more" : "  ...Show less"}
         </span>
       </span>
     );
@@ -48,7 +48,7 @@ function OtherInfo(props: any) {
         sx={{ display: "flex", alignItems: "center" }}
       >
         {value?.length > 30 ? displayvalue() : value}
-        {icon && icon}
+        <span style={{ marginLeft: 4 }}>{icon && icon}</span>
       </Typography>
     </Box>
   );

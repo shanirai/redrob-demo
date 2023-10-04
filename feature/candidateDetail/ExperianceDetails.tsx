@@ -118,13 +118,17 @@ function ExperianceDetails(props: any) {
                       {filterExpData?.from} - {filterExpData?.to}
                     </Typography>
                   </Stack>
-                  <Box display={"flex"} alignItems={"center"}>
+                  <Box
+                    onClick={() => {
+                      setisAIRec("no");
+                      setComparisonTo(AIRecommended?.comparison?.company[1]);
+                      handleClickOpen(filterExpData);
+                    }}
+                    display={"flex"}
+                    alignItems={"center"}
+                    sx={{ cursor: "pointer" }}
+                  >
                     <Typography
-                      onClick={() => {
-                        setisAIRec("no");
-                        setComparisonTo(AIRecommended?.comparison?.company[1]);
-                        handleClickOpen(filterExpData);
-                      }}
                       variant="subtitle2"
                       fontWeight={500}
                       sx={{ cursor: "pointer" }}

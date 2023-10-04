@@ -56,7 +56,7 @@
         "global_presence_p": 7,
         "customer_satisfaction_p": 5,
         "reviews_p": 5,
-        "s_overall_per": 110,
+        "s_overall_per": 78,
         "s_culture_per": 90,
         "s_reviews_per": -5,
         "t_overall_per": -10,
@@ -98,7 +98,7 @@
         "customer_satisfaction_p": 0,
         "reviews_p": "3 ",
         "s_overall_per": 6,
-        "s_culture_per": 0,
+        "s_culture_per": 70,
         "s_reviews_per": -20,
         "t_overall_per": -10,
         "t_culture_per": -40
@@ -203,7 +203,7 @@
       "customer_satisfaction_p": " ",
       "reviews_p": " ",
       "s_overall_per": " ",
-      "s_culture_per": " ",
+      "s_culture_per": 30,
       "s_reviews_per": " ",
       "t_overall_per": " ",
       "t_culture_per": " "
@@ -295,7 +295,7 @@
         "customer_satisfaction_p": 5,
         "reviews_p": 5,
         "s_overall_per": 7,
-        "s_culture_per": 0,
+        "s_culture_per": 75,
         "s_reviews_per": -5,
         "t_overall_per": -10,
         "t_culture_per": -30
@@ -335,7 +335,7 @@
         "customer_satisfaction_p": 0,
         "reviews_p": "3 ",
         "s_overall_per": 6,
-        "s_culture_per": 0,
+        "s_culture_per": 60,
         "s_reviews_per": -20,
         "t_overall_per": -10,
         "t_culture_per": -40
@@ -440,7 +440,7 @@
       "customer_satisfaction_p": " ",
       "reviews_p": " ",
       "s_overall_per": " ",
-      "s_culture_per": " ",
+      "s_culture_per": 90,
       "s_reviews_per": " ",
       "t_overall_per": " ",
       "t_culture_per": " "
@@ -478,7 +478,7 @@
       "customer_satisfaction_p": " ",
       "reviews_p": " ",
       "s_overall_per": " ",
-      "s_culture_per": " ",
+      "s_culture_per": 80,
       "s_reviews_per": " ",
       "t_overall_per": " ",
       "t_culture_per": " "
@@ -569,7 +569,7 @@
         "customer_satisfaction_p": 5,
         "reviews_p": 5,
         "s_overall_per": 7,
-        "s_culture_per": 0,
+        "s_culture_per": 60,
         "s_reviews_per": -5,
         "t_overall_per": -10,
         "t_culture_per": -30
@@ -609,7 +609,7 @@
         "customer_satisfaction_p": 0,
         "reviews_p": "3 ",
         "s_overall_per": 6,
-        "s_culture_per": 0,
+        "s_culture_per": 60,
         "s_reviews_per": -20,
         "t_overall_per": -10,
         "t_culture_per": -40
@@ -714,7 +714,7 @@
       "customer_satisfaction_p": " ",
       "reviews_p": " ",
       "s_overall_per": " ",
-      "s_culture_per": " ",
+      "s_culture_per": 66,
       "s_reviews_per": " ",
       "t_overall_per": " ",
       "t_culture_per": " "
@@ -752,7 +752,7 @@
       "customer_satisfaction_p": " ",
       "reviews_p": " ",
       "s_overall_per": " ",
-      "s_culture_per": " ",
+      "s_culture_per": 83,
       "s_reviews_per": " ",
       "t_overall_per": " ",
       "t_culture_per": " "
