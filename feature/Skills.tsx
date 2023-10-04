@@ -19,21 +19,13 @@ import {
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 
-function ListOfSkills() {
+function ListOfSkills(props: any) {
+  //** props -- components */
+  const { candiSkillsData } = props;
+
   // dummy data for tooltip
   const data =
     "Indian Institute of Technology Delhi is one of the 23 IITs created to be Centres of Excellence for training, research and development in science, engineering and technology in India.";
-
-  const skillsData = [
-    "Java",
-    "PHP",
-    "AWS",
-    "Node JS",
-    "Python",
-    "Javascript",
-    "React JS",
-    "Angular JS",
-  ];
 
   return (
     <Box>
@@ -61,11 +53,24 @@ function ListOfSkills() {
               key={index}
             />
           ))} */}
-          <Typography variant="h6">
-            {`2`} Match out {`12`} Skills
+          <Typography variant="h6" mr={0.3}>
+            {candiSkillsData.match_found} Skills Match out of
           </Typography>
-          <Typography component={"span"} variant="subtitle2" ml={1}>
-            Python , Java
+          <Typography component={"span"} variant="h6">
+            {"   "} {candiSkillsData.total_skills} Skills |{" "}
+            {candiSkillsData.skills.map((skill: any, index: any) => (
+              <Typography
+                component={"span"}
+                key={index}
+                px={0.25}
+                ml={0.3}
+                variant="h6"
+                color={"text.secondary"}
+                textTransform={"capitalize"}
+              >
+                {skill}
+              </Typography>
+            ))}
           </Typography>
         </Box>
       </Box>
