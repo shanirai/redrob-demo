@@ -22,35 +22,16 @@ import CircleIcon from "@mui/icons-material/Circle";
 // Custom components
 import CustomChip from "../common/CustomChip";
 import EducationCompare from "./EducationCompare";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 function EducationDetailsCard(props: any) {
   //** props -- components */
   const { active, filterData } = props;
   const [isShowMore, setIsShowMore] = useState(false);
   // dummy data for tooltip
-  const data =
-    "Indian Institute of Technology Delhi is one of the 23 IITs created to be Centres of Excellence for training, research and development in science, engineering and technology in India.";
+  
 
-  // exp data
-  const eduData = [
-    {
-      label: "20% Overall",
-      icon: "",
-      color: "",
-      description: "Overall comparison  with  top institute  in local region",
-    },
-    {
-      label: "10% Ranking",
-      icon: "",
-      color: "",
-      description:
-        "government ranking and service comparison  with  top institute  in local region",
-    },
-  ];
-
-  const about =
-    "Established in 1998 Babu Banarasi Das National Institute of Technology and Management is a known reputed Institute, located in Lucknow, Uttar Pradesh. Babu Banarasi Das National Institute of Technology and Management offers 23 diverse courses for Degree in Full Time mode. Babu Banarasi Das National Institute of Technology and Management offers a range of 20 UG courses. These courses are aimed to provide students with the necessary skills and knowledge in their field of interest. Candidate can pursue in multiple range of courses like B.E. / B.Tech, MBA/PGDM, M.E./M.Tech, MCA, BBA, BCA, B.Pharma with the stream of Engineering, Business & Management Studies, IT & Software and Medicine & Health Sciences. From introductory courses to more advanced topics, there are a variety of courses to choose from. Institute provides opportunity to students to gain proficiency & expertise in the specialization of Civil Engineering, Electrical Engineering, Mechanical Engineering, Computer Science Engineering, Electronics & Communication Engineering, Aeronautical Engineering, Chemical Engineering, Information Technology. Courses offered by institute are well recognized and acknowlegded by approving body like AICTE.";
-
+  
   return (
     <Box position={"relative"}>
       <Box
@@ -92,9 +73,69 @@ function EducationDetailsCard(props: any) {
                     </Typography>
                     {/* custom chip */}
 
-                    {eduData.map((item, index) => (
+                    {/* {eduData.map((item, index) => (
                       <CustomChip item={item} key={index} />
-                    ))}
+                    ))} */}
+
+                    <Stack direction={"row"} spacing={1} ml={1}>
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            learning from accredited institutions in India can play a crucial role in shaping
+                             a candidate's character, behavior, and outlook in the workplace.
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          {/* <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "} */}
+                          {filterEduData.t_accreditation_tag}
+                        </Typography>
+                      </Tooltip>
+
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            Learning from top-ranking institutions in India can cultivate traits like diligence, global awareness, 
+                            competitiveness, ethical values, and a drive for excellence
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                          {filterEduData.ranking_p}% Ranking
+                        </Typography>
+                      </Tooltip>
+
+                      
+                    </Stack>
                   </Box>
 
                   <Box mt={2}>
@@ -130,7 +171,7 @@ function EducationDetailsCard(props: any) {
               {/* //vertical line to differentiate left and right column */}
               <Divider
                 orientation="vertical"
-                sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
+                sx={{ bgcolor: "text.secondary", marginLeft: "12px" }}
                 flexItem
               />
               {/* //Right column */}
