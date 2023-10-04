@@ -29,16 +29,13 @@ import { useSnackbar } from "notistack";
 import CustomChip from "./common/CustomChip";
 import CandidateData from "../data/candi.json";
 
-import GradeIcon from '@mui/icons-material/Grade';
-import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
-
-
+import GradeIcon from "@mui/icons-material/Grade";
+import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
 function CandidateListCard(props: any) {
   //**  props -- components  */
   const { handleActive } = props;
-
 
   //**   useRouter  hooks    */
   const router = useRouter();
@@ -59,22 +56,24 @@ function CandidateListCard(props: any) {
   const data = [
     {
       label: "60% Relevance",
-      icon: <ArrowCircleUpIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <ArrowCircleUpIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Showcases profile relevance percentage compared with the Job Description"
+      description:
+        "Showcases profile relevance percentage compared with the Job Description",
     },
-    
+
     {
       label: "A+(96-100)",
-      icon: <GradeIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <GradeIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Compared with other candidates"
+      description: "Compared with other candidates",
     },
     {
       label: "Recruiter Choice",
-      icon: <GppGoodOutlinedIcon  sx={{ fontSize: 14, mr: 0.5 }}/>,
+      icon: <GppGoodOutlinedIcon sx={{ fontSize: 14, mr: 0.5 }} />,
       color: "",
-      description:"Many recruiters have bookmarked this candidate and selected them for interviews."
+      description:
+        "Many recruiters have bookmarked this candidate and selected them for interviews.",
     },
   ];
 
@@ -150,7 +149,7 @@ function CandidateListCard(props: any) {
                 </Box>
               </Box>
             </Box>
-            <Stack direction={"row"} justifyContent={"flex-end"}>
+            <Stack direction={"row"} justifyContent={"flex-end"} pt={1.5}>
               <FileDownloadIcon
                 sx={{
                   width: 25,
@@ -185,7 +184,7 @@ function CandidateListCard(props: any) {
               ...
               <Typography
                 component={"span"}
-                variant="subtitle2"
+                variant="body2"
                 onClick={() => setIsShowMore(!isShowMore)}
               >
                 {isShowMore ? "Show Less" : "Read More"}
@@ -197,7 +196,7 @@ function CandidateListCard(props: any) {
 
           <Box py={1}>
             <Grid container rowSpacing={1}>
-              <Grid item xs={9.3} onMouseOver={() => setActive(true)}>
+              <Grid item xs={9.4} onMouseOver={() => setActive(true)}>
                 {/* Work experience card  */}
 
                 <ExperianceCard
@@ -215,7 +214,7 @@ function CandidateListCard(props: any) {
               </Grid>
               <Divider
                 orientation="vertical"
-                sx={{ bgcolor: "secondary.main", mt: 2 }}
+                sx={{ bgcolor: "text.secondary", mt: 2 }}
                 flexItem
               />
               <Grid item xs={2.5}>

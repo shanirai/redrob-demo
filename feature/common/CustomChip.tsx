@@ -27,6 +27,7 @@ function CustomChip(props: any) {
           ml={1}
           px={1.5}
           py={0.4}
+          fontSize={"10px"}
           borderRadius={1.2}
           fontWeight={500}
           display={"flex"}

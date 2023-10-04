@@ -35,15 +35,15 @@ function EducationalDetails(props: any) {
       label: "10% Overall",
       icon: "",
       color: "",
-      description:"Overall comparison  with  top institute  in local region"
+      description: "Overall comparison  with  top institute  in local region",
     },
     {
       label: "20% Ranking",
       icon: "",
       color: "",
-      description:"government ranking and service comparison  with  top institute  in local region"
+      description:
+        "government ranking and service comparison  with  top institute  in local region",
     },
-    
   ];
 
   return (
@@ -52,21 +52,31 @@ function EducationalDetails(props: any) {
         <Box
           mt={0.5}
           mx={1.5}
-          border={"1px solid "}
-          borderColor={"secondary.light"}
-          borderRadius={1}
+          // border={"1px solid "}
+          // borderColor={"secondary.light"}
+          // borderRadius={1}
           px={1}
           py={1}
         >
-          <Grid container columnGap={1}>
+          <Grid container>
             <Grid item xs={1}>
               <Typography variant="h6">Education</Typography>
             </Grid>
 
-            <Grid item xs={10} key={index}>
+            <Grid item xs={11} key={index}>
               <Box flexDirection={"column"} display={"flex"} ml={1.5}>
+                <Stack direction={"row"} justifyContent={"space-between"}>
+                  <Typography variant="h6">
+                    {candiEdu?.degree}
+                    {`(${candiEdu?.stream})`}
+                  </Typography>
+
+                  <Typography variant="subtitle2" color={"text.secondary"}>
+                    {`From ${candiEdu?.from}`} - {`to ${candiEdu?.to}`}
+                  </Typography>
+                </Stack>
                 <Box display={"flex"} alignItems={"center"}>
-                  <Typography variant="h6" fontWeight={600}>
+                  <Typography variant="subtitle2">
                     {candiEdu?.institute_name}
                   </Typography>
                   {eduData.map((item, index) => (
@@ -95,16 +105,6 @@ function EducationalDetails(props: any) {
                     </Typography>
                   </Tooltip> */}
                 </Box>
-                <Stack direction={"row"} justifyContent={"space-between"}>
-                  <Typography variant="subtitle2">
-                    {candiEdu?.degree}
-                    {`(${candiEdu?.stream})`}
-                  </Typography>
-
-                  <Typography variant="subtitle2" color={"text.secondary"}>
-                    {`From ${candiEdu?.from}`} - {`to ${candiEdu?.to}`}
-                  </Typography>
-                </Stack>
               </Box>
             </Grid>
           </Grid>
