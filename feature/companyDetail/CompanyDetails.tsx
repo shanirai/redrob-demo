@@ -74,6 +74,7 @@ const Company = (props: any) => {
     overall,
     s_overall_per,
     s_culture_per,
+    t_overall_per,
   } = props?.data;
 
   const [showMore, setShowMore] = React.useState(false);
@@ -96,15 +97,15 @@ const Company = (props: any) => {
           <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
             <Typography
               variant="h4"
-              color={"primary.main"}
+              color={"#45b3e0"}
               textAlign={"center"}
               mb={2}
             >
-              {props.left && "Candidate's company"}
+              {props.left && "Candidate's Company"}
               {props.right &&
                 props.isAIRec == "yes" &&
-                "AI recommended top company in the sector"}
-              {props.right && props.isAIRec == "no" && "Your's company"}
+                "AI Recommended Top Institute In The Sector"}
+              {props.right && props.isAIRec == "no" && "Your Company"}
             </Typography>
           </Box>
 
@@ -118,101 +119,32 @@ const Company = (props: any) => {
             px={0}
             mx={0}
             fontSize={12}
+            mt={1.5}
           >
             {website_link}
           </Link>
         </Box>
       </Box>
-
       {/* <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
         {expData.map((item, index) => (
           <CustomChip item={item} key={index} ml={0} />
         ))}
       </Stack> */}
-      <Stack direction={"row"} spacing={1} ml={0}>
-        <Tooltip
-          title={
-            <Typography variant="body2">
-              {` After evaluating candidates' companies alongside yours, and considering pertinent company data, 
-                           it's apparent that this candidate exhibits greater performance potential`}
-            </Typography>
-          }
-          placement="right"
-          TransitionComponent={Zoom}
-          arrow={true}
-        >
-          <Typography
-            variant="caption"
-            bgcolor={"secondary.light"}
-            ml={1}
-            px={1.5}
-            py={0.5}
-            borderRadius={1.5}
-            fontSize={10}
-            fontWeight={500}
-            display={"flex"}
-            alignItems={"center"}
-          >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> {s_overall_per}%
-            Potential
-          </Typography>
-        </Tooltip>
-
-        <Tooltip
-          title={
-            <Typography variant="body2">
-              {` It's evident that this candidate is a better
-                            cultural fit. Candidate is likely to understand and
-                            align with your company's standards and values`}
-            </Typography>
-          }
-          placement="right"
-          TransitionComponent={Zoom}
-          arrow={true}
-        >
-          <Typography
-            variant="caption"
-            bgcolor={"secondary.light"}
-            ml={1}
-            px={1.5}
-            py={0.5}
-            borderRadius={1.5}
-            fontSize={10}
-            fontWeight={500}
-            display={"flex"}
-            alignItems={"center"}
-          >
-            <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
-            {s_culture_per}% Cultural Fit
-          </Typography>
-        </Tooltip>
-      </Stack>
-
+      {/* overall chip */}
       {/* <Comparison /> */}
-
       <Box pt={0.5} mt={2}>
-        <Typography
-          // sx={{
-          //   overflow: "hidden",
-          //   textOverflow: "ellipsis",
-          //   display: "-webkit-box",
-          //   WebkitLineClamp: "2",
-          //   WebkitBoxOrient: "vertical",
-          // }}
-          variant="body2"
-        >
-          {!showMore ? description.slice(0, 110) : description}
+        <Typography variant="body2">
+          {!showMore ? description.slice(0, 100) : description}
           <span
             onClick={() => {
               setShowMore(!showMore);
             }}
-            style={{ color: "red", fontWeight: 500 }}
+            style={{ fontWeight: 600 }}
           >
-            {!showMore ? "...more" : "  less"}
+            {!showMore ? "...Show more" : "  ...Show less"}
           </span>
         </Typography>
       </Box>
-
       <Box
         pt={2}
         sx={{
@@ -241,7 +173,6 @@ const Company = (props: any) => {
         <OtherInfo label="Global Presence" value={"UK, USA, Germany,India"} />
         <OtherInfo label="Specialties" value={specialties} />
       </Box>
-
       {/* <Typography variant="h5" fontWeight={600} mt={2} mb={1}>
         Perks & Benefits
       </Typography>
@@ -250,6 +181,102 @@ const Company = (props: any) => {
           return <Chip label={item} key={index} />;
         })}
       </Stack> */}
+
+      {/* blue/overall chip */}
+      {props.left && props.isAIRec == "yes" && (
+        <Stack direction={"row"} spacing={1} mt={2}>
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {`it is apparent that this candidate's company meets a high
+                    standard and is comparable to the leading companies in the
+                    field`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"#87CEEB"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} /> {t_overall_per}
+              % Overall
+            </Typography>
+          </Tooltip>
+        </Stack>
+      )}
+
+      {/* green chip */}
+      {props.left && props.isAIRec == "no" && (
+        <Stack direction={"row"} spacing={1} mt={2}>
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {` After evaluating candidates' companies alongside yours, and considering pertinent company data, 
+                           it's apparent that this candidate exhibits greater performance potential`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"secondary.light"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} /> {s_overall_per}
+              % Potential
+            </Typography>
+          </Tooltip>
+
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {` It's evident that this candidate is a better
+                            cultural fit. Candidate is likely to understand and
+                            align with your company's standards and values`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"secondary.light"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+              {s_culture_per}% Cultural Fit
+            </Typography>
+          </Tooltip>
+        </Stack>
+      )}
     </>
   );
 };

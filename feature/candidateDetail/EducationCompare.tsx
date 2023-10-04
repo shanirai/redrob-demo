@@ -25,14 +25,19 @@ function EducationCompare(props: any) {
     >
       <Stack direction={"row"} mb={1}>
         <Typography variant="h5" sx={{ color: "#45b3e0" }}>
-          AI Recommended Top in Institute
+          AI Recommended Top In Institute
         </Typography>
       </Stack>
       {CompanyJson?.comparison?.institute.slice(0, 1).map((item, index) => {
         return (
-          <Stack key={index + 1} direction={"column"} mb={0.5}>
+          <Stack
+            onClick={props.onClick}
+            key={index + 1}
+            direction={"column"}
+            mb={0.5}
+            sx={{ cursor: "pointer" }}
+          >
             <Typography
-              onClick={props.onClick}
               variant="subtitle2"
               fontWeight={600}
               fontSize={14}
@@ -47,7 +52,12 @@ function EducationCompare(props: any) {
               fontWeight={500}
               color={"text.secondary"}
             >
-              <a href={item.website} style={{ textDecoration: "none" }}>
+              <a
+                href={item.website}
+                style={{ textDecoration: "none" }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {item.website}
               </a>
             </Typography>

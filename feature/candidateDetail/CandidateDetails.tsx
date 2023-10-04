@@ -32,12 +32,12 @@ function CandidateDetails(props: any) {
     }
   });
 
-  console.log(
-    "check filterData of Candidate",
-    filterData,
-    "What is Index Key ======",
-    cardId
-  );
+  // console.log(
+  //   "check filterData of Candidate",
+  //   filterData,
+  //   "What is Index Key ======",
+  //   cardId
+  // );
 
   return (
     <Container maxWidth="lg">

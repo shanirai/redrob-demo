@@ -47,8 +47,8 @@ function EducationDetailsCard(props: any) {
   const singleCandData = CandidateData[0];
   const [isShowMore, setIsShowMore] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isAIRec, setisAIRec] = useState("no");
   const [comparisonFrom, setComparisonFrom] = useState();
-
   const comparisonTo = AIRecommended.comparison.institute[0];
 
   const handleClickOpen = (data: any) => {
@@ -93,9 +93,16 @@ function EducationDetailsCard(props: any) {
                       {filterEduData.from} - {filterEduData.to}
                     </Typography>
                   </Stack>
-                  <Box display={"flex"} alignItems={"center"}>
+                  <Box
+                    onClick={() => {
+                      setisAIRec("no");
+                      handleClickOpen(filterEduData);
+                    }}
+                    display={"flex"}
+                    alignItems={"center"}
+                    sx={{ cursor: "pointer" }}
+                  >
                     <Typography
-                      onClick={() => handleClickOpen(filterEduData)}
                       variant="subtitle2"
                       fontWeight={500}
                       sx={{ cursor: "pointer" }}
@@ -209,7 +216,10 @@ function EducationDetailsCard(props: any) {
               {/* //Right column */}
               <Grid item xs={4}>
                 <EducationCompare
-                  onClick={() => handleClickOpen(filterEduData)}
+                  onClick={() => {
+                    setisAIRec("yes");
+                    handleClickOpen(filterEduData);
+                  }}
                 />
               </Grid>
             </Grid>
@@ -229,6 +239,7 @@ function EducationDetailsCard(props: any) {
       >
         {comparisonFrom && comparisonTo && (
           <EducationDetails
+            isAIRec={isAIRec}
             leftInstituteData={comparisonFrom}
             rightInstituteData={comparisonTo}
           />

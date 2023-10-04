@@ -11,14 +11,18 @@ import {
   Link,
   Stack,
   Typography,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
-import OtherInfo from "./OtherInfo";
-import CustomChip from "../common/CustomChip";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GradeIcon from "@mui/icons-material/Grade";
 // Third party packages
 // Custom components
+import OtherInfo from "./OtherInfo";
+import CustomChip from "../common/CustomChip";
 
 // exp data
 const expData = [
@@ -61,6 +65,9 @@ const Institute = (props: any) => {
     established,
     reputation,
     ranking,
+    t_accreditation_tag,
+    ranking_p,
+    t_overall_per,
     // size,
     // industry_sector,
     // location,
@@ -92,8 +99,8 @@ const Institute = (props: any) => {
             textAlign={"center"}
             mb={1}
           >
-            {props.left && "Candidate's institute"}
-            {props.right && "AI recommended top institute in the region"}
+            {props.left && "Candidate's Institute"}
+            {props.right && "AI Recommended Top Institute In The Region"}
           </Typography>
 
           <Typography variant="h4" fontWeight={600}>
@@ -121,24 +128,15 @@ const Institute = (props: any) => {
       {/* <Comparison /> */}
 
       <Box pt={0.5} mt={2}>
-        <Typography
-          // sx={{
-          //   overflow: "hidden",
-          //   textOverflow: "ellipsis",
-          //   display: "-webkit-box",
-          //   WebkitLineClamp: "2",
-          //   WebkitBoxOrient: "vertical",
-          // }}
-          variant="body2"
-        >
-          {!showMore ? description.slice(0, 110) : description}
+        <Typography variant="body2">
+          {!showMore ? description.slice(0, 100) : description}
           <span
             onClick={() => {
               setShowMore(!showMore);
             }}
-            style={{ color: "red", fontWeight: 500 }}
+            style={{ fontWeight: 600 }}
           >
-            {!showMore ? "...more" : "  less"}
+            {!showMore ? "...Show more" : "  ...Show less"}
           </span>
         </Typography>
       </Box>
@@ -172,6 +170,102 @@ const Institute = (props: any) => {
         {/* <OtherInfo label="Specialties" value={specialties} /> */}
       </Box>
 
+      {/* blue/overall chip */}
+      {props.left && props.isAIRec == "yes" && (
+        <Stack direction={"row"} spacing={1} mt={2}>
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {`it is apparent that this candidate's company meets a high
+                    standard and is comparable to the leading companies in the
+                    field`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"#87CEEB"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} /> {t_overall_per}
+              % Overall
+            </Typography>
+          </Tooltip>
+        </Stack>
+      )}
+      {/* green chip */}
+      {props.left && props.isAIRec == "no" && (
+        <Stack direction={"row"} spacing={1} mt={2}>
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {`learning from accredited institutions in India can play a crucial
+              role in shaping a candidate's character, behavior, and outlook in
+              the workplace.`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"secondary.light"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />
+              {t_accreditation_tag}
+            </Typography>
+          </Tooltip>
+
+          <Tooltip
+            title={
+              <Typography variant="body2">
+                {` Learning from top-ranking institutions in India can cultivate
+              traits like diligence, global awareness, competitiveness, ethical
+              values, and a drive for excellence`}
+              </Typography>
+            }
+            placement="right"
+            TransitionComponent={Zoom}
+            arrow={true}
+          >
+            <Typography
+              variant="caption"
+              bgcolor={"secondary.light"}
+              ml={1}
+              px={1.5}
+              py={0.5}
+              borderRadius={1.5}
+              fontSize={10}
+              fontWeight={500}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <ArrowUpwardIcon sx={{ fontSize: 10, mr: 0.5 }} />
+              {ranking_p}% Ranking
+            </Typography>
+          </Tooltip>
+        </Stack>
+      )}
+
       {/* <Typography variant="h5" fontWeight={600} mt={2} mb={1}>
         Perks & Benefits
       </Typography>
@@ -185,14 +279,16 @@ const Institute = (props: any) => {
 };
 
 function EducationDetails(props: any) {
-  const { leftInstituteData, rightInstituteData } = props;
+  const { leftInstituteData, rightInstituteData, isAIRec } = props;
 
   return (
     <Container maxWidth="lg">
       <Box bgcolor={"#fff"} borderRadius={"8px"} my={3.5} py={2.5}>
         <Grid rowSpacing={1} direction={"row"} display={"flex"}>
           <Grid item xs={6} px={2} flexWrap={"wrap"} width={"50%"}>
-            {leftInstituteData && <Institute data={leftInstituteData} left />}
+            {leftInstituteData && (
+              <Institute data={leftInstituteData} left isAIRec={isAIRec} />
+            )}
           </Grid>
           <Divider
             orientation="vertical"
@@ -201,7 +297,7 @@ function EducationDetails(props: any) {
           />
           <Grid item xs={6} px={2} width={"50%"}>
             {rightInstituteData && (
-              <Institute data={rightInstituteData} right />
+              <Institute data={rightInstituteData} right isAIRec={isAIRec} />
             )}
           </Grid>
         </Grid>
