@@ -120,14 +120,16 @@ function CandidateListCard(props: any) {
 
                     <SectionHeadingChip
                       title={`${candiData?.jd_per}% Relevance`}
-                      icon={<ArrowCircleUpIcon />}
+                      icon={
+                        <ArrowCircleUpIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                      }
                       tooltip_desc={
                         "Showcases profile relevance percentage compared with the Job Description"
                       }
                     />
                     <SectionHeadingChip
                       title={`${candiData?.candidate_grade}`}
-                      icon={<GradeIcon />}
+                      icon={<GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />}
                       tooltip_desc={
                         "Showcases profile relevance percentage compared with the Job Description"
                       }
@@ -135,7 +137,9 @@ function CandidateListCard(props: any) {
                     {candiData?.recruiter_choice === true && (
                       <SectionHeadingChip
                         title={"Recruiter Choice"}
-                        icon={<GppGoodOutlinedIcon />}
+                        icon={
+                          <GppGoodOutlinedIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                        }
                         tooltip_desc={
                           "Showcases profile relevance percentage compared with the Job Description"
                         }
