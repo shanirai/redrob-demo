@@ -104,7 +104,7 @@ function ExperianceDetails(props: any) {
           </Typography>
         </Stack>
         {filterData[0]?.experiance?.map((filterExpData: any, index: any) => (
-          <Box>
+          <Box key={index}>
             <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
               <Grid item xs={8}>
                 <Box my={1}>

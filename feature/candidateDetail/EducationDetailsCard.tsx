@@ -25,7 +25,7 @@ import EducationCompare from "./EducationCompare";
 
 function EducationDetailsCard(props: any) {
   //** props -- components */
-  const { active } = props;
+  const { active, filterData } = props;
   const [isShowMore, setIsShowMore] = useState(false);
   // dummy data for tooltip
   const data =
@@ -37,13 +37,14 @@ function EducationDetailsCard(props: any) {
       label: "20% Overall",
       icon: "",
       color: "",
-      description:"Overall comparison  with  top institute  in local region"
+      description: "Overall comparison  with  top institute  in local region",
     },
     {
       label: "10% Ranking",
       icon: "",
       color: "",
-      description:"government ranking and service comparison  with  top institute  in local region"
+      description:
+        "government ranking and service comparison  with  top institute  in local region",
     },
   ];
 
@@ -63,83 +64,83 @@ function EducationDetailsCard(props: any) {
         <Stack direction={"row"} justifyContent={"space-between"}>
           <Typography variant="h5">Education</Typography>
         </Stack>
-        <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
-          {/* //left column */}
-          <Grid item xs={8}>
-            <Box my={1}>
-              <Box display={"flex"} alignItems={"baseline"}>
-                <Typography
-                  variant="h6"
-                  fontWeight={600}
-                  sx={{ cursor: "pointer" }}
-                >
-                 B.B.D.N.I.T.M
-                </Typography>
-                {/* custom chip */}
-
-                {eduData.map((item, index) => (
-                  <CustomChip item={item} key={index} />
-                ))}
-             
-              </Box>
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-                mt={1}
-              >
-                <Typography variant="subtitle2" color={"text.primary"}>
-                Bachelor of Technology
-                </Typography>
-                <Typography variant="subtitle2" color={"text.secondary"}>
-                 2012 – 2016
-                </Typography>
-              </Stack>
-              <Stack direction={"row"}>
-                {/* <Typography variant="body2" color={"text.secondary"} ml={1}>
-                  Amritsar, Punjab, India
-                </Typography> */}
-              </Stack>
-              <Box mt={2}>
-                <Typography variant="subtitle1">About</Typography>
-
-                {/* //show more and less feature */}
-                <Typography
-                  variant="body2"
-                  display={"flex"}
-                  alignItems={"baseline"}
-                >
-                  <span>
-                    {isShowMore ? about : about.slice(0, 136)}
-                    <Typography
-                      component={"span"}
-                      variant="subtitle2"
-                      sx={{
-                        color: "red",
-                        marginLeft: "3px",
-                        cursor: "pointer",
-                      }}
-                      onClick={() => setIsShowMore(!isShowMore)}
-                    >
-                      {isShowMore ? "...less" : "...more"}
+        {filterData[0]?.education?.map((filterEduData: any, index: any) => (
+          <Box key={index}>
+            <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
+              {/* //left column */}
+              <Grid item xs={8}>
+                <Box my={1}>
+                  <Stack
+                    direction={"row"}
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                  >
+                    <Typography variant="h6" color={"text.primary"}>
+                      {filterEduData.degree} {`(${filterEduData.stream})`}
                     </Typography>
-                  </span>
-                </Typography>
-              </Box>
-            </Box>
-          </Grid>
-          {/* //vertical line to differentiate left and right column */}
-          <Divider
-            orientation="vertical"
-            sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
-            flexItem
-          />
-          {/* //Right column */}
-          <Grid item xs={4}>
-            <EducationCompare />
-          </Grid>
-        </Grid>
-        <Divider sx={{ my: 2 }} />
+                    <Typography variant="subtitle2" color={"text.secondary"}>
+                      {filterEduData.from} - {filterEduData.to}
+                    </Typography>
+                  </Stack>
+                  <Box display={"flex"} alignItems={"center"}>
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={500}
+                      sx={{ cursor: "pointer" }}
+                    >
+                      {filterEduData.institute_name}
+                    </Typography>
+                    {/* custom chip */}
+
+                    {eduData.map((item, index) => (
+                      <CustomChip item={item} key={index} />
+                    ))}
+                  </Box>
+
+                  <Box mt={2}>
+                    <Typography variant="subtitle1">About</Typography>
+
+                    {/* //show more and less feature */}
+                    <Typography
+                      variant="body2"
+                      display={"flex"}
+                      alignItems={"baseline"}
+                    >
+                      <span>
+                        {isShowMore
+                          ? filterEduData.description
+                          : filterEduData.description.slice(0, 136)}
+                        <Typography
+                          component={"span"}
+                          variant="subtitle2"
+                          sx={{
+                            color: "red",
+                            marginLeft: "3px",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => setIsShowMore(!isShowMore)}
+                        >
+                          {isShowMore ? "...less" : "...more"}
+                        </Typography>
+                      </span>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              {/* //vertical line to differentiate left and right column */}
+              <Divider
+                orientation="vertical"
+                sx={{ bgcolor: "secondary.main", marginLeft: "12px" }}
+                flexItem
+              />
+              {/* //Right column */}
+              <Grid item xs={4}>
+                <EducationCompare />
+              </Grid>
+            </Grid>
+            <Divider sx={{ my: 2 }} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );

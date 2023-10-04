@@ -47,7 +47,7 @@ function CandidateDetails(props: any) {
         <BasicInfo filterData={filterData} />
         <SkillSet filterData={filterData} />
         <ExperianceDetails filterData={filterData} />
-        <EducationDetailsCard />
+        <EducationDetailsCard filterData={filterData} />
         <CustomizeDialog />
       </Box>
     </Container>
