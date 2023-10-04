@@ -184,7 +184,7 @@ const Company = (props: any) => {
 
       {/* blue/overall chip */}
       {props.left && props.isAIRec == "yes" && (
-        <Stack direction={"row"} spacing={1} mt={2}>
+        <Stack direction={"row"} spacing={1} mt={2} ml={0}>
           <Tooltip
             title={
               <Typography variant="body2">
@@ -218,7 +218,7 @@ const Company = (props: any) => {
 
       {/* green chip */}
       {props.left && props.isAIRec == "no" && (
-        <Stack direction={"row"} spacing={1} mt={2}>
+        <Stack direction={"row"} spacing={1} mt={2} ml={0}>
           <Tooltip
             title={
               <Typography variant="body2">
