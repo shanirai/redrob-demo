@@ -14,34 +14,17 @@ import {
   Grid,
   Divider,
 } from "@mui/material";
-// MUI icons
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import HomeWorkIcon from "@mui/icons-material/HomeWork";
-import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
-import PublicIcon from "@mui/icons-material/Public";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
 
-function BasicDetails() {
+function BasicDetails(props: any) {
+  //** props -- components */
+  const { basicInfoData } = props;
+
   //**   useRouter  hooks    */
   const router = useRouter();
 
   return (
     <Box pl={2.5}>
       <Box>
-        {/* <Stack direction={"column"}>
-          <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
-            Current Designation
-          </Typography>
-          <Typography variant="subtitle2" fontWeight={600}>
-            Product Designer
-          </Typography>
-        </Stack> */}
         <Stack direction={"column"} display="none">
           <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
             Experience
@@ -62,10 +45,10 @@ function BasicDetails() {
             sx={{ wordBreak: "break-word" }}
           >
             <a
-              href="mailto: crystilia.jones@spotify.com"
+              href={`mailto:${basicInfoData?.candidate_email}`}
               style={{ textDecoration: "none", color: "#05264e" }}
             >
-              crystilia.jones@spotify.com
+              {basicInfoData?.candidate_email}
             </a>
           </Typography>
         </Stack>
@@ -84,7 +67,7 @@ function BasicDetails() {
               href="tel: 8005903527"
               style={{ textDecoration: "none", color: "#05264e" }}
             >
-              8005903527
+              {basicInfoData?.candidate_phone}
             </a>
           </Typography>
         </Stack>
@@ -93,7 +76,7 @@ function BasicDetails() {
             Location
           </Typography>
           <Typography variant="subtitle2" fontWeight={600}>
-            Pune , India
+            {basicInfoData?.candidate_current_location}
           </Typography>
         </Stack>
       </Box>

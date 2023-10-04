@@ -20,10 +20,11 @@ import {
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CustomChip from "./common/CustomChip";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import RightSidePanel from "./panel/RightSidePanel";
 
 function EducationalDetails(props: any) {
   //** props -- components  */
-  const { candiEduData } = props;
+  const { candiEduData, cardId } = props;
 
   // dummy data for tooltip
   const data =
@@ -75,13 +76,23 @@ function EducationalDetails(props: any) {
                     {`From ${candiEdu?.from}`} - {`to ${candiEdu?.to}`}
                   </Typography>
                 </Stack>
-                <Box display={"flex"} alignItems={"center"} mt={0.5}>
-                  <Typography variant="subtitle2">
-                    {candiEdu?.institute_name}
-                  </Typography>
-                  {eduData.map((item, index) => (
-                    <CustomChip item={item} key={index} />
-                  ))}
+                <Box
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  mt={0.5}
+                >
+                  <Box display={"flex"}>
+                    <Typography variant="subtitle2">
+                      {candiEdu?.institute_name}
+                    </Typography>
+                    {eduData.map((item, index) => (
+                      <CustomChip item={item} key={index} />
+                    ))}
+                  </Box>
+                  <Box pt={1} justifyContent={"flex-end"}>
+                    <RightSidePanel cardId={cardId} />
+                  </Box>
                 </Box>
               </Box>
             </Grid>

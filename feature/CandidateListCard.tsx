@@ -32,6 +32,7 @@ import CandidateData from "../data/candi.json";
 import GradeIcon from "@mui/icons-material/Grade";
 import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import SectionHeadingChip from "./secondOption/SectionHeadingChip";
 
 function CandidateListCard(props: any) {
   //**  props -- components  */
@@ -52,7 +53,6 @@ function CandidateListCard(props: any) {
   const cvData =
     " Having 4+ years experience to design and build advanced applications for the Web and Mobile App platform. Understanding & mapping client’s requirements / enhancements to the product, implementing solutions that effectively resolve problems or provide improvement.";
 
-  //**  data    */
   const data = [
     {
       label: "60% Relevance",
@@ -79,152 +79,189 @@ function CandidateListCard(props: any) {
 
   return (
     <Box>
-      {CandidateData.map((candiData, index) => (
-        <Box
-          bgcolor={"#fff"}
-          boxShadow={" rgba(99, 99, 99, 0.1) 0px 2px 8px 0px"}
-          borderRadius={2}
-          mt={3}
-          py={2}
-          key={index}
-        >
+      {CandidateData.map((candiData, index) => {
+        return (
           <Box
-            display={"flex"}
-            justifyContent={"space-between"}
-            alignItems={"baseline"}
-            bgcolor={"#f9fafb"}
-            px={2.5}
-            borderRadius={"8px 8px 0 0px"}
+            bgcolor={"#fff"}
+            boxShadow={" rgba(99, 99, 99, 0.1) 0px 2px 8px 0px"}
+            borderRadius={2}
+            mt={3}
+            py={2}
+            key={index}
           >
-            <Box display={"flex"}>
-              <Box>
-                <Avatar
-                  variant="rounded"
+            <Box
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"baseline"}
+              bgcolor={"#f9fafb"}
+              px={2.5}
+              borderRadius={"8px 8px 0 0px"}
+            >
+              <Box display={"flex"}>
+                <Box>
+                  <Avatar
+                    variant="rounded"
+                    sx={{
+                      height: "50px",
+                      width: "50px",
+                      bgcolor: "primary.main",
+                      fontWeight: 600,
+                      fontSize: "20px",
+                    }}
+                  >
+                    {candiData.candidate_name.charAt(0)}
+                  </Avatar>
+                </Box>
+                <Box flexDirection={"column"} ml={1}>
+                  <Box display={"flex"} alignItems={"center"}>
+                    <Typography variant="h4" fontWeight={600} mr={2.5}>
+                      {candiData.candidate_name}
+                    </Typography>
+
+                    <SectionHeadingChip
+                      title={`${candiData?.jd_per}% Relevance`}
+                      icon={
+                        <ArrowCircleUpIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                      }
+                      tooltip_desc={
+                        "Showcases profile relevance percentage compared with the Job Description"
+                      }
+                    />
+                    <SectionHeadingChip
+                      title={`${candiData?.candidate_grade}`}
+                      icon={<GradeIcon sx={{ fontSize: 10, mr: 0.5 }} />}
+                      tooltip_desc={
+                        "Showcases profile relevance percentage compared with the Job Description"
+                      }
+                    />
+                    {candiData?.recruiter_choice === true && (
+                      <SectionHeadingChip
+                        title={"Recruiter Choice"}
+                        icon={
+                          <GppGoodOutlinedIcon sx={{ fontSize: 10, mr: 0.5 }} />
+                        }
+                        tooltip_desc={
+                          "Showcases profile relevance percentage compared with the Job Description"
+                        }
+                      />
+                    )}
+
+                    {/* <CustomChip
+                    title={`${candiData.jd_per}% Relevance`}
+                    icon={
+                      <GppGoodOutlinedIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                    }
+                    tooltip_desc={
+                      "Showcases profile relevance percentage compared with the Job Description"
+                    }
+                  />  */}
+                  </Box>
+                  <Box display={"flex"}>
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={600}
+                      mt={0.5}
+                      mr={1}
+                    >
+                      Working as {candiData.candidate_position}
+                    </Typography>
+
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={600}
+                      mt={0.5}
+                      display={"flex"}
+                      alignItems={"center"}
+                      ml={2}
+                    >
+                      <AccessAlarmsIcon
+                        sx={{ color: "text.secondary", fontSize: 14, mr: 0.5 }}
+                      />{" "}
+                      {candiData.updated_at}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+              <Stack direction={"row"} justifyContent={"flex-end"} pt={1.5}>
+                <FileDownloadIcon
                   sx={{
-                    height: "50px",
-                    width: "50px",
-                    bgcolor: "primary.main",
-                    fontWeight: 600,
-                    fontSize: "20px",
+                    width: 25,
+                    height: 25,
+                    mr: 1.5,
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: "primary.main",
+                    },
                   }}
-                >
-                  {candiData.candidate_name.charAt(0)}
-                </Avatar>
-              </Box>
-              <Box flexDirection={"column"} ml={1}>
-                <Box display={"flex"} alignItems={"center"}>
-                  <Typography variant="h4" fontWeight={600} mr={2.5}>
-                    {candiData.candidate_name}
-                  </Typography>
-
-                  {/* custom chip*/}
-
-                  {data.map((item, index) => (
-                    <CustomChip item={item} key={index} />
-                  ))}
-                </Box>
-                <Box display={"flex"}>
-                  <Typography
-                    variant="subtitle2"
-                    fontWeight={600}
-                    mt={0.5}
-                    mr={1}
-                  >
-                    Working as {candiData.candidate_position}
-                  </Typography>
-
-                  <Typography
-                    variant="subtitle2"
-                    fontWeight={600}
-                    mt={0.5}
-                    display={"flex"}
-                    alignItems={"center"}
-                    ml={2}
-                  >
-                    <AccessAlarmsIcon
-                      sx={{ color: "text.secondary", fontSize: 14, mr: 0.5 }}
-                    />{" "}
-                    {candiData.updated_at}
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-            <Stack direction={"row"} justifyContent={"flex-end"} pt={1.5}>
-              <FileDownloadIcon
-                sx={{
-                  width: 25,
-                  height: 25,
-                  mr: 1.5,
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "primary.main",
-                  },
-                }}
-              />
-              <BookmarkIcon
-                sx={{
-                  width: 25,
-                  height: 25,
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "primary.main",
-                  },
-                }}
-                onClick={() =>
-                  enqueueSnackbar("Jobs Bookmark", { variant: "success" })
-                }
-              />
-            </Stack>
-          </Box>
-          <Box px={2.5} pt={0.5}>
-            <Typography variant="body2">
-              {isShowMore
-                ? candiData.candidate_summary
-                : candiData.candidate_summary.slice(0, 136)}
-              ...
-              <Typography
-                component={"span"}
-                variant="body2"
-                onClick={() => setIsShowMore(!isShowMore)}
-              >
-                {isShowMore ? "Show Less" : "Read More"}
-              </Typography>
-            </Typography>
-          </Box>
-
-          {/* section for roles and about  */}
-
-          <Box py={1}>
-            <Grid container rowSpacing={1}>
-              <Grid item xs={9.4} onMouseOver={() => setActive(true)}>
-                {/* Work experience card  */}
-
-                <ExperianceCard
-                  candiExpData={candiData?.experiance}
-                  active={active}
-                  cardId={index}
                 />
+                <BookmarkIcon
+                  sx={{
+                    width: 25,
+                    height: 25,
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: "primary.main",
+                    },
+                  }}
+                  onClick={() =>
+                    enqueueSnackbar("Jobs Bookmark", { variant: "success" })
+                  }
+                />
+              </Stack>
+            </Box>
+            <Box px={2.5} pt={0.5}>
+              <Typography variant="body2">
+                {isShowMore
+                  ? candiData.candidate_summary
+                  : candiData.candidate_summary.slice(0, 136)}
+                ...
+                <Typography
+                  component={"span"}
+                  variant="body2"
+                  onClick={() => setIsShowMore(!isShowMore)}
+                >
+                  {isShowMore ? "Show Less" : "Read More"}
+                </Typography>
+              </Typography>
+            </Box>
 
-                {/* education card */}
+            {/* section for roles and about  */}
 
-                <EducationCard candiEduData={candiData?.education} />
+            <Box py={1}>
+              <Grid container rowSpacing={1}>
+                <Grid item xs={9.4} onMouseOver={() => setActive(true)}>
+                  {/* Work experience card  */}
 
-                {/* Skills */}
+                  <ExperianceCard
+                    candiExpData={candiData?.experiance}
+                    active={active}
+                    cardId={index}
+                  />
 
-                <ListOfSkills />
+                  {/* education card */}
+
+                  <EducationCard
+                    candiEduData={candiData?.education}
+                    cardId={index}
+                  />
+
+                  {/* Skills */}
+
+                  <ListOfSkills candiSkillsData={candiData} />
+                </Grid>
+                <Divider
+                  orientation="vertical"
+                  sx={{ bgcolor: "text.secondary", mt: 2 }}
+                  flexItem
+                />
+                <Grid item xs={2.5}>
+                  <BasicDetails basicInfoData={candiData} />
+                </Grid>
               </Grid>
-              <Divider
-                orientation="vertical"
-                sx={{ bgcolor: "text.secondary", mt: 2 }}
-                flexItem
-              />
-              <Grid item xs={2.5}>
-                <BasicDetails />
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-      ))}
+        );
+      })}
     </Box>
   );
 }
