@@ -40,17 +40,17 @@ function ListOfSkills() {
       <Box
         mt={0.5}
         mx={1.5}
-        border={"1px solid "}
-        borderColor={"secondary.light"}
-        borderRadius={1}
+        // border={"1px solid "}
+        // borderColor={"secondary.light"}
+        // borderRadius={1}
         px={1}
-        py={1}
+        pt={1}
       >
         <Box my={0.5} display={"flex"}>
-          <Typography variant="h6" mr={6}>
+          <Typography variant="h6" mr={6.5}>
             Skills
           </Typography>
-          {skillsData.map((item, index) => (
+          {/* {skillsData.map((item, index) => (
             <Chip
               label={item}
               size="small"
@@ -60,7 +60,13 @@ function ListOfSkills() {
               }}
               key={index}
             />
-          ))}
+          ))} */}
+          <Typography variant="h6">
+            {`2`} Match out {`12`} Skills
+          </Typography>
+          <Typography component={"span"} variant="subtitle2" ml={1}>
+            Python , Java
+          </Typography>
         </Box>
       </Box>
     </Box>

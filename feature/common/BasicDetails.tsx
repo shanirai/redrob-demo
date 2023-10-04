@@ -1,5 +1,4 @@
 "use client";
-"use client";
 // React , Next Js packages
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -98,61 +97,41 @@ function BasicDetails() {
           </Typography>
         </Stack>
       </Box>
-      <Box display={"flex"} justifyContent={"flex-end"}>
-        <CancelIcon sx={{ color: "#E75252", width: 30, height: 30 }} />
-        {/* <Button variant="contained" size="small">
-            Hired
-          </Button> */}
-        <CheckCircleIcon
-          sx={{ color: "primary.main", width: 30, height: 30, ml: 2 }}
-        />
-      </Box>
-      <Box display={"none"}>
-        <Typography variant="body2" fontWeight={500} color={"text.secondary"}>
-          Social Links
-        </Typography>
-        <Typography component={"span"} display={"flex"} mt={1}>
-          <LinkedInIcon
-            sx={{
-              width: 25,
-              height: 25,
-              mr: 1.5,
-              cursor: "pointer",
-              "&:hover": {
-                color: "primary.main",
-              },
-            }}
-            onClick={() =>
-              router.push("https://www.linkedin.com/company/mckinley")
-            }
-          />
-          <GitHubIcon
-            sx={{
-              width: 25,
-              height: 25,
-              mr: 1.5,
-              cursor: "pointer",
-              "&:hover": {
-                color: "primary.main",
-              },
-            }}
-            onClick={() =>
-              router.push("https://github.com/mckinley-rice-india/")
-            }
-          />
-          <PublicIcon
-            sx={{
-              width: 25,
-              height: 25,
-              mr: 1.5,
-              cursor: "pointer",
-              "&:hover": {
-                color: "primary.main",
-              },
-            }}
-            onClick={() => router.push("https://mckinleyrice.com/")}
-          />
-        </Typography>
+
+      <Box display={"flex"} justifyContent={"center"} pt={1.25}>
+        {/* Buttons for action */}
+
+        <Button
+          variant="contained"
+          size="small"
+          sx={{
+            bgcolor: "#E75252",
+            fontSize: 12,
+
+            height: 32,
+            py: 1.5,
+            mr: 2,
+            width: "40%",
+            "&:hover": {
+              bgcolor: "#E75252",
+            },
+          }}
+        >
+          Rejected
+        </Button>
+        <Button
+          variant="contained"
+          size="small"
+          sx={{
+            bgcolor: "primary.main",
+            fontSize: 12,
+            width: "40%",
+            height: 32,
+            py: 1.5,
+          }}
+        >
+          Hired
+        </Button>
       </Box>
     </Box>
   );
