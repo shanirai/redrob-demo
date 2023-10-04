@@ -27,7 +27,7 @@ function SkillSet(props: any) {
         px={2.5}
         py={2.5}
       >
-        <Typography variant="h5"> Skills </Typography>
+        <Typography variant="h5" mb={1}> Skills </Typography>
         <Box>
           {filterData[0]?.skills?.map((item: any, index: any) => (
             <Chip

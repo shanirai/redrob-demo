@@ -28,9 +28,9 @@ export default function CustomizeDialog() {
 
   return (
     <Box>
-      <Button variant="contained" onClick={handleClickOpen}>
+      {/* <Button variant="contained" onClick={handleClickOpen}>
         View Details
-      </Button>
+      </Button> */}
       <Dialog
         maxWidth="lg"
         open={open}

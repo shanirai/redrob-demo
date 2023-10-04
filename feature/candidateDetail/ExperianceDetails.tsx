@@ -13,10 +13,13 @@ import {
   Typography,
   Grid,
   Divider,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 // MUI icons
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import CircleIcon from "@mui/icons-material/Circle";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 // Custom components
 import CustomChip from "../common/CustomChip";
 import ExperienceCompare from "./ExperienceCompare";
@@ -42,46 +45,9 @@ function ExperianceDetails(props: any) {
       description:
         "Indicates a favorable comparison with your company in general",
     },
-    {
-      label: "10% Reviews",
-      icon: "",
-      color: "",
-      description: "client and employee review  compared  with your company",
-    },
-    {
-      label: "5% Overall",
-      icon: "",
-      education: true,
-      color: "#87CEEB",
-      description:
-        "overall comparison  with company leader in same sector in local region",
-    },
   ];
 
-  const data = [
-    {
-      index: 1,
-      points:
-        "In a world full of ordinary, we create mobile applications for people with an extraordinary vision. It is easy to lose one's true self in this monotonous world, but since you are here looking for a team, we believe that you too are willing to go the extra mile..",
-    },
-    {
-      index: 2,
-      points: "Experience with integration of third party media packages.",
-    },
-    {
-      index: 3,
-      points:
-        " As a frontend Developer, integrated API’s so that user can perform smooth functionality of CRUD operations through UI.",
-    },
-    {
-      index: 4,
-      points:
-        " As a frontend Developer, integrated API’s so that user can perform smooth functionality of CRUD operations through UI",
-    },
-  ];
-
-  const sliceData = data.slice(0, 2);
-  let lastlen = data.length;
+ 
 
   return (
     <Box position={"relative"}>
@@ -130,10 +96,73 @@ function ExperianceDetails(props: any) {
                     </Typography>
                     {/* custom chip */}
 
-                    {expData.map((item, index) => (
+                    {/* {expData.map((item, index) => (
+                      <CustomChip item={item} key={index} />
+                    ))} */}
+
+                    <Stack direction={"row"} spacing={1} ml={1}>
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                           After evaluating candidates' companies alongside yours, and considering pertinent company data, 
+                           it's apparent that this candidate exhibits greater performance potential
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />{" "}
+                          {filterExpData.s_overall_per}% Potential
+                        </Typography>
+                      </Tooltip>
+
+                      <Tooltip
+                        title={
+                          <Typography variant="body2">
+                            It's evident that this candidate is a better cultural fit. 
+                            Candidate is likely to understand and align with your company's standards and values
+                          </Typography>
+                        }
+                        placement="right"
+                        TransitionComponent={Zoom}
+                        arrow={true}
+                      >
+                        <Typography
+                          variant="caption"
+                          bgcolor={"secondary.light"}
+                          ml={1}
+                          px={1.5}
+                          py={0.5}
+                          borderRadius={1.5}
+                          fontSize={10}
+                          fontWeight={500}
+                          display={"flex"}
+                          alignItems={"center"}
+                        >
+                          <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                          {filterExpData.s_culture_per}% Cultural Fit
+                        </Typography>
+                      </Tooltip>
+                    </Stack>
+                  </Box>
+                  {/* <Stack direction={"row"} mt={1}>
+                  {expData.map((item, index) => (
                       <CustomChip item={item} key={index} />
                     ))}
-                  </Box>
+                  </Stack> */}
 
                   <Stack direction={"row"}>
                     <Typography variant="body2" color={"text.secondary"} ml={1}>
@@ -209,7 +238,7 @@ function ExperianceDetails(props: any) {
               </Grid>
               <Divider
                 orientation="vertical"
-                sx={{ bgcolor: "secondary.main", ml: 1.5 }}
+                sx={{ bgcolor: "text.secondary", ml: 1.5 }}
                 flexItem
               />
               <Grid item xs={4}>
