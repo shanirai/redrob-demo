@@ -31,7 +31,7 @@ function BasicInfo(props: any) {
         <Typography variant="h5">Basic Information</Typography>
         <Box mt={1.5}>
           <Grid container spacing={1}>
-            <Grid item xs={2}>
+            <Grid item xs={3}>
               <Typography variant="subtitle2" color={"text.secondary"}>
                 Current Designation
               </Typography>
@@ -39,7 +39,7 @@ function BasicInfo(props: any) {
                 {filterData[0]?.candidate_position}
               </Typography>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <Typography variant="subtitle2" color={"text.secondary"}>
                 Email
               </Typography>
